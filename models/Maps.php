@@ -22,22 +22,22 @@ class Maps {
     private string $tags;
 
     public function __construct(string $rc, string $artist, string $title, string $artistUnicode, string $titleUnicode, float $sr, int $length, float $cs, float $hp, float $ar, float $od, int $setId, int $mapId, DateTime $submitDate, DateTime $lastUpdate, string $tags) {
-            $this->rc = $rc;
-            $this->artist = $artist;
-            $this->title = $title;
-            $this->artistUnicode = $artistUnicode;
-            $this->titleUnicode = $titleUnicode;
-            $this->sr = $sr;
-            $this->length = $length;
-            $this->cs = $cs;
-            $this->hp = $hp;
-            $this->ar = $ar;
-            $this->od = $od;
-            $this->setId = $setId;
-            $this->mapId = $mapId;
-            $this->submitDate = $submitDate;
-            $this->lastUpdate = $lastUpdate;
-            $this->tags = $tags;
+            $this->setRC($rc);
+            $this->setArtist($artist);
+            $this->setTitle($title);
+            $this->setArtistUnicode($artistUnicode);
+            $this->setTitleUnicode($titleUnicode);
+            $this->setSR($sr);
+            $this->setLength($length);
+            $this->setCS($cs);
+            $this->setHP($hp);
+            $this->setAR($ar);
+            $this->setOD($od);
+            $this->setSetID($setId);
+            $this->setMapID($mapId);
+            $this->setSubmitDate($submitDate);
+            $this->setLastUpdate($lastUpdate);
+            $this->setTags($tags);
             $this->id = null;
         }
 

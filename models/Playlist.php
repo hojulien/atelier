@@ -5,6 +5,14 @@ require_once __DIR__ . '/../lib/database.php';
 enum PlaylistType: string {
     case User = 'user';
     case Admin = 'admin';
+
+    public function toString(): string {
+        return $this->value;
+    }
+    
+    public static function toEnum(string $type): PlaylistType {
+        return self::from($type);
+    }
 }
 
 class Playlist {
@@ -15,12 +23,12 @@ class Playlist {
     private PlaylistType $type;
     private int $userId;
 
-    public function __construct(string $name, int $numLevel, string $desc, PlaylistType $type, int $userId) {
-        $this->name = $name;
-        $this->numberLevels = $numLevel;
-        $this->description = $desc;
-        $this->type = $type;
-        $this->userId = $userId;
+    public function __construct(string $name, int $numLevel, string $desc, string|PlaylistType $type, int $userId) {
+        $this->setName($name);
+        $this->setNumberLevels($numLevel);
+        $this->setDescription($desc);
+        $this->setPlaylistType($type);
+        $this->setUserId($userId);
         $this->id = null;
     }
 
@@ -44,8 +52,8 @@ class Playlist {
         return $this->description;
     }
 
-    public function getType(): PlaylistType {
-        return $this->type;
+    public function getPlaylistType(): string {
+        return $this->type->toString();
     }
 
     public function getUserId(): int {
@@ -74,8 +82,14 @@ class Playlist {
         $this->description = htmlspecialchars($desc);
     }
 
-    public function setType(PlaylistType $type): void {
-        $this->type = $type;
+    // setPlaylistType accepte un string OU un PlaylistType
+    // selon le type qui est passé en paramètre, effectue différentes actions (menant au même résultat)
+    public function setPlaylistType(string|PlaylistType $type): void {
+        if (is_string($type)) {
+            $this->type = PlaylistType::toEnum($type);
+        } else {
+            $this->type = $type;
+        }
     }
 
     public function setUserId(int $userId): void {

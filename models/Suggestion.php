@@ -5,6 +5,14 @@ require_once __DIR__ . '/../lib/database.php';
 enum SuggestionType: string {
     case Media = 'media';
     case Music = 'music';
+
+    public function toString(): string {
+        return $this->value;
+    }
+
+    public static function toEnum(string $type): SuggestionType {
+        return self::from($type);
+    }
 }
 
 class Suggestion {
@@ -14,11 +22,11 @@ class Suggestion {
     private string $media;
     private int $userId;
 
-    public function __construct(SuggestionType $type, string $desc, string $media, int $userId) {
-        $this->type = $type;
-        $this->desc = $desc;
-        $this->media = $media;
-        $this->userId = $userId;
+    public function __construct(string|SuggestionType $type, string $desc, string $media, int $userId) {
+        $this->setSuggestionType($type);
+        $this->setDescription($desc);
+        $this->setMedia($media);
+        $this->setUserId($userId);
         $this->id = null;
     }
 
@@ -28,8 +36,8 @@ class Suggestion {
         return $this->id;
     }
 
-    public function getType(): SuggestionType {
-        return $this->type;
+    public function getType(): string {
+        return $this->type->toString();
     }
 
     public function getDesc(): string {
@@ -50,11 +58,15 @@ class Suggestion {
         $this->id = $id;
     }
 
-    public function setType(SuggestionType $type): void {
-        $this->type = $type;
+    public function setSuggestionType(string|SuggestionType $type): void {
+        if (is_string($type)) {
+            $this->type = SuggestionType::toEnum($type);
+        } else {
+            $this->type = $type;
+        }
     }
 
-    public function setDesc(string $desc): void {
+    public function setDescription(string $desc): void {
         $this->desc = htmlspecialchars($desc);
     }
 

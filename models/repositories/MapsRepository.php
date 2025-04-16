@@ -16,10 +16,10 @@ class MapsRepository {
         $maps = [];
         foreach ($result as $row) {
             $map = new Maps(
-                $row['RC'], $row['ARTIST'], $row['TITLE'],
-                $row['ARTIST_UNICODE'], $row['TITLE_UNICODE'], $row['SR'], $row['LENGTH'],
-                $row['CS'], $row['HP'], $row['AR'], $row['OD'],
-                $row['SET_ID'], $row['MAP_ID'], new DateTime($row['SUBMIT_DATE']), new DateTime($row['LAST_UPDATE']), $row['TAGS']);
+                $row['maps_rc'], $row['maps_artist'], $row['maps_title'],
+                $row['maps_artistUnicode'], $row['maps_titleUnicode'], $row['maps_sr'], $row['maps_length'],
+                $row['maps_cs'], $row['maps_hp'], $row['maps_ar'], $row['maps_od'],
+                $row['maps_setId'], $row['maps_mapId'], new DateTime($row['maps_submitDate']), new DateTime($row['maps_lastUpdated']), $row['maps_tags']);
                 $maps[] = $map;
             }
         return $maps;
@@ -27,7 +27,7 @@ class MapsRepository {
 
     public function create(Maps $map): bool {
         $statement = $this->connection->getConnection()
-            ->prepare('INSERT INTO maps (RC, ARTIST, TITLE, ARTIST_UNICODE, TITLE_UNICODE, SR, LENGTH, CS, HP, AR, OD, SET_ID, MAP_ID, SUBMIT_DATE, LAST_UPDATE, TAGS)
+            ->prepare('INSERT INTO maps (maps_rc, maps_artist, maps_title, maps_artistUnicode, maps_titleUnicode, maps_sr, maps_length, maps_cs, maps_hp, maps_ar, maps_od, maps_setId, maps_mapId, maps_submitDate, maps_lastUpdated, maps_tags)
                        VALUES(:rc, :artist, :title, :artistU, :titleU, :sr, :length, :cs, :hp, :ar, :od, :setId, :mapId, :submitDate, :lastUpdate, :tags)');
                        
         $result = $statement->execute([
@@ -59,9 +59,9 @@ class MapsRepository {
     public function update(Maps $map): bool {
         $statement = $this->connection->getConnection()
         ->prepare('UPDATE maps SET
-                    RC = :rc, ARTIST = :artist, TITLE = :title, ARTIST_UNICODE = :artistU, TITLE_UNICODE = :titleU,
-                    SR = :sr, LENGTH = :length, CS = :cs, HP = :hp, AR = :ar, OD = :od, SET_ID = :setId, MAP_ID = :mapId,
-                    SUBMIT_DATE = :submitDate, LAST_UPDATE = :lastUpdate, TAGS = :tags WHERE ID = :id');
+                    maps_rc = :rc, maps_artist = :artist, maps_title = :title, maps_artistUnicode = :artistU, maps_titleUnicode = :titleU,
+                    maps_sr = :sr, maps_length = :length, maps_cs = :cs, maps_hp = :hp, maps_ar = :ar, maps_od = :od, maps_setId = :setId, maps_mapId = :mapId,
+                    maps_submitDate = :submitDate, maps_lastUpdated = :lastUpdate, maps_tags = :tags WHERE maps_id = :id');
         
         return $statement->execute([
             'id' => $map->getId(),
@@ -87,7 +87,7 @@ class MapsRepository {
     public function delete(int $id): bool {
         $statement = $this->connection
                 ->getConnection()
-                ->prepare('DELETE FROM maps WHERE ID = :id');
+                ->prepare('DELETE FROM maps WHERE maps_id = :id');
         $statement->bindParam(':id', $id);
 
         return $statement->execute();

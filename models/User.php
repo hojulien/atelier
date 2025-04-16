@@ -11,10 +11,10 @@ class User {
     private bool $isAdmin;
 
     public function __construct(string $username, string $password, string $avatarPath, string $bannerPath, bool $isAdmin) {
-        $this->username = $username;
-        $this->password = $password;
-        $this->avatarPath = $avatarPath;
-        $this->bannerPath = $bannerPath;
+        $this->setUsername($username);
+        $this->setPassword($password);
+        $this->setAvatarPath($avatarPath);
+        $this->setBannerPath($bannerPath); 
         $this->isAdmin = $isAdmin;
         $this->id = null;
     }
