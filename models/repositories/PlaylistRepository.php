@@ -15,7 +15,7 @@ class PlaylistRepository {
         $result = $statement->fetchAll();
         $playlists = [];
         foreach($result as $row) {
-            $playlist = new User($row['playlist_name'], $row['playlist_numberLevels'], $row['playlist_description'], $row['playlist_type'], $row['playlist_userId']);
+            $playlist = new Playlist($row['playlist_name'], $row['playlist_numberLevels'], $row['playlist_description'], $row['playlist_type'], $row['playlist_userId']);
             $playlist->setId($row['playlist_id']);
             $playlists[] = $playlist;
         }
