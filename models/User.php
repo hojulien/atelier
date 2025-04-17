@@ -6,11 +6,11 @@ class User {
     private ?int $id;
     private string $username;
     private string $password;
-    private string $avatarPath;
-    private string $bannerPath;
+    private ?string $avatarPath;
+    private ?string $bannerPath;
     private bool $isAdmin;
 
-    public function __construct(string $username, string $password, string $avatarPath, string $bannerPath, bool $isAdmin) {
+    public function __construct(string $username, string $password, ?string $avatarPath, ?string $bannerPath, bool $isAdmin) {
         $this->setUsername($username);
         $this->setPassword($password);
         $this->setAvatarPath($avatarPath);
@@ -59,11 +59,11 @@ class User {
         $this->password = htmlspecialchars($password);
     }
 
-    public function setAvatarPath(string $avatarPath): void {
+    public function setAvatarPath(?string $avatarPath): void {
         $this->avatarPath = htmlspecialchars($avatarPath);
     }
 
-    public function setBannerPath(string $bannerPath): void {
+    public function setBannerPath(?string $bannerPath): void {
         $this->bannerPath = htmlspecialchars($bannerPath);
     }
 }

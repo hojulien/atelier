@@ -36,11 +36,11 @@ class Suggestion {
         return $this->id;
     }
 
-    public function getType(): string {
+    public function getSuggestionType(): string {
         return $this->type->toString();
     }
 
-    public function getDesc(): string {
+    public function getDescription(): string {
         return $this->desc;
     }
 

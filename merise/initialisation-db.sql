@@ -90,7 +90,7 @@ DROP TABLE IF EXISTS `suggestions`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `suggestions` (
   `suggestion_id` int(11) NOT NULL AUTO_INCREMENT,
-  `suggestion_type` enum('Media','Music') DEFAULT NULL,
+  `suggestion_type` enum('media','music') NOT NULL,
   `suggestion_description` text DEFAULT NULL,
   `suggestion_media` varchar(255) DEFAULT NULL,
   `suggestion_userId` int(11) NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE `suggestions` (
 --
 
 /*!40000 ALTER TABLE `suggestions` DISABLE KEYS */;
-INSERT INTO `suggestions` VALUES (1,'Music','trust me this is a good link','https://www.youtube.com/watch?v=dQw4w9WgXcQ',1);
+INSERT INTO `suggestions` VALUES (1,'music','trust me this is a good link','https://www.youtube.com/watch?v=dQw4w9WgXcQ',1);
 /*!40000 ALTER TABLE `suggestions` ENABLE KEYS */;
 
 --
@@ -149,4 +149,4 @@ INSERT INTO `users` VALUES (1,'admin','$2y$10$WoW0o0bOpj7SG1tIXkPVqec70ioTkbBJgs
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-16 18:17:29
+-- Dump completed on 2025-04-17 17:17:48
