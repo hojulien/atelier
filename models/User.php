@@ -34,7 +34,7 @@ class User {
     }
 
     public function getAvatarPath(): string {
-        return $this->avatarPath;
+        return !empty($this->avatarPath) ? $this->avatarPath : './assets/images/users_avatar/default.png';
     }
 
     public function getBannerPath(): string {

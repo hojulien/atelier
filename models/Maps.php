@@ -114,7 +114,7 @@ class Maps {
         }
 
         public function getBackgroundPath(): string {
-            return $this->maps_background ?? './assets/images/default.jpg';
+            return !empty($this->backgroundPath) ? $this->backgroundPath : './assets/images/default.jpg';
         }
 
         // SETTERS (120-192)

@@ -1,15 +1,41 @@
 <?php
 
-require_once __DIR__ . '/models/repositories/MapsRepository.php';
-require_once __DIR__ . '/models/repositories/UserRepository.php';
-require_once __DIR__ . '/models/repositories/PlaylistRepository.php';
-require_once __DIR__ . '/models/repositories/SuggestionRepository.php';
+require_once __DIR__ . '/controllers/UserController.php';
 
-echo "<h2> Map </h2> <br> <br>";
-$mapsRepo = new MapsRepository();
-$getMap = $mapsRepo->getMap(1);
-var_dump($getMap);
+$userC = new UserController();
+
+$action = $_GET['action'] ?? 'home';
+$id = $_GET['id'] ?? null;
+
+switch ($action) {
+    case('home'):
+        require_once __DIR__ . '/views/home.php';
+        break;
+    // users
+    case('user-list'):
+        $userC->home();
+        break;
+    case('user-view'):
+        $userC->view($id);
+        break;
+    case('user-create'):
+        $userC->create();
+        break;   
+    case('user-add'):
+        $userC->add();
+        break;
+    case('user-edit'):
+        $userC->edit($id);
+        break;
+    case('user-update'):
+        $userC->update();
+        break;
+    case('user-delete'):
+        $userC->delete($id);
+        break;
+    default:
+        $_SESSION['error'] = "Erreur 404";
+        require_once __DIR__ . '/views/404.php';
+}
  
 ?>
-
-<img src="<?= $getMap->getBackgroundPath() ?>" alt="Test Background ID 1">

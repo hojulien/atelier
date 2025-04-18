@@ -1,9 +1,30 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: "Glory";
     box-sizing: border-box;
     /* outline: 1px solid red; */
 }
+
+body {
+    color: var(--text-main);
+}
+
+:root {
+    --main: #add8e6;
+    --text-main: #000000;
+    --section: #eaeadb;
+    --button: #8aa7b6;
+}
+
+body.dark-mode {
+    --main: #355058;
+    --text-main: #ffffff;
+    --section: #37372d;
+    --button: #2a3639;
+}
+
+/* HEADER */
 
 header {
     display: flex;
@@ -11,14 +32,41 @@ header {
     align-items: center;
     gap: 20px;
     margin: 0 auto;
-    padding: 20px;
-    height: 100px;
-    background-color: lightblue;
+    padding: 0 20px;
+    background-color: var(--main);
+    position: relative;
 }
 
-.darkToggle {
-    background-color: rgb(53, 80, 88);
-    color: white;
+.left, .center, .right {
+    display: flex;
+    align-items: center;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.right {
+    margin-left: auto;
+    gap: 20px;
+}
+
+.div-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--button);
+    border: 2px solid var(--text-main);
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.div-style p {
+    font-size: 20px;
 }
 
 #darkMode {
@@ -28,10 +76,46 @@ header {
 }
 
 #dark, #light {
-    width: 40px;
+    width: 24px;
     height: auto;
 }
 
-#light {
+#light, #iconLight {
     display: none;
+}
+
+/* SECTION */
+
+h1 {
+    padding: 20px;
+}
+
+section {
+    min-height: 100vh;
+    background-color: var(--section);
+    text-align: center;
+    margin: 0 auto;
+}
+
+section p {
+    width: 420px;
+    font-size: 20px;
+    padding: 10px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+    height: 60px;
+    background-color: var(--main);
+}
+
+#copyright {
+    font-size: 20px;
+    padding: 20px;
 }
