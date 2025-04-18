@@ -20,8 +20,9 @@ class Maps {
     private DateTime $submitDate;
     private DateTime $lastUpdate;
     private string $tags;
+    private string $backgroundPath;
 
-    public function __construct(string $rc, string $artist, string $title, string $artistUnicode, string $titleUnicode, float $sr, int $length, float $cs, float $hp, float $ar, float $od, int $setId, int $mapId, DateTime $submitDate, DateTime $lastUpdate, string $tags) {
+    public function __construct(string $rc, string $artist, string $title, string $artistUnicode, string $titleUnicode, float $sr, int $length, float $cs, float $hp, float $ar, float $od, int $setId, int $mapId, DateTime $submitDate, DateTime $lastUpdate, string $tags, string $bgPath) {
             $this->setRC($rc);
             $this->setArtist($artist);
             $this->setTitle($title);
@@ -38,10 +39,11 @@ class Maps {
             $this->setSubmitDate($submitDate);
             $this->setLastUpdate($lastUpdate);
             $this->setTags($tags);
+            $this->setBackgroundPath($bgPath);
             $this->id = null;
         }
 
-        // GETTERS (44-112)
+        // GETTERS (46-118)
 
         public function getId(): int {
             return $this->id;
@@ -111,7 +113,11 @@ class Maps {
             return $this->tags;
         }
 
-        // SETTERS (114-182)
+        public function getBackgroundPath(): string {
+            return $this->maps_background ?? './assets/images/default.jpg';
+        }
+
+        // SETTERS (120-192)
 
         public function setId(int $id): void {
             $this->id = $id;
@@ -179,6 +185,10 @@ class Maps {
 
         public function setTags(string $tags): void {
             $this->tags = htmlspecialchars($tags);
+        }
+
+        public function setBackgroundPath(string $bgPath): void {
+            $this->backgroundPath = htmlspecialchars($bgPath);
         }
 
 }
