@@ -17,6 +17,11 @@ class UserController {
         require_once __DIR__ . '/../views/user/list.php';
     }
 
+    public function adminHome() {
+        requireAdmin();
+        require_once __DIR__ . '/../views/admin/dashboard.php';
+    }
+
     public function view(int $id) {
         // requireAdmin();
         

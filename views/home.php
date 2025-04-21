@@ -1,5 +1,5 @@
 <?php require_once __DIR__ . '/templates/header.php'; ?>
-        
+
             <section>
                 <h1>welcome!</h1>
                 <p>this website aims to provide advanced filters that

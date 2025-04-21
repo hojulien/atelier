@@ -24,11 +24,19 @@
                     </div>
                 </div>
                 <div class="right">
+                <?php if (isset($_SESSION['user_id'])): ?>
                     <div class="div-style">
                         <img width="32" height="32" class="iconLight" src="assets/images/login_light.svg" alt="Login Icon">
                         <img width="32" height="32" class="iconDark" src="assets/images/login_dark.svg" alt="Login Icon Dark">
-                        <p>login</p>
+                        <a href="?action=logout"><p>logout</p></a>
                     </div>
+                <?php else: ?>
+                    <div class="div-style">
+                        <img width="32" height="32" class="iconLight" src="assets/images/login_light.svg" alt="Login Icon">
+                        <img width="32" height="32" class="iconDark" src="assets/images/login_dark.svg" alt="Login Icon Dark">
+                        <a href="?action=login"><p>login</p></a>
+                    </div>
+                <?php endif; ?>
                     <div id="darkMode">
                         <img id="dark" src="assets/images/dark_mode.svg" alt="Dark mode">
                         <img id="light" src="assets/images/light_mode.svg" alt="Light mode">

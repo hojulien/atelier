@@ -24,6 +24,10 @@ body.dark-mode {
     --button: #2a3639;
 }
 
+.error {
+    color: red;
+}
+
 /* HEADER */
 
 header {

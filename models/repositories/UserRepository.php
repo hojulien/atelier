@@ -36,6 +36,20 @@ class UserRepository {
         $user->setId($result['user_id']);
         return $user;
     }
+    public function getUserByUsername(string $name): ?User {
+        $statement = $this->connection->getConnection()->prepare('SELECT * FROM users WHERE user_username = :name');
+        $statement->execute(['name' => $name]);
+
+        $result = $statement->fetch();
+
+        if (!$result) {
+            return null;
+        }
+
+        $user = new User($result['user_username'], $result['user_password'], $result['user_avatarPath'], $result['user_bannerPath'], $result['user_isAdmin']);
+        $user->setId($result['user_id']);
+        return $user;
+    }
 
     public function getUserCount(): int {
         $statement = $this->connection->getConnection()->query('SELECT COUNT(*) as total FROM users');
