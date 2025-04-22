@@ -6,25 +6,28 @@
     } 
 ?>
                 <script src="./assets/scripts/login.js" defer></script>
-                <section>
-                    <form id="login" action="?action=doLogin" method="POST">
+                <section class="login-container">
+                    <form id="login" class="form-container" action="?action=doLogin" method="POST">
+                        <h1>login</h1>
                         <div class="form">
-                            <label>Username:</label>
-                            <input type="text" name="name" id="name">
-                            <div class="error" id="error-name"></div>
+                                <input type="text" name="name" id="name" placeholder="username">
+                                <div class="error" id="error-name"></div>
                         </div>
                         <div class="form">
-                            <label>Password:</label>
-                            <input type="password" name="pw">
+                                <input type="password" name="pw" id="pw" placeholder="password">
                         </div>
                         <div>
-                            <?php
-                                if (isset($_SESSION['error_message'])) {
-                                    echo '<p class="error">' . $_SESSION['error_message'] . '</p>';
-                                    unset($_SESSION['error_message']); 
-                                }
-                            ?>
-                            <button class="form-valid" type="submit">Login</button>
+                            <p class="login-text">don't have an account?</p>
+                            <a href="?action=create-account"><p class="login-text">create an account</p></a>
+                        </div>
+                        <div>
+                                <?php
+                                    if (isset($_SESSION['error_message'])) {
+                                        echo '<p class="error">' . $_SESSION['error_message'] . '</p>';
+                                        unset($_SESSION['error_message']); 
+                                    }
+                                ?>
+                                <button class="action" type="submit">Login</button>
                         </div>
                     </form>
                 </section>
