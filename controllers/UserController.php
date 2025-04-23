@@ -31,12 +31,19 @@ class UserController {
 
     public function create() {
         // requireAdmin();
-        require_once __DIR__ . '/../views/user/create.php';
+        require_once __DIR__ . '/../views/user/create-account.php';
     }
 
     public function add() {
-        // requireAdmin();
-        $user = new User($_POST['name'], $_POST['pw'], $_POST['avatar'], $_POST['banner'], $_POST['isAdmin']);
+        $username = $_POST['name'];
+        $hashPassword = password_hash($_POST['pw'], PASSWORD_DEFAULT);
+
+        // vérifie si l'username existe déjà dans la db
+        if ($this->userRepo->usernameExists($username)) {
+            redirect("?action=user-create&error=username_taken");
+        }
+        
+        $user = new User($username, $hashPassword, null, null, false);
         $this->userRepo->create($user);
 
         redirect("?action=home");

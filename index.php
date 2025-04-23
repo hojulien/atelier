@@ -35,12 +35,12 @@ switch ($action) {
     case('user-view'):
         $userC->view($id);
         break;
-    // case('user-create'):
-    //     $userC->create();
-    //     break;   
-    // case('user-add'):
-    //     $userC->add();
-    //     break;
+    case('user-create'):
+        $userC->create();
+        break;   
+    case('user-add'):
+        $userC->add();
+        break;
     // case('user-edit'):
     //     $userC->edit($id);
     //     break;

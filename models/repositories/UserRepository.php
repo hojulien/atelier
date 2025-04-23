@@ -58,6 +58,11 @@ class UserRepository {
         return (int) $result['total'];
     }
 
+    public function usernameExists(string $username): bool {
+        $statement = $this->connection->getConnection()->prepare('SELECT COUNT(*) FROM users WHERE user_username = ?');
+        $statement->execute([$username]);
+        return $statement->fetchColumn() > 0;
+    }
 
     public function create(User $user): bool {
         $statement = $this->connection
