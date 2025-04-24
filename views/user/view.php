@@ -13,6 +13,10 @@
                         <div class="view-option key">Avatar</div>
                         <div class="view-option value"><img width="128" height="128" src="<?= $user->getAvatarPath(); ?>" alt="User Avatar"></div>
                     </div>
+                    <div class="view-options">
+                        <div class="view-option key">Banner</div>
+                        <div class="view-option value"><img width="auto" height="300" src="<?= $user->getBannerPath(); ?>" alt="User Banner"></div>
+                    </div>
                     <div class="view-buttons">
                         <button id="edit"><a href="?action=user-edit&id=<?= $user->getId() ?>">Modifier les informations du client ✏️</a></button>
                         <button id="delete"><a onclick="return confirm('Voulez-vous supprimer ce client? Attention, tous les comptes bancaires et contrats associés à ce client seront également supprimés!');" href="?action=user-delete&id=<?= $user->getId() ?>">Supprimer le profil client ❌</a></button>

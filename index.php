@@ -47,9 +47,9 @@ switch ($action) {
     // case('user-update'):
     //     $userC->update();
     //     break;
-    // case('user-delete'):
-    //     $userC->delete($id);
-    //     break;
+    case('user-delete'):
+        $userC->delete($id);
+        break;
     // NO ACCESS
     case('no-access'):
         require_once __DIR__ . '/views/no-access.php';

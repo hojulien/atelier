@@ -40,10 +40,24 @@ class UserController {
 
         // vérifie si l'username existe déjà dans la db
         if ($this->userRepo->usernameExists($username)) {
-            redirect("?action=user-create&error=username_taken");
+            $_SESSION['error_message'] = "this username is already taken.";
+            redirect("?action=user-create");
         }
         
-        $user = new User($username, $hashPassword, null, null, false);
+        [$avatarPath, $avatarError] = imageCheck($_FILES['avatar'], 400, 400, './assets/images/avatars/');
+        if ($avatarError) {
+            $_SESSION['error_message'] = $avatarError;
+            redirect("?action=user-create");
+        }
+
+        [$bannerPath, $bannerError] = imageCheck($_FILES['banner'], 2000, 500, './assets/images/banners/');
+        if ($bannerError) {
+            $_SESSION['error_message'] = $bannerError;
+            redirect("?action=user-create");
+        }
+
+        // Create and save user
+        $user = new User($username, $hashPassword, $avatarPath, $bannerPath, false);
         $this->userRepo->create($user);
 
         redirect("?action=home");

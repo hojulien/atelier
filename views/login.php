@@ -7,7 +7,7 @@
 ?>
                 <script src="./assets/scripts/login.js" defer></script>
                 <section class="flex-center">
-                    <form id="login" class="layout-container" action="?action=doLogin" method="POST">
+                    <form id="login" class="layout-container login" action="?action=doLogin" method="POST">
                         <h1>login</h1>
                         <div class="form">
                                 <input type="text" name="name" id="name" placeholder="username">

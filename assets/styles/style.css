@@ -137,7 +137,14 @@ section p {
     gap: 15px;
     border-radius: 15px;
     width: 100%;
-    max-width: 300px;
+}
+
+.login {
+    max-width: 400px;
+}
+
+.create {
+    max-width: 600px;
 }
 
 .layout-container h1 {
@@ -162,8 +169,16 @@ input {
     border: 1px solid black;
     border-radius: 10px;
     padding: 10px;
+}
+
+input[type=text], input[type=password] {
     max-width: 250px;
     font-size: 20px;
+}
+
+input[type=file] {
+    max-width: 400px;
+    font-size: 16px;
 }
 
 .action {
