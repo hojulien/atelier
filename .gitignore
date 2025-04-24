@@ -2,8 +2,8 @@
 comments.php
 CDC.odt
 index.html
-/uploads/avatars/*
-/uploads/banners/*
-!/uploads/avatars/default.png
-!/uploads/avatars/.gitkeep
-!/uploads/banners/.gitkeep
+/assets/images/avatars/*
+/assets/images/banners/*
+!/assets/images/avatars/default.png
+!/assets/images/avatars/.gitkeep
+!/assets/images/banners/.gitkeep
