@@ -1,13 +1,16 @@
 <?php
 
 require_once __DIR__ . '/../Playlist.php';
+require_once __DIR__ . '/PlaylistMapRepository.php';
 require_once __DIR__ . '/../../lib/database.php';
 
 class PlaylistRepository {
     public DatabaseConnection $connection;
+    public PlaylistMapRepository $playlistMapRepo;
 
     public function __construct() {
         $this->connection = new DatabaseConnection();
+        $this->playlistMapRepo = new PlaylistMapRepository();
     }
 
     public function getPlaylists(): array {
@@ -15,8 +18,10 @@ class PlaylistRepository {
         $result = $statement->fetchAll();
         $playlists = [];
         foreach($result as $row) {
+            $mapsId = $this->playlistMapRepo->getMapIdsFromPlaylist($row['playlist_id']);
             $playlist = new Playlist($row['playlist_name'], $row['playlist_numberLevels'], $row['playlist_description'], $row['playlist_type'], $row['playlist_userId']);
             $playlist->setId($row['playlist_id']);
+            $playlist->setMapsId($mapsId);
             $playlists[] = $playlist;
         }
 
@@ -32,8 +37,11 @@ class PlaylistRepository {
             return null;
         }
 
+        $mapsId = $this->playlistMapRepo->getMapIdsFromPlaylist($id);
         $playlist = new Playlist($result['playlist_name'], $result['playlist_numberLevels'], $result['playlist_description'], $result['playlist_type'], $result['playlist_userId']);
         $playlist->setId($result['playlist_id']);
+        $playlist->setMapsId($mapsId);
+        
         return $playlist;
     }
 

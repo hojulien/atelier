@@ -5,14 +5,14 @@
     }
 
     function isConnected() {
-        if (isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user'])) {
             return true;
         }
         return false;
     }
 
     function isAdmin() {
-        if (isset($_SESSION['admin'])) {
+        if (isset($_SESSION['user']['is_admin'])) {
             return true;
         }
         return false;
@@ -24,12 +24,16 @@
         }
     }
 
-    function imageCheck($file, $minWidth, $minHeight, $folderPath) {
-        // $file n'est pas set, ou alors $file['error'] retourne un message d'erreur
-        // retourne un tableau [value, error]
-        if(!isset($file) || $file['error'] !==  UPLOAD_ERR_OK) {
-            return [null, 'file upload failed'];
+    function imageCheck($file, $minWidth, $minHeight, $folderPath, $defaultPath) {
+        // retourne $defaultPath si le fichier n'est pas "set" sous forme de tableau [value, error]
+        if (!isset($file) || $file['error'] === UPLOAD_ERR_NO_FILE) {
+            return [$defaultPath, null];
         }
+
+        // si autre erreur, renvoie un message d'erreur
+        if ($file['error'] !== UPLOAD_ERR_OK) {
+            return [null, 'file upload failed'];
+        }   
 
         $tmp = $file['tmp_name']; // nom temporaire du fichier sur le serveur
         $mime = mime_content_type($tmp); // type du fichier media

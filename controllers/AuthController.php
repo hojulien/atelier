@@ -20,23 +20,28 @@ class AuthController {
         $user = $this->userRepo->getUserByUsername($name);
 
         if ($user && password_verify($password, $user->getPassword())) {
-            $_SESSION['user_id'] = $user->getId();
+            session_regenerate_id(true);
+            $_SESSION['user'] = [
+                'id' => $user->getId(),
+                'username' => $user->getUsername(),
+                'is_admin' => $user->isAdmin(),
+                'avatar' => $user->getAvatarPath(),
+                'banner' => $user->getBannerPath()
+            ];
             if ($user->isAdmin()){
-                $_SESSION['admin'] = true;
                 redirect("?action=admin-dashboard");
             } else {
                 redirect("?");
             }
         } else {
-            $_SESSION['error_message'] = "Erreur: mot de passe ou adresse e-mail incorrect.";
+            $_SESSION['error_message'] = "error: wrong username or password.";
             header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit;
         }
     }
 
     public function logout() {
-        unset($_SESSION['user_id']);
-        unset($_SESSION['admin']);
+        unset($_SESSION['user']);
         redirect("?action=login");
     }
 }

@@ -1,6 +1,4 @@
-<?php
-
-session_start();
+<?php session_start();
 
 require_once __DIR__ . '/controllers/UserController.php';
 require_once __DIR__ . '/controllers/AuthController.php';
@@ -41,12 +39,12 @@ switch ($action) {
     case('user-add'):
         $userC->add();
         break;
-    // case('user-edit'):
-    //     $userC->edit($id);
-    //     break;
-    // case('user-update'):
-    //     $userC->update();
-    //     break;
+    case('user-edit'):
+        $userC->edit($id);
+        break;
+    case('user-update'):
+        $userC->update();
+        break;
     case('user-delete'):
         $userC->delete($id);
         break;

@@ -22,9 +22,14 @@
                         <img width="32" height="32" class="iconDark" src="assets/images/playlist_dark.svg" alt="Playlist Icon Dark">
                         <p>view playlists</p>
                     </div>
+            <!--    <div class="div-style">
+                        <img width="32" height="32" class="iconLight" src="TBD" alt="Map Icon">
+                        <img width="32" height="32" class="iconDark" src="TBD" alt="Map Icon Dark">
+                        <p>view maps</p>
+                    </div> -->
                 </div>
                 <div class="right">
-                <?php if (isset($_SESSION['user_id'])): ?>
+                <?php if (isset($_SESSION['user'])): ?>
                     <div class="div-style">
                         <img width="32" height="32" class="iconLight" src="assets/images/login_light.svg" alt="Login Icon">
                         <img width="32" height="32" class="iconDark" src="assets/images/login_dark.svg" alt="Login Icon Dark">

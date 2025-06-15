@@ -22,6 +22,7 @@ class Playlist {
     private string $description;
     private PlaylistType $type;
     private int $userId;
+    private array $mapsId = [];
 
     public function __construct(string $name, int $numLevel, string $desc, string|PlaylistType $type, int $userId) {
         $this->setName($name);
@@ -60,6 +61,10 @@ class Playlist {
         return $this->userId;
     }
 
+    public function getMapIds(): array {
+        return $this->mapsId;
+    }
+
     public function isAdminPlaylist(): bool {
         return $this->type === PlaylistType::Admin;
     }
@@ -94,5 +99,9 @@ class Playlist {
 
     public function setUserId(int $userId): void {
         $this->userId = $userId;
+    }
+    
+    public function setMapsId(array $mapsId): void {
+        $this->mapsId = $mapsId;
     }
 }

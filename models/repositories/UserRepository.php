@@ -51,6 +51,21 @@ class UserRepository {
         return $user;
     }
 
+    public function getUserById(int $id): ?User {
+        $statement = $this->connection->getConnection()->prepare('SELECT * FROM users WHERE user_id = :id');
+        $statement->execute(['id' => $id]);
+
+        $result = $statement->fetch();
+
+        if (!$result) {
+            return null;
+        }
+
+        $user = new User($result['user_username'], $result['user_password'], $result['user_avatarPath'], $result['user_bannerPath'], $result['user_isAdmin']);
+        $user->setId($result['user_id']);
+        return $user;
+    }
+
     public function getUserCount(): int {
         $statement = $this->connection->getConnection()->query('SELECT COUNT(*) as total FROM users');
         $result = $statement->fetch();
@@ -58,10 +73,16 @@ class UserRepository {
         return (int) $result['total'];
     }
 
-    public function usernameExists(string $username): bool {
-        $statement = $this->connection->getConnection()->prepare('SELECT COUNT(*) FROM users WHERE user_username = ?');
-        $statement->execute([$username]);
+    public function usernameExists(string $name): bool {
+        $statement = $this->connection->getConnection()->prepare('SELECT COUNT(*) FROM users WHERE user_username = ?:name');
+        $statement->execute(['name' => $name]);
         return $statement->fetchColumn() > 0;
+    }
+
+    public function getPasswordById(int $id): string {
+        $statement = $this->connection->getConnection()->prepare('SELECT password FROM users WHERE id = ?:id');
+        $statement->execute(['id' => $id]);
+        return $statement->fetchColumn();
     }
 
     public function create(User $user): bool {

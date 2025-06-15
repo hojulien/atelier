@@ -34,11 +34,11 @@ class User {
     }
 
     public function getAvatarPath(): string {
-        return !empty($this->avatarPath) ? $this->avatarPath : './assets/images/users_avatar/default.png';
+        return !empty($this->avatarPath) ? $this->avatarPath : './assets/images/avatars/default.png';
     }
 
     public function getBannerPath(): string {
-        return $this->bannerPath;
+        return !empty($this->bannerPath) ? $this->bannerPath : './assets/images/banners/default.png';
     }
 
     public function isAdmin(): bool {
