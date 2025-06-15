@@ -7,5 +7,4 @@ index.html
 /assets/images/avatars/*
 /assets/images/banners/*
 !/assets/images/avatars/default.png
-!/assets/images/avatars/.gitkeep
-!/assets/images/banners/.gitkeep
+!/assets/images/banners/default.png
