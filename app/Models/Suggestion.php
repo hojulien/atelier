@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Suggestion extends Model
 {
     protected $fillable = [
-        'suggestion_type',
-        'suggestion_description',
-        'suggestion_media',
-        'suggestion_userId'
+        'type',
+        'description',
+        'media',
+        'user_id'
     ];
-    
-    // TO DO: Relations
+
+    // one-to-many relationship with User model
+    // an user may create 0 to N suggestions - a suggestion can only be created by 1 user
+    // belongsTo(Model, ForeignKeyCurrent, PrimaryKeyOther)
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

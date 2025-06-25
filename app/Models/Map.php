@@ -7,25 +7,39 @@ use Illuminate\Database\Eloquent\Model;
 class Map extends Model
 {
     protected $fillable = [
-        'maps_rc',
-        'maps_artist',
-        'maps_title',
-        'maps_artistUnicode',
-        'maps_titleUnicode',
-        'maps_creator',
-        'maps_sr',
-        'maps_length',
-        'maps_cs',
-        'maps_hp',
-        'maps_ar',
-        'maps_od',
-        'maps_setId',
-        'maps_mapId',
-        'maps_submitDate',
-        'maps_lastUpdated',
-        'maps_tags',
-        'maps_background'
+        'rc',
+        'artist',
+        'title',
+        'artistUnicode',
+        'titleUnicode',
+        'creator',
+        'sr',
+        'length',
+        'cs',
+        'hp',
+        'ar',
+        'od',
+        'setId',
+        'mapId',
+        'submitDate',
+        'lastUpdated',
+        'tags',
+        'background'
     ];
 
-    // TO DO: Relations
+    protected $casts = [
+        'tags' => 'array',
+    ];
+
+    // many-to-many relationship with User model
+    // an user may like 0 to N maps - a map may be liked by 0 to N users
+    public function likedByUsers() {
+        return $this->belongsToMany(User::class, 'map_user_likes', 'map_id', 'user_id');
+    }
+
+    // many-to-many relationship with Playlist model
+    // a map may compose 0 to N playlists - a playlist may be composed of 0 to N maps
+    public function playlists() {
+        return $this->belongsToMany(Playlist::class, 'map_playlist', 'map_id', 'playlist_id');
+    }
 }

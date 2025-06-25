@@ -7,12 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 class Playlist extends Model
 {
     protected $fillable = [
-        'playlist_name',
-        'playlist_numberLevels',
-        'playlist_description',
-        'playlist_type',
-        'playlist_userId'
+        'name',
+        'number_levels',
+        'description',
+        'type',
+        'user_id'
     ];
 
-    // TO DO: Relations
+    // one-to-many relationship with User model
+    // an user may create 0 to N playlists - a playlist can only be created by 1 user
+    // belongsTo(Model, ForeignKeyCurrent, PrimaryKeyOther)
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    // many-to-many relationship with Map model
+    // a map may compose 0 to N playlists - a playlist may be composed of 0 to N maps
+    public function maps() {
+        return $this->belongsToMany(Map::class, 'map_playlist', 'playlist_id', 'map_id');
+    }
 }
