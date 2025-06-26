@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -12,6 +13,34 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $users = [
+            [
+                'username' => 'admin',
+                'email' => 'admin@example.com',
+                'password' => password_hash('1234', PASSWORD_DEFAULT),
+                'avatarPath' => '/assets/images/avatars/default.png',
+                'bannerPath' => '/assets/images/banners/default.png',
+                'type' => 'admin'
+            ],
+            [
+                'username' => 'user',
+                'email' => 'user@example.com',
+                'password' => password_hash('5678', PASSWORD_DEFAULT),
+                'avatarPath' => '/assets/images/avatars/default.png',
+                'bannerPath' => '/assets/images/banners/default.png',
+                'type' => 'user'
+            ],
+        ];
+
+        foreach ($users as $user) {
+            User::create([
+                'username' => $user['username'],
+                'email' => $user['email'],
+                'password' => $user['password'],
+                'avatarPath' => $user['avatarPath'],
+                'bannerPath' => $user['bannerPath'],
+                'type' => $user['type']
+            ]);
+        }
     }
 }

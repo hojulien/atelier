@@ -27,6 +27,8 @@ class Map extends Model
         'background'
     ];
 
+    // casts is used to convert attributes to specific data types
+    // 'tags' is stored as a JSON array in the database, which allows us to work with it as an array in our application
     protected $casts = [
         'tags' => 'array',
     ];

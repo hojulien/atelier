@@ -8,8 +8,8 @@ Ceci est un projet personnel également destiné à être présenté dans le cad
 ### 1 - Cloner le dépôt
 
 ```sh
-git clone https://github.com/hojulien/mapslist.git
-cd mapslist
+git clone https://github.com/hojulien/atelier.git
+cd atelier
 ```
 
 ### 2 - Configurer le projet
@@ -20,7 +20,7 @@ Le site nécessite [Composer](https://getcomposer.org/) et PHP.
 composer install
 ```
 
-Dupliquer le fichier `.env.exemple`, puis générer la clé d'application:
+Dupliquer le fichier `.env.example`, puis générer la clé d'application:
 
 ```sh
 cp .env.example .env
@@ -42,9 +42,10 @@ npm run dev
 ```
 
 Il est ensuite nécessaire d'effectuer les migrations pour créer les tables:
+Des données sont fournies via les seeders, que vous pouvez ajouter:
 
 ```sh
-php artisan migrate
+php artisan migrate --seed
 ```
 
 Une fois toutes ces opérations effectuées, vous pouvez lancer le projet via `php artisan serve`.

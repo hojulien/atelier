@@ -17,6 +17,12 @@
 /public/build
 /public/hot
 /public/storage
+/public/assets/images/avatars/*
+/public/assets/images/banners/*
+/public/assets/images/maps_background/*
+!/public/assets/images/avatars/default.png
+!/public/assets/images/banners/default.png
+!/public/assets/images/maps_background/default.jpg
 /storage/*.key
 /storage/pail
 /vendor
