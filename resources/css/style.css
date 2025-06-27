@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Glory";
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+
+body {
+    color: var(--text-main);
+}
+
+:root {
+    --main: #add8e6;
+    --text-main: #000000;
+    --section: #eaeadb;
+    --section-dark: #d1d3b5;
+    --section-darker: #a0a189;
+    --button: #8aa7b6;
+}
+
+body.dark-mode {
+    --main: #355058;
+    --text-main: #ffffff;
+    --section: #37372d;
+    --section-dark: #28281e;
+    --section-darker: #1e1e14;
+    --button: #2a3639;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+p {
+    font-size: 20px;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: var(--main);
+    position: relative;
+}
+
+.left, .center, .right {
+    display: flex;
+    align-items: center;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.right {
+    margin-left: auto;
+    gap: 20px;
+}
+
+.div-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--button);
+    border: 2px solid var(--text-main);
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.div-style p {
+    font-size: 20px;
+}
+
+#darkMode {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#dark, #light {
+    width: 24px;
+    height: auto;
+}
+
+#light, #iconLight {
+    display: none;
+}
+
+/* SECTION */
+
+h1 {
+    padding: 20px;
+}
+
+section {
+    min-height: 1000px; /* TEMPORARY: à modifier plus tard */
+    background-color: var(--section);
+    text-align: center;
+    margin: 0 auto;
+}
+
+section p {
+    width: 420px;
+    font-size: 20px;
+    padding: 10px;
+    text-align: left;
+    margin: 0 auto;
+}
