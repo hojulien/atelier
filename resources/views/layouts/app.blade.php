@@ -16,8 +16,8 @@
                 </div>
                 <div class="center">
                     <div class="div-style">
-                        <img width="32" height="32" class="iconLight" src="images/icons/playlist_light.svg" alt="Playlist Icon">
-                        <img width="32" height="32" class="iconDark" src="images/icons/playlist_dark.svg" alt="Playlist Icon Dark">
+                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/playlist_light.svg') }}" alt="Playlist Icon">
+                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/playlist_dark.svg') }}" alt="Playlist Icon Dark">
                         <p>view playlists</p>
                     </div>
             <!--    <div class="div-style">
@@ -35,14 +35,14 @@
                     </div> -->
                 @php /* else: */ @endphp
                     <div class="div-style">
-                        <img width="32" height="32" class="iconLight" src="images/icons/login_light.svg" alt="Login Icon">
-                        <img width="32" height="32" class="iconDark" src="images/icons/login_dark.svg" alt="Login Icon Dark">
+                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/login_light.svg') }}" alt="Login Icon">
+                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/login_dark.svg') }}" alt="Login Icon Dark">
                         <a href="?action=login"><p>login</p></a>
                     </div>
                 @php /* endif; */ @endphp
                     <div id="darkMode">
-                        <img id="dark" src="images/icons/dark_mode.svg" alt="Dark mode">
-                        <img id="light" src="images/icons/light_mode.svg" alt="Light mode">
+                        <img id="dark" src="{{ asset('images/icons/dark_mode.svg') }}" alt="Dark mode">
+                        <img id="light" src="{{ asset('images/icons/light_mode.svg') }}" alt="Light mode">
                     </div>
                 </div>
             </header>
@@ -60,9 +60,14 @@
                 {{ session('error') }}
             </div>
         @endif
+
+        <!-- main content -->
         <section>
             @yield('content')
         </section>
+
+        <!-- scripts (if needed) -->
+        @yield('scripts')
     </main>
 </body>
 </html>

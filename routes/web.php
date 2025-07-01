@@ -13,4 +13,7 @@ Route::get('/', function () {
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestions.index');
 Route::get('/playlists', [PlaylistController::class, 'index'])->name('playlists.index');
+
 Route::get('/maps', [MapController::class, 'index'])->name('maps.index');
+Route::get('/maps/create', [MapController::class, 'create'])->name('maps.create');
+Route::post('/maps/store', [MapController::class, 'store'])->name('maps.store');

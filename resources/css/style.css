@@ -126,3 +126,12 @@ table, td, tr, th {
     padding: 10px;
     border: 1px solid black;
 }
+
+/* FORMS */
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}

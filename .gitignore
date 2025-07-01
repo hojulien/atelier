@@ -23,6 +23,7 @@
 !/public/assets/images/avatars/default.png
 !/public/assets/images/banners/default.png
 !/public/assets/images/maps_background/default.jpg
+/resources/js/mapsTags.js
 /storage/*.key
 /storage/pail
 /vendor

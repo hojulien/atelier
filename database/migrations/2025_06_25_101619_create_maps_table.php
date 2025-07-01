@@ -30,7 +30,7 @@ return new class extends Migration
             $table->dateTime('submitDate');
             $table->dateTime('lastUpdated');
             $table->json('tags')->nullable();
-            $table->string('background', 255)->default('./assets/images/maps_background/default.png');
+            $table->string('background', 255)->default('default.jpg');
             $table->timestamps();
         });
     }

@@ -18,16 +18,16 @@ class UserSeeder extends Seeder
                 'username' => 'admin',
                 'email' => 'admin@example.com',
                 'password' => password_hash('1234', PASSWORD_DEFAULT),
-                'avatarPath' => '/assets/images/avatars/default.png',
-                'bannerPath' => '/assets/images/banners/default.png',
+                'avatarPath' => 'default.png',
+                'bannerPath' => 'default.png',
                 'type' => 'admin'
             ],
             [
                 'username' => 'user',
                 'email' => 'user@example.com',
                 'password' => password_hash('5678', PASSWORD_DEFAULT),
-                'avatarPath' => '/assets/images/avatars/default.png',
-                'bannerPath' => '/assets/images/banners/default.png',
+                'avatarPath' => 'default.png',
+                'bannerPath' => 'default.png',
                 'type' => 'user'
             ],
         ];
