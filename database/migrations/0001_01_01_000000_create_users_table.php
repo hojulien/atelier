@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('avatarPath')->default('./assets/images/avatars/default.png');
-            $table->string('bannerPath')->default('./assets/images/banners/default.png');
+            $table->string('avatar')->default('default.png');
+            $table->string('banner')->default('default.png');
             $table->enum('type', ['user', 'admin'])->default('user');
             $table->rememberToken();
             $table->timestamps();

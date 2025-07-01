@@ -18,16 +18,16 @@ class UserSeeder extends Seeder
                 'username' => 'admin',
                 'email' => 'admin@example.com',
                 'password' => password_hash('1234', PASSWORD_DEFAULT),
-                'avatarPath' => 'default.png',
-                'bannerPath' => 'default.png',
+                'avatar' => 'default.png',
+                'banner' => 'default.png',
                 'type' => 'admin'
             ],
             [
                 'username' => 'user',
                 'email' => 'user@example.com',
                 'password' => password_hash('5678', PASSWORD_DEFAULT),
-                'avatarPath' => 'default.png',
-                'bannerPath' => 'default.png',
+                'avatar' => 'default.png',
+                'banner' => 'default.png',
                 'type' => 'user'
             ],
         ];
@@ -37,8 +37,8 @@ class UserSeeder extends Seeder
                 'username' => $user['username'],
                 'email' => $user['email'],
                 'password' => $user['password'],
-                'avatarPath' => $user['avatarPath'],
-                'bannerPath' => $user['bannerPath'],
+                'avatar' => $user['avatar'],
+                'banner' => $user['banner'],
                 'type' => $user['type']
             ]);
         }

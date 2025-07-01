@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Map;
 
@@ -65,7 +66,7 @@ class MapController extends Controller
         if ($request->hasFile('background')) {
             $file = $request->file('background');
             $extension = $file->getClientOriginalExtension();
-            $filename = $map->id . '.' . $extension;
+            $filename = Str::uuid() . '.' . $extension;
             $file->storeAs('images/maps_background', $filename, 'public');
             $map->background = $filename;
             $map->save();

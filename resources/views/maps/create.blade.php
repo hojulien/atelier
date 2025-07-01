@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Add a new map')
+@section('title', 'add a new map')
 
 @section('content')
     <!-- evolution: separate forms in a partial -->

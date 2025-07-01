@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'User List')
+@section('title', 'user list')
 
 @section('content')
     <h1>hi</h1>
+
+    <!-- for accessibility purposes, to remove later -->
+    <a href="{{ route('users.create') }}"><h2>create new user</h2></a>
 
     <table>
         <thead>
@@ -20,8 +23,8 @@
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->username }}</td>
-                <td><img src="{{ $user->avatarPath }}" alt="Avatar" height="128"></td>
-                <td><img src="{{ $user->bannerPath }}" alt="Banner" height="128"></td>
+                <td><img src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="Avatar" height="128"></td>
+                <td><img src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="Banner" height="128"></td>
                 <td>{{ $user->type }}</td>
             </tr>
             @endforeach

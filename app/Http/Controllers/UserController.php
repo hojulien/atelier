@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -31,9 +32,43 @@ class UserController extends Controller
     public function store(Request $request)
     {
         // evolution: redirect to login page
-        $user = $request->all();
-        User::create($user);
-        return redirect()->route('users.index')->with('success', 'Account created successfully.');
+        // evolution: specify mapID in the session message
+
+        // validates all inputs individually
+        $validated = $request->validate([
+            'username' => 'required|string',
+            'email' => 'required|email',
+            'password' => 'required|min:4',
+            'avatar' => 'nullable|image|dimensions:max_width=500,max_height=500|max:2048',
+            'banner' => 'nullable|image|dimensions:min_width=1200,min_height=500|max:8192'
+        ]);
+
+        // sets role manually
+        $validated['type'] = 'user';
+
+        $user = User::create($validated);
+
+        // evolution: factorize this code later (traits?)
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $extension = $file->getClientOriginalExtension();
+            $filename = Str::uuid() . '.' . $extension;
+            $file->storeAs('images/avatars', $filename, 'public');
+            $user->avatar = $filename;
+            $user->save();
+        }
+
+        if ($request->hasFile('banner')) {
+            $file = $request->file('banner');
+            $extension = $file->getClientOriginalExtension();
+            $filename = Str::uuid() . '.' . $extension;
+            $file->storeAs('images/banners', $filename, 'public');
+            $user->banner = $filename;
+            $user->save();
+        }
+
+        // evolution: remove session message later
+        return redirect()->route('users.index')->with('success', 'account created successfully.');
     }
 
     /**

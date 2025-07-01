@@ -11,6 +11,9 @@ Route::get('/', function () {
 });
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+
 Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestions.index');
 Route::get('/playlists', [PlaylistController::class, 'index'])->name('playlists.index');
 
