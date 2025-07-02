@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Suggestion List')
+@section('title', 'suggestion List')
 
 @section('content')
     <h1>hi</h1>
+
+    <!-- for accessibility purposes, to remove later -->
+    <a href="{{ route('suggestions.create') }}"><h2>send a suggestion</h2></a>
 
     <table>
         <thead>
@@ -21,7 +24,11 @@
                 <td>{{ $suggestion->id }}</td>
                 <td>{{ $suggestion->type }}</td>
                 <td>{{ $suggestion->description }}</td>
-                <td>{{ $suggestion->media }}</td> <!-- TO DO: change depending on suggestion type -->
+                @if ($suggestion->type == "media")
+                    <td><img src="{{ asset('storage/images/suggestions/' . $suggestion->media) }}" alt="suggestion media" height="128" loading="lazy"></td>
+                @else
+                    <td><a href="{{ $suggestion->media }}">{{ $suggestion->media }}</a></td>
+                @endif
                 <td>{{ $suggestion->user_id }}</td>
             </tr>
             @endforeach

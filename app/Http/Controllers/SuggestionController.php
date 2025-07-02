@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Suggestion;
+use App\Models\User;
 
 class SuggestionController extends Controller
 {
@@ -21,7 +23,9 @@ class SuggestionController extends Controller
      */
     public function create()
     {
-        return view('suggestions.create');
+        // evolution: remove after adding middleware
+        $users = User::all();
+        return view('suggestions.create', compact('users'));
     }
 
     /**
@@ -29,10 +33,27 @@ class SuggestionController extends Controller
      */
     public function store(Request $request)
     {
+        // validates all inputs individually
+        $validated = $request->validate([
+            'type' => 'required|string',
+            'description' => 'required|string',
+            'media' => 'required',
+            'user_id' => 'required'
+        ]);
+
+        $suggestion = Suggestion::create($validated);
+
+        if ($request->hasFile('media')) {
+            $file = $request->file('media');
+            $extension = $file->getClientOriginalExtension();
+            $filename = Str::uuid() . '.' . $extension;
+            $file->storeAs('images/suggestions', $filename, 'public');
+            $suggestion->media = $filename;
+            $suggestion->save();
+        }
+
         // evolution: redirect to main page?
-        $suggestion = $request->all();
-        Suggestion::create($suggestion);
-        return redirect()->route('suggestions.index')->with('success', 'Your suggestion has been submitted.');
+        return redirect()->route('suggestions.index')->with('success', 'your suggestion has been submitted.');
     }
 
     /**

@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Playlist List')
+@section('title', 'playlist List')
 
 @section('content')
     <h1>hi</h1>
+
+    <!-- for accessibility purposes, to remove later -->
+    <a href="{{ route('playlists.create') }}"><h2>create a playlist</h2></a>
 
     <table>
         <thead>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Playlist;
+use App\Models\User;
 
 class PlaylistController extends Controller
 {
@@ -21,7 +22,9 @@ class PlaylistController extends Controller
      */
     public function create()
     {
-        return view('playlists.create');
+        // evolution: remove after adding middleware
+        $users = User::all();
+        return view('playlists.create', compact('users'));
     }
 
     /**
@@ -30,9 +33,18 @@ class PlaylistController extends Controller
     public function store(Request $request)
     {
         // evolution: redirect towards adding maps list (passing id of the newly create playlist)
-        $playlist = $request->all();
-        Playlist::create($playlist);
-        return redirect()->route('playlists.index')->with('success', 'Your playlist has been submitted.');
+        $validated = $request->validate([
+            'name' => 'required|string|max:50',
+            'description' => 'required|string',
+            'user_id' => 'required'
+        ]);
+
+        // evolution: set type in create form depending on user type (after logged in)
+        $validated['number_levels'] = 0;
+        $validated['type'] = 'user';
+
+        Playlist::create($validated);
+        return redirect()->route('playlists.index')->with('success', 'your playlist has been submitted.');
     }
 
     /**
