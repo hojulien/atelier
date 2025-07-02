@@ -16,6 +16,7 @@
                 <th>avatar</th>
                 <th>banner</th>
                 <th>type</th>
+                <th>actions</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@
                 <td><img src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="Avatar" height="128" loading="lazy"></td>
                 <td><img src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="Banner" height="128" loading="lazy"></td>
                 <td>{{ $user->type }}</td>
+                <td>
+                    <a href="{{ route('users.edit', $user->id) }}">edit</a>
+                </td>
             </tr>
             @endforeach
         </tbody>

@@ -18,6 +18,9 @@
         <label for="password">password</label>
         <input type="password" name="password">
 
+        <label for="password">confirm password</label>
+        <input type="password" name="password_confirmation">
+
         <label for="avatar">avatar (max 500x500)</label>
         <input type="file" name="avatar">
 
