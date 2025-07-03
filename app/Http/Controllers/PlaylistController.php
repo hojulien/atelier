@@ -61,8 +61,9 @@ class PlaylistController extends Controller
      */
     public function edit(string $id)
     {
+        $users = User::all();
         $playlist = Playlist::findOrFail($id);
-        return view('playlists.edit', compact('playlist'));
+        return view('playlists.edit', compact('playlist','users'));
     }
 
     /**
@@ -71,8 +72,14 @@ class PlaylistController extends Controller
     public function update(Request $request, string $id)
     {
         $playlist = Playlist::findOrFail($id);
-        $playlist->update($request->all());
-        return redirect()->route('playlists.index')->with('success', 'Playlist updated.');
+        $validated = $request->validate([
+            'name' => 'required|string|max:50',
+            'description' => 'required|string',
+            'user_id' => 'required'
+        ]);
+
+        $playlist->update($validated);
+        return redirect()->route('playlists.index')->with('success', 'playlist updated.');
     }
 
     /**
@@ -82,6 +89,6 @@ class PlaylistController extends Controller
     {
         $playlist = Playlist::findOrFail($id);
         $playlist->delete();
-        return redirect()->route('playlists.index')->with('success', 'Playlist deleted.');
+        return redirect()->route('playlists.index')->with('success', 'playlist deleted.');
     }
 }

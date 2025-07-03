@@ -16,7 +16,8 @@
                 <th>number of levels</th>
                 <th>description</th>
                 <th>type</th>
-                <th>user_id</th>
+                <th>creator</th>
+                <th>actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +28,10 @@
                 <td>{{ $playlist->number_levels }}</td>
                 <td>{{ $playlist->description }}</td>
                 <td>{{ $playlist->type }}</td>
-                <td>{{ $playlist->user_id }}</td>
+                <td>{{ $playlist->user->username }}</td>
+                <td>
+                    <a href="{{ route('playlists.edit', $playlist->id) }}">edit</a>
+                </td>
             </tr>
             @endforeach
         </tbody>

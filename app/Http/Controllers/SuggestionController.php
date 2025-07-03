@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Suggestion;
 use App\Models\User;
@@ -70,8 +71,9 @@ class SuggestionController extends Controller
      */
     public function edit(string $id)
     {
+        $users = User::all();
         $suggestion = Suggestion::findOrFail($id);
-        return view('suggestions.edit', compact('suggestion'));
+        return view('suggestions.edit', compact('suggestion','users'));
     }
 
     /**
@@ -82,8 +84,27 @@ class SuggestionController extends Controller
         // evolution: remove this feature (realistically not needed)
         // just there to test the CRUD
         $suggestion = Suggestion::findOrFail($id);
-        $suggestion->update($request->all());
-        return redirect()->route('suggestions.index')->with('success', 'Suggestion updated.');
+
+        $validated = $request->validate([
+            'type' => 'required|string',
+            'description' => 'required|string',
+            'media' => 'required',
+            'user_id' => 'required'
+        ]);
+
+        if ($request->hasFile('media')) {
+            $file = $request->file('media');
+            $extension = $file->getClientOriginalExtension();
+            $filename = Str::uuid() . '.' . $extension;
+            $file->storeAs('images/suggestions', $filename, 'public');
+            $validated['media'] = $filename;
+            if ($suggestion->media) {
+                Storage::disk('public')->delete('images/suggestions/' . $suggestion->media);
+            }
+        }
+
+        $suggestion->update($validated);
+        return redirect()->route('suggestions.index')->with('success', 'suggestion updated.');
     }
 
     /**

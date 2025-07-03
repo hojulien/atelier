@@ -19,11 +19,17 @@ Route::put('/users/update/{id}', [UserController::class, 'update'])->name('users
 Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestions.index');
 Route::get('/suggestions/create', [SuggestionController::class, 'create'])->name('suggestions.create');
 Route::post('/suggestions/store', [SuggestionController::class, 'store'])->name('suggestions.store');
+Route::get('/suggestions/edit/{id}', [SuggestionController::class, 'edit'])->name('suggestions.edit');
+Route::put('/suggestions/update/{id}', [SuggestionController::class, 'update'])->name('suggestions.update');
 
 Route::get('/playlists', [PlaylistController::class, 'index'])->name('playlists.index');
 Route::get('/playlists/create', [PlaylistController::class, 'create'])->name('playlists.create');
 Route::post('/playlists/store', [PlaylistController::class, 'store'])->name('playlists.store');
+Route::get('/playlists/edit/{id}', [PlaylistController::class, 'edit'])->name('playlists.edit');
+Route::put('/playlists/update/{id}', [PlaylistController::class, 'update'])->name('playlists.update');
 
 Route::get('/maps', [MapController::class, 'index'])->name('maps.index');
 Route::get('/maps/create', [MapController::class, 'create'])->name('maps.create');
 Route::post('/maps/store', [MapController::class, 'store'])->name('maps.store');
+Route::get('/maps/edit/{id}', [MapController::class, 'edit'])->name('maps.edit');
+Route::put('/maps/update/{id}', [MapController::class, 'update'])->name('maps.update');

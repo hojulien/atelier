@@ -15,7 +15,8 @@
                 <th>type</th>
                 <th>description</th>
                 <th>media</th>
-                <th>user_id</th>
+                <th>creator</th>
+                <th>actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +30,10 @@
                 @else
                     <td><a href="{{ $suggestion->media }}">{{ $suggestion->media }}</a></td>
                 @endif
-                <td>{{ $suggestion->user_id }}</td>
+                <td>{{ $suggestion->user->username }}</td>
+                <td>
+                    <a href="{{ route('suggestions.edit', $suggestion->id) }}">edit</a>
+                </td>
             </tr>
             @endforeach
         </tbody>

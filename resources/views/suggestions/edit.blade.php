@@ -6,12 +6,13 @@
     <!-- evolution: separate forms in a partial -->
     <h1>send a suggestion</h1>
     
-    <form method="POST" action="{{ route('suggestions.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('suggestions.update', $suggestion) }}" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
 
-        @include('partials.suggestionForm', ['suggestion' => null])
+        @include('partials.suggestionForm', ['suggestion' => $suggestion])
 
-        <button type="submit" style="background-color:palegreen;">submit suggestion</button>
+        <button type="submit" style="background-color:palegreen;">update suggestion</button>
     </form>
 @endsection
 
