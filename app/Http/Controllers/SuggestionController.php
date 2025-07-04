@@ -38,20 +38,28 @@ class SuggestionController extends Controller
         $validated = $request->validate([
             'type' => 'required|string',
             'description' => 'required|string',
-            'media' => 'required',
+            'media_file' => 'required_if:type,media|file',
+            'media_url' => 'required_if:type,music|url',
             'user_id' => 'required'
         ]);
 
-        $suggestion = Suggestion::create($validated);
-
-        if ($request->hasFile('media')) {
-            $file = $request->file('media');
+        // we need to transfer "media_file" or "media_url" over to "media"
+        // so $suggestion cannot be created yet until $validated is finalized.
+        if ($request->hasFile('media_file')) {
+            $file = $request->file('media_file');
             $extension = $file->getClientOriginalExtension();
             $filename = Str::uuid() . '.' . $extension;
             $file->storeAs('images/suggestions', $filename, 'public');
-            $suggestion->media = $filename;
-            $suggestion->save();
+            $validated['media'] = $filename;
+            unset($validated['media_file']);
         }
+
+        if ($request->hasFile('media_url')) {
+            $validated['media'] = $validated['media_url'];
+            unset($validated['media_url']);
+        }
+
+        Suggestion::create($validated);
 
         // evolution: redirect to main page?
         return redirect()->route('suggestions.index')->with('success', 'your suggestion has been submitted.');
@@ -88,12 +96,13 @@ class SuggestionController extends Controller
         $validated = $request->validate([
             'type' => 'required|string',
             'description' => 'required|string',
-            'media' => 'required',
+            'media_file' => 'required_if:type,media|file',
+            'media_url' => 'required_if:type,music|url',
             'user_id' => 'required'
         ]);
 
-        if ($request->hasFile('media')) {
-            $file = $request->file('media');
+        if ($request->hasFile('media_file')) {
+            $file = $request->file('media_file');
             $extension = $file->getClientOriginalExtension();
             $filename = Str::uuid() . '.' . $extension;
             $file->storeAs('images/suggestions', $filename, 'public');
@@ -101,6 +110,10 @@ class SuggestionController extends Controller
             if ($suggestion->media) {
                 Storage::disk('public')->delete('images/suggestions/' . $suggestion->media);
             }
+            unset($validated['media_file']);
+        } else {
+            $validated['media'] = $validated['media_url'];
+            unset($validated['media_url']);
         }
 
         $suggestion->update($validated);

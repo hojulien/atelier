@@ -25,7 +25,7 @@
                 <td>{{ $suggestion->id }}</td>
                 <td>{{ $suggestion->type }}</td>
                 <td>{{ $suggestion->description }}</td>
-                @if ($suggestion->type == "media")
+                @if ($suggestion->type === "media")
                     <td><img src="{{ asset('storage/images/suggestions/' . $suggestion->media) }}" alt="suggestion media" height="128" loading="lazy"></td>
                 @else
                     <td><a href="{{ $suggestion->media }}">{{ $suggestion->media }}</a></td>
