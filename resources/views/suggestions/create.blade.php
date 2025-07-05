@@ -3,7 +3,6 @@
 @section('title', 'send a suggestion')
 
 @section('content')
-    <!-- evolution: separate forms in a partial -->
     <h1>send a suggestion</h1>
     
     <form method="POST" action="{{ route('suggestions.store') }}" enctype="multipart/form-data">

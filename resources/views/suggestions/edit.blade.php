@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'send a suggestion')
+@section('title', 'update suggestion')
 
 @section('content')
-    <!-- evolution: separate forms in a partial -->
-    <h1>send a suggestion</h1>
+    <h1>update suggestion</h1>
     
     <form method="POST" action="{{ route('suggestions.update', $suggestion) }}" enctype="multipart/form-data">
         @csrf

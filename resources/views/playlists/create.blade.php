@@ -3,7 +3,6 @@
 @section('title', 'create a new playlist')
 
 @section('content')
-    <!-- evolution: separate forms in a partial -->
     <h1>create a new playlist</h1>
     
     <form method="POST" action="{{ route('playlists.store') }}">

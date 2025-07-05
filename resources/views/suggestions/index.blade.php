@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'suggestion List')
+@section('title', 'suggestion list')
 
 @section('content')
     <h1>hi</h1>

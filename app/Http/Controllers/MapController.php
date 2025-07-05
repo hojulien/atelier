@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Map;
 
@@ -99,10 +100,54 @@ class MapController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // evolution: specify mapID in the session message
-        $map = Map::findOrFail($id);
-        $map->update($request->all());
-        return redirect()->route('maps.index')->with('success', 'Map updated');
+        try {
+            $map = Map::findOrFail($id);
+
+            $validated = $request->validate([
+                'artist' => 'required|string|max:40',
+                'title' => 'required|string|max:80',
+                'artistUnicode' => 'nullable|string|max:25',
+                'titleUnicode' => 'nullable|string|max:50',
+                'rc' => 'nullable|string|max:20',
+                'creator' => 'required|string|max:20',
+                'sr' => 'required|decimal:0,5|min:0',
+                'length' => 'required|numeric|min:0',
+                'cs' => 'required|decimal:0,2|min:0',
+                'hp' => 'required|decimal:0,2|min:0',
+                'ar' => 'required|decimal:0,2|min:0',
+                'od' => 'required|decimal:0,2|min:0',
+                'setId' => 'required|numeric',
+                'mapId' => 'required|numeric|unique:maps,mapId,' . $id,
+                'submitDate' => 'required|date_format:Y-m-d\TH:i:s',
+                'lastUpdated' => 'required|date_format:Y-m-d\TH:i:s',
+                'tags' => 'nullable|json',
+                'background' => 'nullable|image|max:4096'
+            ]);
+
+            $validated['submitDate'] = str_replace('T', ' ', $validated['submitDate']);
+            $validated['lastUpdated'] = str_replace('T', ' ', $validated['lastUpdated']);
+
+            if ($request->hasFile('background')) {
+                $file = $request->file('background');
+                $extension = $file->getClientOriginalExtension();
+                $filename = Str::uuid() . '.' . $extension;
+                $file->storeAs('images/maps_background', $filename, 'public');
+                $validated['background'] = $filename;
+                if ($map->background) {
+                    Storage::disk('public')->delete('images/maps_background/' . $map->background);
+                }
+            }
+
+            $map->update($validated);
+            return redirect()->route('maps.index')->with('success', 'map updated');
+        }  catch (\Throwable $e) {
+        // Log the error for debugging
+        \Log::error('Map update failed: ' . $e->getMessage(), ['exception' => $e]);
+        // Redirect back with input and error message
+        return redirect()->back()
+            ->withInput()
+            ->with('error', 'Update failed: ' . $e->getMessage());
+    }
     }
 
     /**
@@ -113,6 +158,6 @@ class MapController extends Controller
         // evolution: specify mapID in the session message
         $map = Map::findOrFail($id);
         $map->delete();
-        return redirect()->route('maps.index')->with('success', 'Map deleted');
+        return redirect()->route('maps.index')->with('success', 'map deleted');
     }
 }

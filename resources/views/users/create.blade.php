@@ -3,7 +3,6 @@
 @section('title', 'create a new account')
 
 @section('content')
-    <!-- evolution: separate forms in a partial -->
     <h1>register</h1>
     
     <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">

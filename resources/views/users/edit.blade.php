@@ -3,8 +3,7 @@
 @section('title', 'edit account')
 
 @section('content')
-    <!-- evolution: separate forms in a partial -->
-    <h1>register</h1>
+    <h1>edit profile</h1>
     
     <form method="POST" action="{{ route('users.update', $user) }}" enctype="multipart/form-data">
         @csrf

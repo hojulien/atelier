@@ -97,7 +97,6 @@ class UserController extends Controller
         // evolution: redirect to user's own profile after changes
         $user = User::findOrFail($id);
 
-        // validates all inputs individually
         // password is nullable so we can keep old one if null
         $validated = $request->validate([
             'username' => 'required|string',

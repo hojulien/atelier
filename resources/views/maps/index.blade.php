@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'map List')
+@section('title', 'map list')
 
 @section('content')
     <h1>hi</h1>
@@ -24,6 +24,7 @@
                 <th>od</th>
                 <th>length</th>
                 <th>background</th>
+                <th>actions</th>
             </tr>
         </thead>
         <tbody>
@@ -40,6 +41,9 @@
                 <td>{{ trim_float($map->od) }}</td>
                 <td>{{ gmdate('i:s', $map->length) }}</td>
                 <td><img src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="Map Background" height="128" loading="lazy"></td>
+                <td>
+                    <a href="{{ route('maps.edit', $map->id) }}">edit</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
