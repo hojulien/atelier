@@ -21,23 +21,23 @@
         <!-- map metadata -->
 
         <label for="sr">star rating</label>
-        <input type="number" name="sr" min="0" step="0.01" value="4.00" value="{{ old('sr', $map->sr ?? '') }}">
+        <input type="number" name="sr" min="0" step="0.01" value="{{ old('sr', $map->sr ?? '') }}">
 
         <label for="length">length (seconds)</label>
         <input type="number" name="length" min="0" step="1" value="{{ old('length', $map->length ?? '') }}">
 
 
         <label for="cs">circle size</label>
-        <input type="number" name="cs" min="0" max="10" step="0.1" value="5" value="{{ old('cs', $map->cs ?? '') }}">
+        <input type="number" name="cs" min="0" max="10" step="0.1" value="{{ old('cs', $map->cs ?? '') }}">
 
         <label for="hp">hp drain</label>
-        <input type="number" name="hp" min="0" max="10" step="0.1" value="5" value="{{ old('hp', $map->hp ?? '') }}">
+        <input type="number" name="hp" min="0" max="10" step="0.1" value="{{ old('hp', $map->hp ?? '') }}">
 
         <label for="ar">approach rate</label>
-        <input type="number" name="ar" min="0" max="10" step="0.1" value="5" value="{{ old('ar', $map->ar ?? '') }}">
+        <input type="number" name="ar" min="0" max="10" step="0.1" value="{{ old('ar', $map->ar ?? '') }}">
 
         <label for="od">overall difficulty</label>
-        <input type="number" name="od" min="0" max="10" step="0.1" value="5" value="{{ old('od', $map->od ?? '') }}">
+        <input type="number" name="od" min="0" max="10" step="0.1" value="{{ old('od', $map->od ?? '') }}">
 
         <label for="setId">set id</label>
         <input type="number" name="setId" min="0" value="{{ old('setId', $map->setId ?? '') }}">

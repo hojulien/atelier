@@ -10,42 +10,54 @@
 
     <!-- TO DO: replace by artistunicode/titleunicode with a js script -->
     
-    <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>artist</th>
-                <th>title</th>
-                <th>creator</th>
-                <th>sr</th>
-                <th>cs</th>
-                <th>hp</th>
-                <th>ar</th>
-                <th>od</th>
-                <th>length</th>
-                <th>background</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($maps as $map)
-            <tr>
-                <td>{{ $map->id }}</td>
-                <td>{{ $map->artist }}</td>
-                <td>{{ $map->title }}</td>
-                <td>{{ $map->creator }}</td>
-                <td>{{ number_format(ceil($map->sr * 100) / 100, 2) }}★</td>
-                <td>{{ trim_float($map->cs) }}</td>
-                <td>{{ trim_float($map->hp) }}</td>
-                <td>{{ trim_float($map->ar) }}</td>
-                <td>{{ trim_float($map->od) }}</td>
-                <td>{{ gmdate('i:s', $map->length) }}</td>
-                <td><img src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="Map Background" height="128" loading="lazy"></td>
-                <td>
-                    <a href="{{ route('maps.edit', $map->id) }}">edit</a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>artist</th>
+                    <th>title</th>
+                    <th>creator</th>
+                    <th>sr</th>
+                    <th>cs</th>
+                    <th>hp</th>
+                    <th>ar</th>
+                    <th>od</th>
+                    <th>length</th>
+                    <th>background</th>
+                    <th colspan="3">actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($maps as $map)
+                <tr>
+                    <td>{{ $map->id }}</td>
+                    <td>{{ $map->artist }}</td>
+                    <td>{{ $map->title }}</td>
+                    <td>{{ $map->creator }}</td>
+                    <td>{{ number_format(ceil($map->sr * 100) / 100, 2) }}★</td>
+                    <td>{{ trim_float($map->cs) }}</td>
+                    <td>{{ trim_float($map->hp) }}</td>
+                    <td>{{ trim_float($map->ar) }}</td>
+                    <td>{{ trim_float($map->od) }}</td>
+                    <td>{{ gmdate('i:s', $map->length) }}</td>
+                    <td><img src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="Map Background" height="128" loading="lazy"></td>
+                    <td>
+                        <a href="{{ route('maps.show', $map->id) }}">view</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('maps.edit', $map->id) }}">edit</a>
+                    </td>
+                    <td>
+                        <form action="{{ route('maps.delete', $map) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button onclick="return confirm('delete this map? it will also be removed from associated playlists!');" id="delete">delete map</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

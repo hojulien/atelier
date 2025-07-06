@@ -3,7 +3,7 @@
 @section('title', 'playlist list')
 
 @section('content')
-    <h1>hi</h1>
+    <h1>playlist list</h1>
 
     <!-- for accessibility purposes, to remove later -->
     <a href="{{ route('playlists.create') }}"><h2>create a playlist</h2></a>
@@ -17,7 +17,7 @@
                 <th>description</th>
                 <th>type</th>
                 <th>creator</th>
-                <th>actions</th>
+                <th colspan="2">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -30,7 +30,17 @@
                 <td>{{ $playlist->type }}</td>
                 <td>{{ $playlist->user->username }}</td>
                 <td>
+                    <a href="{{ route('playlists.show', $playlist->id) }}">view</a>
+                </td>
+                <td>
                     <a href="{{ route('playlists.edit', $playlist->id) }}">edit</a>
+                </td>
+                <td>
+                    <form action="{{ route('playlists.delete', $playlist) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button onclick="return confirm('delete this playlist?');" id="delete">delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach

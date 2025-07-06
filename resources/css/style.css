@@ -131,6 +131,10 @@ table, td, tr, th {
     border: 1px solid black;
 }
 
+.table-container {
+    overflow-x: auto;
+}
+
 /* FORMS */
 
 form {
@@ -138,4 +142,14 @@ form {
     flex-direction: column;
     align-items: center;
     gap: 5px;
+}
+
+/* VIEW */
+
+.key {
+    font-weight: bold;
+}
+
+.value {
+    font-weight: normal;
 }

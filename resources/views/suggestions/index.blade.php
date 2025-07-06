@@ -3,7 +3,7 @@
 @section('title', 'suggestion list')
 
 @section('content')
-    <h1>hi</h1>
+    <h1>suggestion list</h1>
 
     <!-- for accessibility purposes, to remove later -->
     <a href="{{ route('suggestions.create') }}"><h2>send a suggestion</h2></a>
@@ -16,7 +16,7 @@
                 <th>description</th>
                 <th>media</th>
                 <th>creator</th>
-                <th>actions</th>
+                <th colspan="2">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -32,7 +32,17 @@
                 @endif
                 <td>{{ $suggestion->user->username }}</td>
                 <td>
+                    <a href="{{ route('suggestions.show', $suggestion->id) }}">view</a>
+                </td>
+                <td>
                     <a href="{{ route('suggestions.edit', $suggestion->id) }}">edit</a>
+                </td>
+                 <td>
+                    <form action="{{ route('suggestions.delete', $suggestion) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button onclick="return confirm('delete this suggestion?');" id="delete">delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
