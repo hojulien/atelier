@@ -57,7 +57,7 @@
                         <form action="{{ route('maps.delete', $map) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <span class="no-link" onclick="return confirm('delete this suggestion?');">delete</span>
+                            <button class="no-button" onclick="return confirm('delete this map? it will also be removed from associated playlists!');">delete</button>
                         </form>
                     </div>
                     <div class="map-actions-card link-osu">

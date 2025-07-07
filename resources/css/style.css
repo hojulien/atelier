@@ -69,8 +69,17 @@ p {
 
 .no-link {
     text-decoration: none;
-    color: inherit;
+}
+
+.no-link, .no-button {
     cursor: pointer;
+    color: inherit;
+}
+
+.no-button {
+    border: none;
+    background-color: inherit;
+    font-size: inherit;
 }
 
 /* HEADER */
