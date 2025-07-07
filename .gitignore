@@ -27,7 +27,6 @@ Thumbs.db
 /resources/js/mapsTags.js
 
 # all images from maps seeders
-/storage/app/public/images/maps_background/*
 !/storage/app/public/images/maps_background/default.jpg
 !/storage/app/public/images/maps_background/028f9158-0b6b-451d-93d4-8cb8fe903ae8.jpg
 !/storage/app/public/images/maps_background/029e4b47-7199-4ca0-8baa-481a1823555c.jpg
