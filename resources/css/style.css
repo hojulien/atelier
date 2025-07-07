@@ -17,6 +17,17 @@ body {
     --section-dark: #d1d3b5;
     --section-darker: #a0a189;
     --button: #8aa7b6;
+    --cs: #ece4d1;
+    --hp: #cbbdc9;
+    --ar: #e7ca97;
+    --od: #ecdbc7;
+    --sr: #edf4e4;
+    --length: #ced5b0;
+    --map-card: rgb(255 255 255 / 0.5);
+    --view: #add8e6;
+    --edit: #90ee90;
+    --delete: #e37971;
+    --link-osu: #ffb6c1;
 }
 
 body.dark-mode {
@@ -26,6 +37,17 @@ body.dark-mode {
     --section-dark: #28281e;
     --section-darker: #1e1e14;
     --button: #2a3639;
+    --cs: #4b3f2f;
+    --hp: #3b3440;
+    --ar: #5b482a;
+    --od: #4f3d2e;
+    --sr: #2e382e;
+    --length: #3d442d;
+    --map-card: rgb(0 0 0 / 0.5);
+    --view: #2a5d89;
+    --edit:	#2f7a4d;
+    --delete: #8a1d15;
+    --link-osu: #8a4b5d;
 }
 
 .error {
@@ -39,6 +61,16 @@ p {
 
 .hidden {
     display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.no-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 /* HEADER */
@@ -144,6 +176,156 @@ form {
     gap: 5px;
 }
 
+/* MAP LIST */
+
+.map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+    max-width: 1200px;
+    gap: 30px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+a.map-card-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.map-card {
+    display: flex;
+    padding: 20px;
+    margin: 0 auto;
+    gap: 20px;
+    border-radius: 30px;
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.map-data {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--map-card);
+    padding: 20px;
+    border-radius: 20px;
+    height: 100%;
+    width: 60%;
+}
+
+.map-data span, .map-settings-card span {
+    display: flex;
+    align-items: center;
+    height: 50%;
+    font-weight: bold;
+}
+
+.map-data span {
+    font-family: "Cabin";
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    text-align: left;
+}
+
+.map-right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.map-settings-card span {
+    justify-content: center;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+}
+
+.map-settings {
+    display: flex;
+    justify-content: space-between;
+    height: 50%;
+    gap: 20px;
+}
+
+.map-settings-card {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    height: 80px;
+}
+
+.small-card {
+    width: 40px;
+}
+
+.large-card {
+    width: 100px;
+}
+
+.map-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.map-actions-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.view {
+    background-color: var(--view);
+}
+
+.edit {
+    background-color: var(--edit);
+}
+
+.delete {
+    background-color: var(--delete);
+}
+
+.link-osu {
+    background-color: var(--link-osu);
+}
+
+/* refactorize to root for future dark mode coloring */
+
+#cs {
+    background-color: var(--cs);
+}
+
+#hp {
+    background-color: var(--hp);
+}
+
+#ar {
+    background-color: var(--ar);
+}
+
+#od {
+    background-color: var(--od);
+}
+
+#sr {
+    background-color: var(--sr);
+}
+
+#length {
+    background-color: var(--length);
+}
+
 /* VIEW */
 
 .key {
@@ -152,4 +334,53 @@ form {
 
 .value {
     font-weight: normal;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1100px) {
+    .map-card {
+        flex-direction: column;
+        height: 250px;
+    }
+
+    .map-data {
+        width: 100%;
+    }
+
+    .map-right-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .large-card {
+        width: 80px;
+    }
+
+    .map-actions {
+        width: 100%;
+    }
+
+    .map-actions-card {
+        height: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .map-card {
+        flex-direction: column;
+        height: 300px;
+    }
+
+    .map-right-container {
+        flex-direction: column;
+    }
+
+    .small-card {
+        width: clamp(25px, 5vw, 40px);
+    }
+
+    .large-card {
+        width: clamp(60px, 10vw, 80px);
+    }
 }

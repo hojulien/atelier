@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Glory:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Glory:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     @vite(['resources/css/style.css', 'resources/js/darkMode.js'])
     <title>@yield('title')</title>
 </head>
@@ -15,11 +15,13 @@
                     <h1>BeatmapSelector</h1>
                 </div>
                 <div class="center">
-                    <div class="div-style">
-                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/playlist_light.svg') }}" alt="Playlist Icon">
-                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/playlist_dark.svg') }}" alt="Playlist Icon Dark">
-                        <p>view playlists</p>
-                    </div>
+                    <a class="no-link" href="{{ route('playlists.index') }}">
+                        <div class="div-style">
+                                <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/playlist.svg') }}" alt="Playlist Icon">
+                                <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/playlist_dark.svg') }}" alt="Playlist Icon Dark">
+                                <p>view playlists</p>
+                        </div>
+                    </a>
             <!--    <div class="div-style">
                         <img width="32" height="32" class="iconLight" src="TBD" alt="Map Icon">
                         <img width="32" height="32" class="iconDark" src="TBD" alt="Map Icon Dark">
@@ -35,9 +37,9 @@
                     </div> -->
                 @php /* else: */ @endphp
                     <div class="div-style">
-                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/login_light.svg') }}" alt="Login Icon">
+                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/login.svg') }}" alt="Login Icon">
                         <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/login_dark.svg') }}" alt="Login Icon Dark">
-                        <a href="?action=login"><p>login</p></a>
+                        <a href="?action=login" class="no-link"><p>login</p></a>
                     </div>
                 @php /* endif; */ @endphp
                     <div id="darkMode">
