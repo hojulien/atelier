@@ -3,10 +3,10 @@
 @section('title', 'map list')
 
 @section('content')
-    <h1>hi</h1>
+    <h1>map list</h1>
 
     <!-- for accessibility purposes, to remove later -->
-    <a href="{{ route('maps.create') }}"><h2>add new map</h2></a>
+    <a href="{{ route('maps.create') }}"><h2>add new map</h2></a> <br>
     <label for="admin-actions">dev mode</label>
     <input type="checkbox" name="admin-actions" id="admin-actions">
 
