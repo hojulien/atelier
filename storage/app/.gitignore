@@ -1,4 +1,15 @@
-*
 !private/
 !public/
+
+# exclude images from initial seeder, ignore rest
+/public/images/maps_background/*
+!/public/images/maps_background/default.jpg
+!/public/images/maps_background/seed_*
+
+# users & others
+/public/images/avatars/*
+/public/images/banners/*
+/public/images/suggestions/*
+!/public/images/avatars/default.png
+!/public/images/banners/default.png
 !.gitignore
