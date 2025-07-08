@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
 
 class UserController extends Controller
 {
+    use AuthorizesRequests;
+
     /**
      * Display a listing of the resource.
      */
@@ -16,48 +20,6 @@ class UserController extends Controller
     {
         $users = User::all();
         return view('users.index', compact('users'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        // validates all inputs individually
-        $validated = $request->validate([
-            'username' => 'required|string',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:4',
-            'avatar' => 'nullable|image|dimensions:max_width=500,max_height=500|max:2048',
-            'banner' => 'nullable|image|dimensions:min_width=1200,min_height=500|max:8192'
-        ]);
-
-        // sets role manually
-        $validated['type'] = 'user';
-
-        $user = User::create($validated);
-
-        // evolution: factorize this code later (traits?)
-        if ($request->hasFile('avatar')) {
-            $file = $request->file('avatar');
-            $extension = $file->getClientOriginalExtension();
-            $filename = Str::uuid() . '.' . $extension;
-            $file->storeAs('images/avatars', $filename, 'public');
-            $user->avatar = $filename;
-            $user->save();
-        }
-
-        if ($request->hasFile('banner')) {
-            $file = $request->file('banner');
-            $extension = $file->getClientOriginalExtension();
-            $filename = Str::uuid() . '.' . $extension;
-            $file->storeAs('images/banners', $filename, 'public');
-            $user->banner = $filename;
-            $user->save();
-        }
-
-        // evolution: remove session message later
-        return redirect()->route('users.index')->with('success', 'account created successfully.');
     }
 
     /**
@@ -75,8 +37,11 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        // evolution: make only the own user and admin access to edit permissions
         $user = User::findOrFail($id);
+
+        // authorizes access to admins and users editing their own profile
+        // gives an error message if not
+        $this->authorize('update', $user);
         return view('users.edit', compact('user'));
     }
 
@@ -85,8 +50,8 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // evolution: redirect to user's own profile after changes
         $user = User::findOrFail($id);
+        $this->authorize('update', $user);
 
         // password is nullable so we can keep old one if null
         $validated = $request->validate([
@@ -126,7 +91,7 @@ class UserController extends Controller
         }
 
         $user->update($validated);
-        return redirect()->route('users.index')->with('success', 'account informations updated.');
+        return redirect()->route('users.show', $user->id)->with('success', 'account informations updated.');
     }
 
     /**
@@ -134,10 +99,10 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        // admin only
-        // evolution: make an user be able to delete their own account and redirect to login?
         $user = User::findOrFail($id);
+        $this->authorize('update', $user);
+        
         $user->delete();
-        return redirect()->route('users.index')->with('success', 'Account successfully deleted.');
+        return redirect()->route('users.index')->with('success', 'account successfully deleted.');
     }
 }

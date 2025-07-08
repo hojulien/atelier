@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Models\Playlist;
 use App\Models\User;
 
 class PlaylistController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
@@ -53,6 +55,7 @@ class PlaylistController extends Controller
     public function show(string $id)
     {
         $playlist = Playlist::findOrFail($id);
+        $this->authorize('update', $playlist);
         return view('playlists.show', compact('playlist'));
     }
 
@@ -63,6 +66,8 @@ class PlaylistController extends Controller
     {
         $users = User::all();
         $playlist = Playlist::findOrFail($id);
+        $this->authorize('update', $playlist);
+        
         return view('playlists.edit', compact('playlist','users'));
     }
 
@@ -72,6 +77,8 @@ class PlaylistController extends Controller
     public function update(Request $request, string $id)
     {
         $playlist = Playlist::findOrFail($id);
+        $this->authorize('update', $playlist);
+
         $validated = $request->validate([
             'name' => 'required|string|max:50',
             'description' => 'required|string',
@@ -88,6 +95,8 @@ class PlaylistController extends Controller
     public function destroy(string $id)
     {
         $playlist = Playlist::findOrFail($id);
+        $this->authorize('update', $playlist);
+
         $playlist->delete();
         return redirect()->route('playlists.index')->with('success', 'playlist deleted.');
     }
