@@ -10,6 +10,7 @@
 /public/images/avatars/*
 /public/images/banners/*
 /public/images/suggestions/*
+!/public/images/suggestions/.gitkeep
 !/public/images/avatars/default.png
 !/public/images/banners/default.png
 !.gitignore
