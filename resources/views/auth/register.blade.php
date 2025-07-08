@@ -5,7 +5,7 @@
 @section('content')
     <h1>register</h1>
     
-    <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- reuse same form in create/edit -->

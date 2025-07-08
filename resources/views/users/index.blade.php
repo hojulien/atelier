@@ -5,9 +5,6 @@
 @section('content')
     <h1>user list</h1>
 
-    <!-- for accessibility purposes, to remove later -->
-    <a href="{{ route('users.create') }}"><h2>create new user</h2></a>
-
     <table>
         <thead>
             <tr>

@@ -29,19 +29,22 @@
                     </div> -->
                 </div>
                 <div class="right">
-                @php /* if (isset($_SESSION['user'])): */ @endphp
-                    <!-- <div class="div-style">
-                        <img width="32" height="32" class="iconLight" src="images/icons/login_light.svg" alt="Login Icon">
-                        <img width="32" height="32" class="iconDark" src="images/icons/login_dark.svg" alt="Login Icon Dark">
-                        <a href="?action=logout"><p>logout</p></a>
-                    </div> -->
-                @php /* else: */ @endphp
+                @guest
                     <div class="div-style">
                         <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/login.svg') }}" alt="Login Icon">
                         <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/login_dark.svg') }}" alt="Login Icon Dark">
-                        <a href="?action=login" class="no-link"><p>login</p></a>
+                        <a href="{{ route('login') }}" class="no-link"><p>login</p></a>
                     </div>
-                @php /* endif; */ @endphp
+                @else
+                    <div class="div-style">
+                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/login.svg') }}" alt="Login Icon">
+                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/login_dark.svg') }}" alt="Login Icon Dark">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="no-button"><p>logout</p></a>
+                        </form>
+                    </div>
+                @endguest
                     <div id="darkMode">
                         <img id="dark" src="{{ asset('images/icons/dark_mode.svg') }}" alt="Dark mode">
                         <img id="light" src="{{ asset('images/icons/light_mode.svg') }}" alt="Light mode">
