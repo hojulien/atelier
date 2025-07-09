@@ -8,63 +8,26 @@ use Illuminate\Auth\Access\Response;
 
 class PlaylistPolicy
 {
-    /**
-     * Determine whether the user can view any models.
-     */
-    public function viewAny(User $user): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can view the model.
-     */
+    // to update with public/private playlist implementation
     public function view(User $user, Playlist $playlist): bool
     {
         return false;
     }
 
-    /**
-     * Determine whether the user can create models.
-     */
-    public function create(User $user): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can update the model.
-     */
+    // controls access to edit/update features
     public function update(User $user, Playlist $playlist): Response
     {
-        return ($user->id === $playlist->user->id) || ($user->type === 'admin')
+        return ($user->id === $playlist->user_id) || ($user->type === 'admin')
             ? Response::allow() 
             : Response::denyAsNotFound();
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
+    // controls access to delete feature
     public function delete(User $user, Playlist $playlist): Response
     {
-        return ($user->id === $playlist->user->id) || ($user->type === 'admin')
+        return ($user->id === $playlist->user_id) || ($user->type === 'admin')
             ? Response::allow() 
             : Response::denyAsNotFound();
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Playlist $playlist): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Playlist $playlist): bool
-    {
-        return false;
-    }
 }

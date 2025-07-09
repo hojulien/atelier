@@ -55,6 +55,11 @@ body.dark-mode {
     font-size: 14px;
 }
 
+.error-img {
+    height: 500px;
+    width: auto;
+}
+
 p {
     font-size: 20px;
 }

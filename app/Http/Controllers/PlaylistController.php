@@ -55,7 +55,6 @@ class PlaylistController extends Controller
     public function show(string $id)
     {
         $playlist = Playlist::findOrFail($id);
-        $this->authorize('update', $playlist);
         return view('playlists.show', compact('playlist'));
     }
 

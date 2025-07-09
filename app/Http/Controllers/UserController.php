@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -38,10 +37,9 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $user = User::findOrFail($id);
-
-        // authorizes access to admins and users editing their own profile
-        // gives an error message if not
+        // only authorizes access to admins and users editing their own profile
         $this->authorize('update', $user);
+
         return view('users.edit', compact('user'));
     }
 
@@ -67,14 +65,14 @@ class UserController extends Controller
             $validated['password'] = $user->password;
         }
 
-        // if new file, adds it and delete old one (if it exists)
+        // if new file, adds it and delete old one (if it exists and is NOT the default file)
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $extension = $file->getClientOriginalExtension();
             $filename = Str::uuid() . '.' . $extension;
             $file->storeAs('images/avatars', $filename, 'public');
             $validated['avatar'] = $filename;
-            if ($user->avatar) {
+            if ($user->avatar && $user->avatar !== 'default.png') {
                 Storage::disk('public')->delete('images/avatars/' . $user->avatar);
             }
         }
@@ -85,7 +83,7 @@ class UserController extends Controller
             $filename = Str::uuid() . '.' . $extension;
             $file->storeAs('images/banners', $filename, 'public');
             $validated['banner'] = $filename;
-            if ($user->banner) {
+            if ($user->banner && $user->avatar !== 'default.png') {
                 Storage::disk('public')->delete('images/banners/' . $user->banner);
             }
         }

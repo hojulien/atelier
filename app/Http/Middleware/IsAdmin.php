@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,9 +16,9 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // if user isn't logged in OR user isn't admin, filters back with a redirection
+        // throws error 403 (access denied) if NOT admin
         if (Auth::user()->type !== "admin") {
-            return redirect()->back()->with('error', 'access denied (admin only)');
+            abort(403);
         }
 
         // else, proceeds with next request ($next)

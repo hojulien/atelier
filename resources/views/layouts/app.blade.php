@@ -37,6 +37,9 @@
                     </div>
                 @else
                     <div class="div-style">
+                        <a class="no-link" href="{{ route('users.show', Auth::user()->id) }}"><p>hi, {{ Auth::user()->username }}</p></a>
+                    </div>
+                    <div class="div-style">
                         <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/login.svg') }}" alt="Login Icon">
                         <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/login_dark.svg') }}" alt="Login Icon Dark">
                         <form method="POST" action="{{ route('logout') }}">

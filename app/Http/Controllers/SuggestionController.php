@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Suggestion;
 use App\Models\User;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class SuggestionController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
@@ -71,6 +73,7 @@ class SuggestionController extends Controller
     public function show(string $id)
     {
         $suggestion = Suggestion::findOrFail($id);
+        $this->authorize('view', $suggestion);
         return view('suggestions.show', compact('suggestion'));
     }
 

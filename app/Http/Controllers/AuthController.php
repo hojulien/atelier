@@ -9,12 +9,12 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    // login view (get)
+    // login view (GET)
     public function login() {
         return view('auth.login');
     }
 
-    // login validation (post)
+    // login validation (POST)
     public function loginAction(Request $request) {
 
         $request->validate([
@@ -33,10 +33,10 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             // redirects to different pages depending on user type
-            if (auth()->user()->type === "admin") {
-                return redirect()->intended(route('users.index'));
+            if (Auth::user()->type === "admin") {
+                return redirect()->intended(route('users.index')); // evolution: update to dashboard page
             } else {
-                return redirect()->intended(route('maps.index'));
+                return redirect()->intended(route('maps.index')); // evolution: update to home page
             }
         }
 
@@ -59,7 +59,7 @@ class AuthController extends Controller
     public function registerAction(Request $request) {
         // validates all inputs individually
         $validated = $request->validate([
-            'username' => 'required|string',
+            'username' => 'required|unique|string',
             'email' => 'required|email',
             'password' => 'required|confirmed|min:4',
             'avatar' => 'nullable|image|dimensions:max_width=500,max_height=500|max:2048',
