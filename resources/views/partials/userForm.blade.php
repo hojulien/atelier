@@ -1,14 +1,18 @@
         <label for="username">username</label>
-        <input type="text" name="username" value="{{ old('username', $user->username ?? '') }}">
+        <input type="text" id="username" name="username" value="{{ old('username', $user->username ?? '') }}">
+        <div class="error" id="error_username"></div>
 
         <label for="email">email</label>
-        <input type="email" name="email" value="{{ old('email', $user->email ?? '') }}">
+        <input type="email" id="email" name="email" value="{{ old('email', $user->email ?? '') }}">
+        <div class="error" id="error_email"></div>
 
         <label for="password">password</label>
-        <input type="password" name="password">
+        <input type="password" id="password" name="password">
+        <div class="error" id="error_password"></div>
 
         <label for="password_confirmation">confirm password</label>
-        <input type="password" name="password_confirmation">
+        <input type="password" id="password_confirmation" name="password_confirmation">
+        <div class="error" id="error_password_confirmation"></div>
 
         <label for="avatar">avatar (max 500x500)</label>
         <input type="file" name="avatar">

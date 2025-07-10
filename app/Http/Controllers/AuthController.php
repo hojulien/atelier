@@ -41,7 +41,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'username' => 'invalid username or password.'
+            'username' => 'invalid username or password.',
         ])->onlyInput('username');
     }
 
@@ -57,13 +57,27 @@ class AuthController extends Controller
 
     // register validation (post)
     public function registerAction(Request $request) {
-        // validates all inputs individually
-        $validated = $request->validate([
-            'username' => 'required|unique|string',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:4',
+        // validates all inputs individually with rules (array 1) and custom error messages (array 2)
+        $validated = $request->validate(
+        [
+            'username' => 'required|string|min:4|unique:users,username',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}$/',
             'avatar' => 'nullable|image|dimensions:max_width=500,max_height=500|max:2048',
             'banner' => 'nullable|image|dimensions:min_width=1200,min_height=500|max:8192'
+        ],
+        [
+            'required' => ':attribute is required.',
+            'unique' => ':attribute is already used.',
+            'confirmed' => 'both passwords must match.',
+            'image' => 'file must be an image.',
+
+            'username.min' => 'username must be at least 4 characters.',
+            'password.regex' => 'password must be at least 8 characters and contain: 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.',
+            'avatar.dimensions' => 'avatar must not exceed 500x500.',
+            'avatar.max' => 'avatar must not be larger than 2mb.',
+            'banner.dimensions' => 'banner must be at least 1200x500.',
+            'banner.max' => 'avatar must not be larger than 8mb.'
         ]);
 
         // sets role manually

@@ -56,21 +56,33 @@
             </header>
 
     <main>
-        <!-- set global session in layouts instead of individual pages -->
-        @if (session('success'))
-            <div class="success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        @if (session('error'))
-            <div class="error">
-                {{ session('error') }}
-            </div>
-        @endif
-
-        <!-- main content -->
         <section>
+            <!-- set global session in layouts instead of individual pages -->
+            <!-- success/error messages -->
+            @if (session('success'))
+                <div class="success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="error">
+                    {{ session('error') }}
+                </div>
+            @endif
+
+            <!-- form validation errors -->
+            @if ($errors->any())
+                <div class="error">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ strtolower($error) }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <!-- main content -->
             @yield('content')
         </section>
 

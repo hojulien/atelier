@@ -9,15 +9,24 @@
         <div class="error">{{ $message }}</div>
     @enderror
 
-    <form action="{{ route('loginAction') }}" method="POST">
+    <form action="{{ route('loginAction') }}" method="POST" id="login">
         @csrf
         <label for="username">username</label>
         <input type="text" name="username" id="username" placeholder="username" value="{{ old('username') }}">
+        <div class="error" id="error_username"></div>
         
         <label for="password">password</label>
         <input type="password" name="password" id="password" placeholder="password">
-        <p style="text-align:center;">don't have an account?</p>
-        <a href="{{ route('register') }}"><p style="text-align:center;">create an account</p></a>
+        <div class="error" id="error_password"></div>
+
+        <p style="text-align:center;">
+            don't have an account? <br>
+            <a href="{{ route('register') }}">create an account</a>
+        </p>
         <button type="submit">login</button>
     </form>
+@endsection
+
+@section('scripts')
+    @vite('resources/js/forms/login.js')
 @endsection
