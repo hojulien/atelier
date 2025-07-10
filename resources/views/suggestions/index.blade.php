@@ -26,10 +26,10 @@
                 <td>
                     @if ($suggestion->type === "media")
                         <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/image.svg') }}" alt="image icon">
-                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/image_dark.svg') }}" alt="image icon dark mode">
+                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/image_dark.svg') }}" alt="image icon darkmode">
                     @else
                         <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/music.svg') }}" alt="music icon">
-                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/music_dark.svg') }}" alt="music icon dark mode">
+                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/music_dark.svg') }}" alt="music icon darkmode">
                     @endif
                 </td>
                 <td>{{ $suggestion->description }}</td>

@@ -6,9 +6,11 @@
     <h1>map list</h1>
 
     <!-- for accessibility purposes, to remove later -->
-    <a href="{{ route('maps.create') }}"><h2>add new map</h2></a> <br>
-    <label for="admin-actions">dev mode</label>
-    <input type="checkbox" name="admin-actions" id="admin-actions">
+    @if (Auth::user()->type === 'admin')
+        <a href="{{ route('maps.create') }}"><h2>add new map</h2></a> <br>
+        <label for="admin-actions">dev mode</label>
+        <input type="checkbox" name="admin-actions" id="admin-actions">
+    @endif
 
     <!-- TO DO: replace by artistunicode/titleunicode with a js script -->
     <div class="map-container">
@@ -47,7 +49,7 @@
                     </div>
                 </div>
                 <div class="map-actions">
-                    <div class="map-actions-card invisible view">
+                    <div class="map-actions-card view">
                         <a class="no-link" href="{{ route('maps.show', $map->id) }}"><span>view</span></a>
                     </div>
                     <div class="map-actions-card invisible edit">

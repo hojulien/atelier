@@ -52,12 +52,26 @@ class UserController extends Controller
         $this->authorize('update', $user);
 
         // password is nullable so we can keep old one if null
-        $validated = $request->validate([
-            'username' => 'required|string',
-            'email' => 'required|email',
-            'password' => 'nullable|confirmed|min:4',
+        $validated = $request->validate(
+        [
+            'username' => 'required|string|min:4|unique:users,username,' . $id, // passing user's id to ignore the "unique" constraint for the user itself
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'nullable|confirmed|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}$/',
             'avatar' => 'nullable|mimes:jpg,png|dimensions:max_width=500,max_height=500|max:2048',
             'banner' => 'nullable|mimes:jpg,png|dimensions:min_width=1200,min_height=500|max:8192'
+        ],
+        [
+            'required' => ':attribute is required.',
+            'unique' => ':attribute is already used.',
+            'confirmed' => 'both passwords must match.',
+            'mimes' => 'file must be an image.',
+
+            'username.min' => 'username must be at least 4 characters.',
+            'password.regex' => 'password must be at least 8 characters and contain: 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.',
+            'avatar.dimensions' => 'avatar must not exceed 500x500.',
+            'avatar.max' => 'avatar must not be larger than 2mb.',
+            'banner.dimensions' => 'banner must be at least 1200x500.',
+            'banner.max' => 'avatar must not be larger than 8mb.'
         ]);
         
         // if field is empty, keeps old hashed password

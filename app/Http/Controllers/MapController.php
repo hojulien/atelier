@@ -116,7 +116,7 @@ class MapController extends Controller
             'ar' => 'required|decimal:0,2|min:0',
             'od' => 'required|decimal:0,2|min:0',
             'setId' => 'required|numeric',
-            'mapId' => 'required|numeric|unique:maps,mapId,' . $id,
+            'mapId' => 'required|numeric|unique:maps,mapId,' . $id, // passing map's id to ignore the "unique" constraint for the map itself
             'submitDate' => 'required|date_format:Y-m-d\TH:i:s',
             'lastUpdated' => 'required|date_format:Y-m-d\TH:i:s',
             'tags' => 'nullable|json',

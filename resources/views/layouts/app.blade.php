@@ -17,8 +17,8 @@
                 <div class="center">
                     <a class="no-link" href="{{ route('playlists.index') }}">
                         <div class="div-style">
-                                <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/playlist.svg') }}" alt="Playlist Icon">
-                                <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/playlist_dark.svg') }}" alt="Playlist Icon Dark">
+                                <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/playlist.svg') }}" alt="playlist icon">
+                                <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/playlist_dark.svg') }}" alt="playlist icon darkmode">
                                 <p>view playlists</p>
                         </div>
                     </a>
@@ -31,17 +31,19 @@
                 <div class="right">
                 @guest
                     <div class="div-style">
-                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/login.svg') }}" alt="Login Icon">
-                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/login_dark.svg') }}" alt="Login Icon Dark">
+                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/login.svg') }}" alt="login icon">
+                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/login_dark.svg') }}" alt="login icon darkmode">
                         <a href="{{ route('login') }}" class="no-link"><p>login</p></a>
                     </div>
                 @else
                     <div class="div-style">
+                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/user.svg') }}" alt="user icon">
+                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/user_dark.svg') }}" alt="user icon darkmode">
                         <a class="no-link" href="{{ route('users.show', Auth::user()->id) }}"><p>hi, {{ Auth::user()->username }}</p></a>
                     </div>
                     <div class="div-style">
-                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/login.svg') }}" alt="Login Icon">
-                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/login_dark.svg') }}" alt="Login Icon Dark">
+                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/logout.svg') }}" alt="logout icon">
+                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/logout_dark.svg') }}" alt="logout icon darkmode">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="no-button"><p>logout</p></a>
@@ -49,8 +51,8 @@
                     </div>
                 @endguest
                     <div id="darkMode">
-                        <img id="dark" src="{{ asset('images/icons/dark_mode.svg') }}" alt="Dark mode">
-                        <img id="light" src="{{ asset('images/icons/light_mode.svg') }}" alt="Light mode">
+                        <img id="dark" src="{{ asset('images/icons/dark_mode.svg') }}" alt="dark mode">
+                        <img id="light" src="{{ asset('images/icons/light_mode.svg') }}" alt="light mode">
                     </div>
                 </div>
             </header>

@@ -20,7 +20,7 @@ form.addEventListener("submit", (e) => {
         document.getElementById("error_password").textContent = "please enter a password."
         isValid = setTo(isValid, false);
     } else {
-        resetText("error_username",isValid);
+        resetText("error_password",isValid);
     }
 
     if (isValid) {

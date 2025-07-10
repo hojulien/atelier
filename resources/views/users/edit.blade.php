@@ -5,7 +5,7 @@
 @section('content')
     <h1>edit profile</h1>
     
-    <form method="POST" action="{{ route('users.update', $user) }}" enctype="multipart/form-data">
+    <form id="userEditForm" method="POST" action="{{ route('users.update', $user) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -13,4 +13,8 @@
 
         <button type="submit" style="background-color:palegreen;">update account</button>
     </form>
+@endsection
+
+@section('scripts')
+    @vite('resources/js/forms/userEdit.js')
 @endsection

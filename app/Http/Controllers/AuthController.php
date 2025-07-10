@@ -19,7 +19,7 @@ class AuthController extends Controller
 
         $request->validate([
             'username' => 'required|string',
-            'password' => 'required|min:4'
+            'password' => 'required'
         ]);
 
         // check if credentials match
@@ -45,9 +45,11 @@ class AuthController extends Controller
         ])->onlyInput('username');
     }
 
-    public function logout() {
+    // logs out the user, then removes all data in the session and regenerates token instantly
+    public function logout(Request $request) {
         Auth::logout();
-        // détruire la session après la déconnexion (voir documentation)
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return to_route('login');
     }
 
@@ -64,14 +66,14 @@ class AuthController extends Controller
             'username' => 'required|string|min:4|unique:users,username',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}$/',
-            'avatar' => 'nullable|image|dimensions:max_width=500,max_height=500|max:2048',
-            'banner' => 'nullable|image|dimensions:min_width=1200,min_height=500|max:8192'
+            'avatar' => 'nullable|mimes:jpg,png|dimensions:max_width=500,max_height=500|max:2048',
+            'banner' => 'nullable|mimes:jpg,png|dimensions:min_width=1200,min_height=500|max:8192'
         ],
         [
             'required' => ':attribute is required.',
             'unique' => ':attribute is already used.',
             'confirmed' => 'both passwords must match.',
-            'image' => 'file must be an image.',
+            'mimes' => 'file must be an image.',
 
             'username.min' => 'username must be at least 4 characters.',
             'password.regex' => 'password must be at least 8 characters and contain: 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.',

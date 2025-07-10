@@ -5,10 +5,6 @@
 @section('content')
     <h1>login</h1>
 
-    @error('username')
-        <div class="error">{{ $message }}</div>
-    @enderror
-
     <form action="{{ route('loginAction') }}" method="POST" id="login">
         @csrf
         <label for="username">username</label>
