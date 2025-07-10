@@ -5,7 +5,7 @@
 @section('content')
     <h1>send a suggestion</h1>
     
-    <form method="POST" action="{{ route('suggestions.store') }}" enctype="multipart/form-data">
+    <form id="suggestionForm" method="POST" action="{{ route('suggestions.store') }}" enctype="multipart/form-data">
         @csrf
 
         @include('partials.suggestionForm', ['suggestion' => null])
@@ -15,6 +15,6 @@
 @endsection
 
 @section('scripts')
-    <!-- shows different fields based off type selection -->
-    @vite('resources/js/suggestionType.js')
+    <!-- suggestionType.js shows different fields based off type selection -->
+    @vite(['resources/js/suggestionType.js', 'resources/js/forms/suggestion.js'])
 @endsection

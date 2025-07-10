@@ -56,8 +56,8 @@ class UserController extends Controller
             'username' => 'required|string',
             'email' => 'required|email',
             'password' => 'nullable|confirmed|min:4',
-            'avatar' => 'nullable|image|dimensions:max_width=500,max_height=500|max:2048',
-            'banner' => 'nullable|image|dimensions:min_width=1200,min_height=500|max:8192'
+            'avatar' => 'nullable|mimes:jpg,png|dimensions:max_width=500,max_height=500|max:2048',
+            'banner' => 'nullable|mimes:jpg,png|dimensions:min_width=1200,min_height=500|max:8192'
         ]);
         
         // if field is empty, keeps old hashed password

@@ -8,10 +8,37 @@ use Illuminate\Http\Request;
 use App\Models\Suggestion;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Auth;
 
 class SuggestionController extends Controller
 {
     use AuthorizesRequests;
+
+    // set rules and messages - protected means it can ONLY be accessed by its own class
+    protected function rules() {
+        $rules = [
+            'type' => 'required|string',
+            'description' => 'required|string',
+            'media_file' => 'required_if:type,media|mimes:jpg,png|max:8192',
+            'media_url' => 'required_if:type,music|url',
+        ];
+
+        return $rules;
+    }
+
+    protected function messages() {
+        $messages = [
+            'required' => ':attribute is required.',
+            'media_file.required_if' => 'an image should be provided for the media suggestion.',
+            'media_file.image' => 'media should be an image file.',
+            'media_file.max' => 'image must not be larger than 8mb.',
+            'media_url.required_if' => 'a link should be provided for the music suggestion.',
+            'media_url.url' => 'media should be a valid URL.'
+        ];
+
+        return $messages;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +53,7 @@ class SuggestionController extends Controller
      */
     public function create()
     {
-        // evolution: remove after adding middleware
-        $users = User::all();
-        return view('suggestions.create', compact('users'));
+        return view('suggestions.create');
     }
 
     /**
@@ -37,13 +62,9 @@ class SuggestionController extends Controller
     public function store(Request $request)
     {
         // validates all inputs individually
-        $validated = $request->validate([
-            'type' => 'required|string',
-            'description' => 'required|string',
-            'media_file' => 'required_if:type,media|file',
-            'media_url' => 'required_if:type,music|url',
-            'user_id' => 'required'
-        ]);
+        $validated = $request->validate($this->rules(), $this->messages());
+
+        $validated['user_id'] = Auth::user()->id;
 
         // we need to transfer "media_file" or "media_url" over to "media"
         // so $suggestion cannot be created yet until $validated is finalized.
@@ -54,9 +75,7 @@ class SuggestionController extends Controller
             $file->storeAs('images/suggestions', $filename, 'public');
             $validated['media'] = $filename;
             unset($validated['media_file']);
-        }
-
-        if ($request->hasFile('media_url')) {
+        } else {
             $validated['media'] = $validated['media_url'];
             unset($validated['media_url']);
         }
@@ -92,17 +111,10 @@ class SuggestionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // evolution: remove this feature (realistically not needed)
-        // just there to test the CRUD
+        // not needed, but left there for the admin to update if he needs to
         $suggestion = Suggestion::findOrFail($id);
 
-        $validated = $request->validate([
-            'type' => 'required|string',
-            'description' => 'required|string',
-            'media_file' => 'required_if:type,media|file',
-            'media_url' => 'required_if:type,music|url',
-            'user_id' => 'required'
-        ]);
+        $validated = $request->validate($this->rules(), $this->messages());
 
         if ($request->hasFile('media_file')) {
             $file = $request->file('media_file');
@@ -128,9 +140,9 @@ class SuggestionController extends Controller
      */
     public function destroy(string $id)
     {
-        // evolution: pass ID number in the session message
         $suggestion = Suggestion::findOrFail($id);
+        $suggestionId = $suggestion->id;
         $suggestion->delete();
-        return redirect()->route('suggestions.index')->with('success', 'Suggestion deleted.');
+        return redirect()->route('suggestions.index')->with('success', "suggestion n°{$suggestionId} deleted.");
     }
 }

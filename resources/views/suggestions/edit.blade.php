@@ -5,7 +5,7 @@
 @section('content')
     <h1>update suggestion</h1>
     
-    <form method="POST" action="{{ route('suggestions.update', $suggestion) }}" enctype="multipart/form-data">
+    <form id="suggestionForm" method="POST" action="{{ route('suggestions.update', $suggestion) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -17,5 +17,5 @@
 
 @section('scripts')
     <!-- shows different fields based off type selection -->
-    @vite('resources/js/suggestionType.js')
+    @vite(['resources/js/suggestionType.js', 'resources/js/forms/suggestion.js'])
 @endsection

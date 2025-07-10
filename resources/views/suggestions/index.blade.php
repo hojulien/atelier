@@ -23,7 +23,15 @@
             @foreach ($suggestions as $suggestion)
             <tr>
                 <td>{{ $suggestion->id }}</td>
-                <td>{{ $suggestion->type }}</td>
+                <td>
+                    @if ($suggestion->type === "media")
+                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/image.svg') }}" alt="image icon">
+                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/image_dark.svg') }}" alt="image icon dark mode">
+                    @else
+                        <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/music.svg') }}" alt="music icon">
+                        <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/music_dark.svg') }}" alt="music icon dark mode">
+                    @endif
+                </td>
                 <td>{{ $suggestion->description }}</td>
                 @if ($suggestion->type === "media")
                     <td><img src="{{ asset('storage/images/suggestions/' . $suggestion->media) }}" alt="suggestion media" height="128" loading="lazy"></td>

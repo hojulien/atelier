@@ -47,6 +47,7 @@ class AuthController extends Controller
 
     public function logout() {
         Auth::logout();
+        // détruire la session après la déconnexion (voir documentation)
         return to_route('login');
     }
 

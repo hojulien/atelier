@@ -120,7 +120,7 @@ class MapController extends Controller
             'submitDate' => 'required|date_format:Y-m-d\TH:i:s',
             'lastUpdated' => 'required|date_format:Y-m-d\TH:i:s',
             'tags' => 'nullable|json',
-            'background' => 'nullable|image|max:4096'
+            'background' => 'nullable|mimes:jpg,png|max:4096'
         ]);
 
         $validated['submitDate'] = str_replace('T', ' ', $validated['submitDate']);
