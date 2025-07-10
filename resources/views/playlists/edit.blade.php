@@ -6,7 +6,7 @@
     <!-- evolution: separate forms in a partial -->
     <h1>edit playlist</h1>
     
-    <form method="POST" action="{{ route('playlists.update', $playlist) }}">
+    <form id="playlistForm" method="POST" action="{{ route('playlists.update', $playlist) }}">
         @csrf
         @method('PUT')
         
@@ -14,4 +14,8 @@
 
         <button type="submit" style="background-color:palegreen;">update playlist</button>
     </form>
+@endsection
+
+@section('scripts')
+    @vite('resources/js/forms/playlist.js')
 @endsection

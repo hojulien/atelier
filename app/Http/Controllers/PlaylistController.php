@@ -4,18 +4,47 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Playlist;
 use App\Models\User;
 
 class PlaylistController extends Controller
 {
     use AuthorizesRequests;
+
+    // set rules and messages - protected means it can ONLY be accessed by its own class
+    protected function rules() {
+        $rules = [
+            'name' => 'required|string|min:5|max:50',
+            'description' => 'nullable|string',
+            'visibility' => 'required'
+        ];
+
+        return $rules;
+    }
+
+    protected function messages() {
+        $messages = [
+            'name.required' => 'playlist name is required.',
+            'name.min' => 'playlist name must be at least 5 characters.',
+            'name.max' => 'playlist name must be under 50 characters.',
+        ];
+
+        return $messages;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $playlists = Playlist::all();
+        // returns all playlists for admins, else returns only public playlists
+        if (Auth::check() && Auth::user()->type === 'admin') {
+            $playlists = Playlist::all();
+        } else {
+            $playlists = Playlist::where('visibility', 'public')->get();
+        }
+        
         return view('playlists.index', compact('playlists'));
     }
 
@@ -34,18 +63,16 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
-        // evolution: redirect towards adding maps list (passing id of the newly create playlist)
-        $validated = $request->validate([
-            'name' => 'required|string|max:50',
-            'description' => 'required|string',
-            'user_id' => 'required'
-        ]);
+        $validated = $request->validate($this->rules(), $this->messages());
 
-        // evolution: set type in create form depending on user type (after logged in)
+        // manual entry
+        $validated['user_id'] = Auth::user()->id;
+        $validated['type'] = Auth::user()->type;
         $validated['number_levels'] = 0;
-        $validated['type'] = 'user';
 
         Playlist::create($validated);
+
+        // evolution: redirect towards adding maps list (passing id of the newly create playlist)
         return redirect()->route('playlists.index')->with('success', 'your playlist has been submitted.');
     }
 
@@ -78,11 +105,7 @@ class PlaylistController extends Controller
         $playlist = Playlist::findOrFail($id);
         $this->authorize('update', $playlist);
 
-        $validated = $request->validate([
-            'name' => 'required|string|max:50',
-            'description' => 'required|string',
-            'user_id' => 'required'
-        ]);
+        $validated = $request->validate($this->rules(), $this->messages());
 
         $playlist->update($validated);
         return redirect()->route('playlists.index')->with('success', 'playlist updated.');

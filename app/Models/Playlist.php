@@ -11,6 +11,7 @@ class Playlist extends Model
         'number_levels',
         'description',
         'type',
+        'visibility',
         'user_id'
     ];
 

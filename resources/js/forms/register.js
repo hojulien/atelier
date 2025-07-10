@@ -11,7 +11,6 @@ form.addEventListener("submit", (e) => {
     let email = document.getElementById("email");
     let emailErr = document.getElementById("error_email");
     
-
     let emailPattern = /^[^@]+@[^@.]+\.[^@]+$/;
     // at least 1 lowercase, 1 uppercase, 1 special character, 1 number, 8 characters+
     let pwPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}$/;
