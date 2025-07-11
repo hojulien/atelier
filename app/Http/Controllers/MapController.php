@@ -14,7 +14,7 @@ class MapController extends Controller
      */
     public function index()
     {
-        $maps = Map::all();
+        $maps = Map::withCount('likedByUsers')->get();
         return view('maps.index', compact('maps'));
     }
 

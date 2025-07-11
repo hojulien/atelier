@@ -25,6 +25,6 @@ class Playlist extends Model
     // many-to-many relationship with Map model
     // a map may compose 0 to N playlists - a playlist may be composed of 0 to N maps
     public function maps() {
-        return $this->belongsToMany(Map::class, 'map_playlist', 'playlist_id', 'map_id');
+        return $this->belongsToMany(Map::class, 'map_playlist', 'playlist_id', 'map_id')->withPivot('created_at');
     }
 }

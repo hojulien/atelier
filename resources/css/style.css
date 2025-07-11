@@ -17,12 +17,13 @@ body {
     --section-dark: #d1d3b5;
     --section-darker: #a0a189;
     --button: #8aa7b6;
-    --cs: #ece4d1;
-    --hp: #cbbdc9;
-    --ar: #e7ca97;
-    --od: #ecdbc7;
-    --sr: #edf4e4;
-    --length: #ced5b0;
+    --cs: #D6D4CF;
+    --hp: #F2E9D0;
+    --ar: #F0DACE;
+    --od: #D3D3E6;
+    --sr: #FBE9F4;
+    --length: #F2F2ED;
+    --favorite: #D5F0DB;
     --map-card: rgb(255 255 255 / 0.5);
     --view: #add8e6;
     --edit: #90ee90;
@@ -37,12 +38,13 @@ body.dark-mode {
     --section-dark: #28281e;
     --section-darker: #1e1e14;
     --button: #2a3639;
-    --cs: #4b3f2f;
-    --hp: #3b3440;
-    --ar: #5b482a;
-    --od: #4f3d2e;
-    --sr: #2e382e;
-    --length: #3d442d;
+    --cs: #2B2A28;
+    --hp: #3C3626;
+    --ar: #4A352E;
+    --od: #2F2F3E;
+    --sr: #422E3D;
+    --length: #2E2E2B;
+    --favorite: #1F3227;
     --map-card: rgb(0 0 0 / 0.5);
     --view: #2a5d89;
     --edit:	#2f7a4d;
@@ -85,6 +87,39 @@ p {
     border: none;
     background-color: inherit;
     font-size: inherit;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-x-center {
+    justify-content: center;
+}
+
+.flex-y-center {
+    align-items: center;
+}
+
+.flex-f-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+.g-5 {
+    gap: 5px;
+}
+
+.g-20 {
+    gap: 20px;
 }
 
 /* HEADER */
@@ -193,9 +228,6 @@ form {
 /* MAP LIST */
 
 .map-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     min-width: 300px;
     max-width: 1200px;
     gap: 30px;
@@ -203,15 +235,7 @@ form {
     margin: 0 auto;
 }
 
-a.map-card-link {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
 .map-card {
-    display: flex;
-    padding: 20px;
     margin: 0 auto;
     gap: 20px;
     border-radius: 30px;
@@ -223,10 +247,7 @@ a.map-card-link {
 }
 
 .map-data {
-    display: flex;
-    flex-direction: column;
     background-color: var(--map-card);
-    padding: 20px;
     border-radius: 20px;
     height: 100%;
     width: 60%;
@@ -241,13 +262,11 @@ a.map-card-link {
 
 .map-data span {
     font-family: "Cabin";
-    font-size: clamp(1rem, 3vw, 1.4rem);
+    font-size: 1.4rem;
     text-align: left;
 }
 
 .map-right-container {
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
     gap: 20px;
 }
@@ -258,40 +277,34 @@ a.map-card-link {
 }
 
 .map-settings {
-    display: flex;
     justify-content: space-between;
-    height: 50%;
+    height: 60%;
     gap: 20px;
 }
 
 .map-settings-card {
-    display: flex;
-    flex-direction: column;
     padding: 10px;
     border-radius: 10px;
-    height: 80px;
+    height: 100%;
 }
 
 .small-card {
     width: 40px;
 }
 
+.medium-card {
+    width: 60px;
+}
+
 .large-card {
-    width: 100px;
+    width: 80px;
 }
 
 .map-actions {
-    display: flex;
-    flex-direction: row;
     justify-content: space-around;
-    gap: 20px;
 }
 
 .map-actions-card {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 40px;
     padding: 10px;
@@ -313,8 +326,6 @@ a.map-card-link {
 .link-osu {
     background-color: var(--link-osu);
 }
-
-/* refactorize to root for future dark mode coloring */
 
 #cs {
     background-color: var(--cs);
@@ -340,6 +351,19 @@ a.map-card-link {
     background-color: var(--length);
 }
 
+#favorite {
+    background-color: var(--favorite);
+}
+
+#heart-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.favorite {
+    width: 100px;
+}
+
 /* VIEW */
 
 .key {
@@ -353,6 +377,11 @@ a.map-card-link {
 /* MEDIA QUERIES */
 
 @media (max-width: 1100px) {
+    .map-settings {
+        width: 100%;
+        height: 100%;
+    }
+    
     .map-card {
         flex-direction: column;
         height: 250px;
@@ -367,22 +396,27 @@ a.map-card-link {
         justify-content: space-between;
     }
 
-    .large-card {
-        width: 80px;
-    }
-
     .map-actions {
+        justify-content: flex-end;
         width: 100%;
     }
 
     .map-actions-card {
+        width: auto;
         height: 100%;
+    }
+
+    .favorite {
+        width: auto;
+    }
+
+    .action {
+        display: none;
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .map-card {
-        flex-direction: column;
         height: 300px;
     }
 
@@ -390,11 +424,58 @@ a.map-card-link {
         flex-direction: column;
     }
 
-    .small-card {
-        width: clamp(25px, 5vw, 40px);
+    /* #cs, #hp, #ar, #od, #favorite {
+        width: 60px;
     }
 
-    .large-card {
-        width: clamp(60px, 10vw, 80px);
+    #sr {
+        width: 100px;
+    }
+
+    #length {
+        width: 120px;
+    } */
+
+    #cs, #hp, #ar, #od, #sr, #length, #favorite {
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .map-settings-card {
+        width: 100%;
+    }
+
+    .map-actions {
+        justify-content: space-between;
+    }
+
+    .map-actions-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .map-card {
+        height: auto;
+    }
+
+    .map-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #cs, #hp, #ar, #od, #sr, #length, #favorite, .map-actions-card {
+        width: calc(50% - 10px);
+    }
+
+    .map-settings, .map-actions {
+        flex-wrap: wrap;
+    }
+
+    #heart-icon {
+        width: 20px;
+        height: 20px;
     }
 }

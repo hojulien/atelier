@@ -64,6 +64,6 @@ class User extends Authenticatable
     // an user may like 0 to N maps - a map may be liked by 0 to N users
     // belongsToMany(Model, IntermediateTableName, ForeignKeyNameCurrent, ForeignKeyNameOther)
     public function likedMaps() {
-        return $this->belongsToMany(Map::class, 'map_user_likes', 'user_id', 'map_id');
+        return $this->belongsToMany(Map::class, 'map_user_likes', 'user_id', 'map_id')->withPivot('created_at');
     }
 }

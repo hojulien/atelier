@@ -45,6 +45,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/suggestions/show/{id}', [SuggestionController::class, 'show'])->name('suggestions.show');
     Route::get('/suggestions/create', [SuggestionController::class, 'create'])->name('suggestions.create');
     Route::post('/suggestions/store', [SuggestionController::class, 'store'])->name('suggestions.store');
+
+    Route::post('/maps/{id}/like', [UserController::class, 'like'])->name('maps.like');
+    Route::delete('/maps/{id}/like', [UserController::class, 'unlike'])->name('maps.unlike');
 });
 
 // ADMINS ONLY - redirects to 403 (or login) if trying to access

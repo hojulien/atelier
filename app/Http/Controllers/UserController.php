@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Map;
+use IlluminateSupportCarbon;
 
 class UserController extends Controller
 {
@@ -27,7 +30,12 @@ class UserController extends Controller
     public function show(string $id)
     {
         // evolution: change to "view profile"
-        $user = User::findOrFail($id);
+        // retrieves the user, and for the maps he liked, retrieve the total like count
+        $user = User::with([
+            'likedMaps' => function ($query) {
+                $query->withCount('likedByUsers');
+            }
+        ])->findOrFail($id);
         return view('users.show', compact('user'));
     }
 
@@ -116,5 +124,23 @@ class UserController extends Controller
         
         $user->delete();
         return redirect()->route('users.index')->with('success', 'account successfully deleted.');
+    }
+
+    public function like (string $mapId)
+    {
+        Map::findOrFail($mapId);
+        $user = Auth::user();
+
+        $user->likedMaps()->attach($mapId);
+        return redirect()->back();
+    }
+
+    public function unlike (string $mapId)
+    {
+        Map::findOrFail($mapId);
+        $user = Auth::user();
+
+        $user->likedMaps()->detach($mapId);
+        return redirect()->back();
     }
 }
