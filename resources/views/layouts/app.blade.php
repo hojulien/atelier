@@ -39,7 +39,7 @@
                     <div class="div-style">
                         <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/user.svg') }}" alt="user icon">
                         <img width="32" height="32" class="iconDark" src="{{ asset('images/icons/user_dark.svg') }}" alt="user icon darkmode">
-                        <a class="no-link" href="{{ route('users.show', Auth::user()->id) }}"><p>hi, {{ Auth::user()->username }}</p></a>
+                        <a class="no-link" href="{{ route('users.profile', Auth::user()->id) }}"><p>hi, {{ Auth::user()->username }}</p></a>
                     </div>
                     <div class="div-style">
                         <img width="32" height="32" class="iconLight" src="{{ asset('images/icons/logout.svg') }}" alt="logout icon">

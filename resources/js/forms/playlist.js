@@ -8,6 +8,7 @@ form.addEventListener("submit", (e) => {
     let nameErr = document.getElementById("error_playlist_name");
     let isValid = true;
 
+    // NAME
     if (name.value.length == 0) {
         nameErr.textContent = "playlist must have a name.";
         isValid = setTo(isValid, false);

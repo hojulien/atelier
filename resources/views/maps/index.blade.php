@@ -7,7 +7,7 @@
 
     <!-- for accessibility purposes, to remove later -->
     @if (Auth::check() && Auth::user()->type === 'admin')
-        <a href="{{ route('maps.create') }}"><h2>add new map</h2></a> <br>
+        <a href="{{ route('maps.add') }}"><h2>add new map</h2></a> <br>
         <label for="admin-actions">dev mode</label>
         <input type="checkbox" name="admin-actions" id="admin-actions">
     @endif

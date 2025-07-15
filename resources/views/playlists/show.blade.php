@@ -19,7 +19,7 @@
             @endif
         </div>
         <div>
-            <div class="key">created by <a href="{{ route('users.show', $playlist->user->id) }}"><span>{{ $playlist->user->username }}</span></a></div>
+            <div class="key">created by <a href="{{ route('users.profile', $playlist->user->id) }}"><span>{{ $playlist->user->username }}</span></a></div>
         </div>
 
         <!-- list of maps from the playlist - if empty, displays specific text -->

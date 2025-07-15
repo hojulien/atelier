@@ -20,12 +20,12 @@
             @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
-                <td><a href="{{ route('users.show', $user->id) }}">{{ $user->username }}</a></td>
+                <td><a href="{{ route('users.profile', $user->id) }}">{{ $user->username }}</a></td>
                 <td><img src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="avatar" height="128" loading="lazy"></td>
                 <td><img src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="banner" height="128" loading="lazy"></td>
                 <td>{{ $user->type }}</td>
                 <td>
-                    <a href="{{ route('users.show', $user->id) }}">view</a>
+                    <a href="{{ route('users.profile', $user->id) }}">view</a>
                 </td>
                 <td>
                     <a href="{{ route('users.edit', $user->id) }}">edit</a>

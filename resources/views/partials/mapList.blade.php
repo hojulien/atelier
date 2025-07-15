@@ -1,12 +1,19 @@
 <div class="map-container flex flex-col flex-y-center p-20 g-30">
     @foreach($maps as $map)
         <div class="map-card flex p-20"
-            style="background-image: linear-gradient(to right,rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url('{{ asset('storage/images/maps_background/' . $map->background) }}');">
+            style="background-image: linear-gradient(to right,rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url('{{ asset('storage/images/maps_background/' . $map->background) }}'); cursor: pointer;"
+            onclick="window.location='{{ route('maps.details', $map->id) }}'">
+
+            <!-- map-data - contains artist name and song title -->
             <div class="map-data flex flex-col p-20">
                 <span>{{ $map->artist }}</span>
                 <span>{{ $map->title }}</span>
             </div>
+
+            <!-- map-right-container - contains settings and action buttons -->
             <div class="map-right-container g-20 flex flex-col">
+
+                <!-- map-settings - all informations regarding the map -->
                 <div class="map-settings flex">
                     <div class="map-settings-card flex flex-col flex-f-center p-10 small-card" id="cs">
                         <span>CS</span>
@@ -38,9 +45,13 @@
                         <span>{{ $map->liked_by_users_count }}</span>
                     </div>
                 </div>
+
+                <!-- map-actions - actions to perform for each map (favorite/link) -->
                 <div class="map-actions flex g-20">
+
+                    <!-- only show edit/delete button if dev mode is enabled (only visible from the admin) -->
                     @if ($devMode)
-                    <a class="map-actions-card flex flex-f-center p-10 g-5 invisible edit no-link" href="{{ route('maps.edit', $map->id) }}">
+                    <a class="map-actions-card flex flex-f-center p-10 g-5 invisible edit no-link" href="{{ route('maps.edit', $map->id) }}" onclick="event.stopPropagation();>
                         <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
                         <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
                         <span class="action">edit</span>
@@ -55,11 +66,8 @@
                         </button>
                     </form>
                     @endif
-                    <a class="map-actions-card flex flex-f-center p-10 g-5 view no-link" href="{{ route('maps.show', $map->id) }}">
-                        <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/view.svg') }}" alt="view icon">
-                        <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/view_dark.svg') }}" alt="view icon dark mode">
-                        <span class="action">view</span>
-                    </a>
+
+                    <!-- checks if user is logged in and has favorited the map -->
                     <div class="map-actions-card flex flex-f-center p-10 g-5 link-osu">
                         @if(Auth::check() && Auth::user()->likedMaps()->find($map->id))
                             <form class="flex flex-y-center g-5 no-link" action="{{ route('maps.unlike', $map->id, Auth::user()->id) }}" method="POST">
@@ -82,7 +90,9 @@
                             </form>
                         @endif
                     </div>
-                    <a class="map-actions-card flex flex-f-center p-10 g-5 link-osu no-link" href="{{ "https://osu.ppy.sh/beatmapsets/" . $map->setId . "#osu/" . $map->mapId }}" target="_blank">
+
+                    <!-- constructs an osu url to redirect to the map's official page -->
+                    <a class="map-actions-card flex flex-f-center p-10 g-5 link-osu no-link" href="{{ "https://osu.ppy.sh/beatmapsets/" . $map->setId . "#osu/" . $map->mapId }}" target="_blank" onclick="event.stopPropagation();">
                         <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/osu_logo.svg') }}" alt="osu! logo">
                         <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/osu_logo_dark.svg') }}" alt="osu! logo dark mode">
                         <span>link</span>

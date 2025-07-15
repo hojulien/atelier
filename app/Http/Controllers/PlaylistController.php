@@ -34,9 +34,6 @@ class PlaylistController extends Controller
         return $messages;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         // returns all playlists for admins, else returns only public playlists
@@ -49,21 +46,14 @@ class PlaylistController extends Controller
         return view('playlists.index', compact('playlists'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        // evolution: remove after adding middleware
-        $users = User::all();
-        return view('playlists.create', compact('users'));
+        return view('playlists.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
+        // validates with set of rules/messages from above
         $validated = $request->validate($this->rules(), $this->messages());
 
         // manual entry
@@ -72,22 +62,23 @@ class PlaylistController extends Controller
         $validated['number_levels'] = 0;
         $playlist = Playlist::create($validated);
 
-        // evolution: redirect towards adding maps list (passing id of the newly create playlist)
         return redirect()->route('playlists.show', $playlist->id)->with('success', 'your playlist has been created.');
     }
 
+    // add maps to playlist (get)
     public function addMaps(string $id)
     {
         $playlist = Playlist::findOrFail($id);
-        $this->authorize('update', $playlist);
+        $this->authorize('update', $playlist); // limit permissions to playlist owner and admins only
         $maps = Map::withCount('likedByUsers')->get();
 
-        // pluck() retrieves all the maps id linked to the playlist
+        // pluck() retrieves all the maps id linked to the playlist, for listing
         $existingMaps = $playlist->maps->pluck('id')->all();
 
         return view('playlists.addMaps', compact('playlist', 'maps', 'existingMaps'));
     }
 
+    // add maps to playlist (post)
     public function updateMaps(Request $request, string $id)
     {
         $playlist = Playlist::findOrFail($id);
@@ -106,7 +97,7 @@ class PlaylistController extends Controller
 
     public function show(string $id)
     {
-        // retrieves the user, and for the maps he liked, retrieve the total like count
+        // retrieves the playlist, and for the maps it contains, retrieve the total like count
         $playlist = Playlist::with(['maps' => function ($query) {
             $query->withCount('likedByUsers');
         }])->findOrFail($id);
@@ -114,9 +105,6 @@ class PlaylistController extends Controller
         return view('playlists.show', compact('playlist'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $users = User::all();
@@ -126,9 +114,6 @@ class PlaylistController extends Controller
         return view('playlists.edit', compact('playlist','users'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $playlist = Playlist::findOrFail($id);
@@ -140,9 +125,6 @@ class PlaylistController extends Controller
         return redirect()->route('playlists.index')->with('success', 'playlist updated.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $playlist = Playlist::findOrFail($id);

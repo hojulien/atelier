@@ -3,7 +3,6 @@
 @section('title', 'edit playlist')
 
 @section('content')
-    <!-- evolution: separate forms in a partial -->
     <h1>edit playlist</h1>
     
     <form class="form" id="playlistForm" method="POST" action="{{ route('playlists.update', $playlist) }}">

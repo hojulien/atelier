@@ -39,26 +39,17 @@ class SuggestionController extends Controller
         return $messages;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $suggestions = Suggestion::all();
         return view('suggestions.index', compact('suggestions'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('suggestions.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         // validates all inputs individually
@@ -68,6 +59,7 @@ class SuggestionController extends Controller
 
         // we need to transfer "media_file" or "media_url" over to "media"
         // so $suggestion cannot be created yet until $validated is finalized.
+        // unset removes the values before pushing the final create command.
         if ($request->hasFile('media_file')) {
             $file = $request->file('media_file');
             $extension = $file->getClientOriginalExtension();
@@ -86,9 +78,6 @@ class SuggestionController extends Controller
         return redirect()->route('suggestions.index')->with('success', 'your suggestion has been submitted.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $suggestion = Suggestion::findOrFail($id);
@@ -96,9 +85,6 @@ class SuggestionController extends Controller
         return view('suggestions.show', compact('suggestion'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $users = User::all();
@@ -106,9 +92,6 @@ class SuggestionController extends Controller
         return view('suggestions.edit', compact('suggestion','users'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         // not needed, but left there for the admin to update if he needs to
@@ -135,9 +118,6 @@ class SuggestionController extends Controller
         return redirect()->route('suggestions.index')->with('success', 'suggestion updated.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $suggestion = Suggestion::findOrFail($id);

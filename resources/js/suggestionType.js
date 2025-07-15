@@ -18,6 +18,7 @@ function toggleMediaField() {
         media.disabled = true;
 
         // clones media, replace it and updates DOM pointer
+
         const newMedia = media.cloneNode(true);
         media.parentNode.replaceChild(newMedia, media);
         media = newMedia;

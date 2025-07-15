@@ -4,7 +4,7 @@ let lightIcons = document.querySelectorAll(".iconLight");
 let darkIcons = document.querySelectorAll(".iconDark");
 let body = document.querySelector("body");
 
-// affiche une icône et "cache" l'autre
+// displays an icon and "hides" the other
 
 function displayDarkIcon(){
     lightMode.style.display = "none";
@@ -20,8 +20,8 @@ function displayLightIcon(){
     lightIcons.forEach(icon => icon.style.display = "none");
 }
 
-// applique les changements du site selon la valeur de localStorage, puis affiche le site
-// cela permet d'être sûr que les changements de style soient effectifs avant d'afficher le contenu du site
+// applies changes depending on localStorage value, then display website
+// ensures style changes are effective BEFORE attempting to display the page content
 
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("theme") === "dark") {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// passage au mode sombre/clair
+// toggling dark/light mode
 
 darkMode.addEventListener("click", () => {
     body.classList.add("dark-mode");

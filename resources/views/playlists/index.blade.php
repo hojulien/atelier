@@ -34,7 +34,7 @@
                         {{ sprintf('%d:%02d:%02d', $hours, $minutes, $seconds) }}
                     </span>
                     <span>
-                        <a href="{{ route('users.show', $playlist->user->id) }}" onclick="event.stopPropagation();">
+                        <a href="{{ route('users.profile', $playlist->user->id) }}" onclick="event.stopPropagation();">
                                 {{ $playlist->user->username }}
                         </a>
                     </span>
@@ -63,18 +63,4 @@
             </div>
         @endforeach
     </div>
-
-                        <!-- @if($playlist->description) 
-                            {{ $playlist->description }}
-                        @else
-                            -
-                        @endif -->
-
-                        <!-- <a href="{{ route('playlists.show', $playlist->id) }}">view</a>
-                        <a href="{{ route('playlists.edit', $playlist->id) }}">edit</a>
-                        <form action="{{ route('playlists.delete', $playlist) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button onclick="return confirm('delete this playlist?');" id="delete">delete</button>
-                        </form> -->
 @endsection

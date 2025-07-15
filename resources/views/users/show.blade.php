@@ -3,7 +3,6 @@
 @section('title', 'user profile')
 
 @section('content')
-    <!-- evolution: rework into a proper "profile" -->
     <h1>{{ $user->username }}'s profile</h1>
 
     <div>

@@ -15,33 +15,23 @@ class UserController extends Controller
 {
     use AuthorizesRequests;
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $users = User::all();
         return view('users.index', compact('users'));
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        // evolution: change to "view profile"
         // retrieves the user, and for the maps he liked, retrieve the total like count
         $user = User::with([
             'likedMaps' => function ($query) {
                 $query->withCount('likedByUsers');
             }
         ])->findOrFail($id);
-        return view('users.show', compact('user'));
+        return view('users.profile', compact('user'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $user = User::findOrFail($id);
@@ -51,9 +41,6 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $user = User::findOrFail($id);
@@ -111,14 +98,12 @@ class UserController extends Controller
         }
 
         $user->update($validated);
-        return redirect()->route('users.show', $user->id)->with('success', 'account informations updated.');
+        return redirect()->route('users.profile', $user->id)->with('success', 'account informations updated.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
+        // evolution: request password + confirm for deletion
         $user = User::findOrFail($id);
         $this->authorize('update', $user);
         
@@ -131,6 +116,7 @@ class UserController extends Controller
         Map::findOrFail($mapId);
         $user = Auth::user();
 
+        // attach map id to user for likes pivot table
         $user->likedMaps()->attach($mapId);
         return redirect()->back();
     }
@@ -140,6 +126,7 @@ class UserController extends Controller
         Map::findOrFail($mapId);
         $user = Auth::user();
 
+        // detach map id from user for likes pivot table
         $user->likedMaps()->detach($mapId);
         return redirect()->back();
     }

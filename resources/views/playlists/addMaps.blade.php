@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="map-actions flex g-10">
-                            <a class="map-actions-card-compact flex flex-f-center p-5 g-5 view no-link" href="{{ route('maps.show', $map->id) }}">
+                            <a class="map-actions-card-compact flex flex-f-center p-5 g-5 view no-link" href="{{ route('maps.details', $map->id) }}">
                                 <img width="20" height="20" class="iconLight" src="{{ asset('images/icons/view.svg') }}" alt="view icon">
                                 <img width="20" height="20" class="iconDark" src="{{ asset('images/icons/view_dark.svg') }}" alt="view icon dark mode">
                             </a>

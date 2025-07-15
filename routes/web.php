@@ -13,11 +13,11 @@ Route::get('/', function () {
 });
 
 // NO PERMISSIONS - everyone can see these views
-Route::get('/users/show/{id}', [UserController::class, 'show'])->name('users.show');
+Route::get('/users/profile/{id}', [UserController::class, 'show'])->name('users.profile');
 Route::get('/playlists', [PlaylistController::class, 'index'])->name('playlists.index');
 Route::get('/playlists/show/{id}', [PlaylistController::class, 'show'])->name('playlists.show');
 Route::get('/maps', [MapController::class, 'index'])->name('maps.index');
-Route::get('/maps/show/{id}', [MapController::class, 'show'])->name('maps.show');
+Route::get('/maps/details/{id}', [MapController::class, 'show'])->name('maps.details');
 
 // GUESTS ONLY (login/register features)
 Route::middleware('guest')->group(function () {
@@ -61,7 +61,7 @@ Route::middleware([IsAdmin::class, 'auth'])->group(function () {
     Route::put('/suggestions/update/{id}', [SuggestionController::class, 'update'])->name('suggestions.update');
     Route::delete('/suggestions/delete/{id}', [SuggestionController::class, 'destroy'])->name('suggestions.delete');
 
-    Route::get('/maps/create', [MapController::class, 'create'])->name('maps.create');
+    Route::get('/maps/add', [MapController::class, 'add'])->name('maps.add');
     Route::post('/maps/store', [MapController::class, 'store'])->name('maps.store');
     Route::get('/maps/edit/{id}', [MapController::class, 'edit'])->name('maps.edit');
     Route::put('/maps/update/{id}', [MapController::class, 'update'])->name('maps.update');

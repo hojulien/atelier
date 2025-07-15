@@ -8,7 +8,7 @@ form.addEventListener("submit", (e) => {
     let isValid = true;
 
     // USERNAME
-    // upon error, sets isValid to false so the form cannot submit
+    // upon error, sets isValid to false so the form cannot submit until the error is fixed
     if (document.getElementById("username").value.length == 0) {
         document.getElementById("error_username").textContent = "please enter an username."
         isValid = setTo(isValid, false);
@@ -16,6 +16,7 @@ form.addEventListener("submit", (e) => {
         resetText("error_username",isValid);
     }
 
+    // PASSWORD
     if (document.getElementById("password").value.length == 0) {
         document.getElementById("error_password").textContent = "please enter a password."
         isValid = setTo(isValid, false);

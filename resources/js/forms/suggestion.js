@@ -8,6 +8,7 @@ form.addEventListener("submit", (e) => {
     let descErr = document.getElementById("error_suggestion_description");
     let isValid = true;
 
+    // DESCRIPTION
     if (desc.value.length === 0) {
         descErr.textContent = "please give a context to your suggestion.";
         isValid = setTo(isValid, false);

@@ -9,31 +9,20 @@ use App\Models\Map;
 
 class MapController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
+        // retrieves all maps with the count of users who liked each map, to display on the list
         $maps = Map::withCount('likedByUsers')->get();
         return view('maps.index', compact('maps'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function add()
     {
-        // evolution: renommer en "add" ?
-        return view('maps.create');
+        return view('maps.add');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        // evolution: specify mapID in the session message
-
         // validates all inputs individually
         $validated = $request->validate([
             'artist' => 'required|string|max:40',
@@ -63,7 +52,7 @@ class MapController extends Controller
         
         $map = Map::create($validated);
 
-        // after creating the entry, grabs the id in order to create the file name ({id}.{extension})
+        // stores file with generated uuid name
         if ($request->hasFile('background')) {
             $file = $request->file('background');
             $extension = $file->getClientOriginalExtension();
@@ -73,31 +62,21 @@ class MapController extends Controller
             $map->save();
         }
 
-        return redirect()->route('maps.index')->with('success', 'Map added');
+        return redirect()->route('maps.index')->with('success', "map {$map->mapId} added.");
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        // evolution: url name "details" ?
         $map = Map::findOrFail($id);
-        return view('maps.show', compact('map'));
+        return view('maps.details', compact('map'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $map = Map::findOrFail($id);
         return view('maps.edit', compact('map'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $map = Map::findOrFail($id);
@@ -116,7 +95,7 @@ class MapController extends Controller
             'ar' => 'required|decimal:0,2|min:0',
             'od' => 'required|decimal:0,2|min:0',
             'setId' => 'required|numeric',
-            'mapId' => 'required|numeric|unique:maps,mapId,' . $id, // passing map's id to ignore the "unique" constraint for the map itself
+            'mapId' => 'required|numeric|unique:maps,mapId,' . $id, // passing current map's id to ignore the "unique" constraint for the map itself
             'submitDate' => 'required|date_format:Y-m-d\TH:i:s',
             'lastUpdated' => 'required|date_format:Y-m-d\TH:i:s',
             'tags' => 'nullable|json',
@@ -138,17 +117,13 @@ class MapController extends Controller
         }
 
         $map->update($validated);
-        return redirect()->route('maps.index')->with('success', 'map updated');
+        return redirect()->route('maps.index')->with('success', "map {$map->mapId} updated");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        // evolution: specify mapID in the session message
         $map = Map::findOrFail($id);
         $map->delete();
-        return redirect()->route('maps.index')->with('success', 'map deleted');
+        return redirect()->route('maps.index')->with('success', "map {$map->mapId} deleted.");
     }
 }

@@ -15,6 +15,7 @@ class MapSeeder extends Seeder
     public function run(): void
     {
         // using a JSON file to create the data
+        // file_get_contents() reads the file, json_decode() converts it to an array
         $dataPath = database_path('data/maps.json');
         $data = file_get_contents($dataPath);
         $maps = collect(json_decode($data, true));

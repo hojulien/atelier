@@ -10,6 +10,8 @@ body {
     color: var(--text-main);
 }
 
+/* control color with light/dark mode */
+
 :root {
     --main: #add8e6;
     --text-main: #000000;
@@ -52,6 +54,8 @@ body.dark-mode {
     --link-osu: #8a4b5d;
 }
 
+/* error text and error images */
+
 .error {
     color: red;
     font-size: 14px;
@@ -66,6 +70,8 @@ p {
     font-size: 20px;
 }
 
+/* hiding elements */
+
 .hidden {
     display: none;
 }
@@ -73,6 +79,8 @@ p {
 .invisible {
     visibility: hidden;
 }
+
+/* removing formatting for links/buttons */
 
 .no-link {
     text-decoration: none;
@@ -88,6 +96,8 @@ p {
     background-color: inherit;
     font-size: inherit;
 }
+
+/* flex */
 
 .flex {
     display: flex;
@@ -109,6 +119,8 @@ p {
     justify-content: center;
     align-items: center;
 }
+
+/* padding & gaps */
 
 .p-5 {
     padding: 5px;
@@ -209,7 +221,7 @@ h1 {
 }
 
 section {
-    min-height: 1000px; /* TEMPORARY: à modifier plus tard */
+    min-height: 1000px;
     background-color: var(--section);
     text-align: center;
     margin: 0 auto;
@@ -276,6 +288,8 @@ table, td, tr, th {
 label {
     width: 100%;
 }
+
+/* selecting maps in the playlist add page */
 
 input[type="checkbox"]:checked + .map-card-compact {
     outline: 2px solid green;
