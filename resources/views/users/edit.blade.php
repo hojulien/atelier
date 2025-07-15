@@ -5,7 +5,7 @@
 @section('content')
     <h1>edit profile</h1>
     
-    <form id="userEditForm" method="POST" action="{{ route('users.update', $user) }}" enctype="multipart/form-data">
+    <form class="form" id="userEditForm" method="POST" action="{{ route('users.update', $user) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 

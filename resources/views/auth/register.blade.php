@@ -6,7 +6,7 @@
 
     <h1>register</h1>
     
-    <form method="POST" id="register" action="{{ route('register') }}" enctype="multipart/form-data">
+    <form class="form" method="POST" id="register" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- reuse same form in create/edit -->

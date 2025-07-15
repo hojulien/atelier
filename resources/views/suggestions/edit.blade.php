@@ -5,7 +5,7 @@
 @section('content')
     <h1>update suggestion</h1>
     
-    <form id="suggestionForm" method="POST" action="{{ route('suggestions.update', $suggestion) }}" enctype="multipart/form-data">
+    <form class="form" id="suggestionForm" method="POST" action="{{ route('suggestions.update', $suggestion) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 

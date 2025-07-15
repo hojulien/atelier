@@ -110,16 +110,36 @@ p {
     align-items: center;
 }
 
+.p-5 {
+    padding: 5px;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
 .p-20 {
     padding: 20px;
+}
+
+.g-3 {
+    gap: 3px;
 }
 
 .g-5 {
     gap: 5px;
 }
 
+.g-10 {
+    gap: 10px;
+}
+
 .g-20 {
     gap: 20px;
+}
+
+.g-30 {
+    gap: 30px;
 }
 
 /* HEADER */
@@ -209,7 +229,6 @@ table, td, tr, th {
     margin: 0 auto;
     border-collapse: collapse;
     padding: 10px;
-    border: 1px solid black;
 }
 
 .table-container {
@@ -218,7 +237,7 @@ table, td, tr, th {
 
 /* FORMS */
 
-form {
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -230,8 +249,6 @@ form {
 .map-container {
     min-width: 300px;
     max-width: 1200px;
-    gap: 30px;
-    padding: 20px;
     margin: 0 auto;
 }
 
@@ -243,7 +260,26 @@ form {
     height: 180px;
     background-size: cover;
     background-position: center;
-    
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.map-card-compact {
+    margin: 0 auto;
+    gap: 20px;
+    border-radius: 20px;
+    width: 100%;
+    height: 90px;
+    background-size: cover;
+    background-position: center;
+}
+
+label {
+    width: 100%;
+}
+
+input[type="checkbox"]:checked + .map-card-compact {
+    outline: 2px solid green;
+    filter: drop-shadow(2px 2px 5px olive);
 }
 
 .map-data {
@@ -253,11 +289,26 @@ form {
     width: 60%;
 }
 
-.map-data span, .map-settings-card span {
+.map-data-compact {
+    background-color: var(--map-card);
+    border-radius: 20px;
+    height: 100%;
+    width: 50%;
+}
+
+.map-data span, .map-settings-card span, .map-settings-card-compact span {
     display: flex;
     align-items: center;
     height: 50%;
     font-weight: bold;
+}
+
+.map-data-compact span {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-family: "Cabin";
+    text-align: left;
 }
 
 .map-data span {
@@ -268,12 +319,17 @@ form {
 
 .map-right-container {
     justify-content: space-between;
-    gap: 20px;
+    width: 50%;
 }
 
 .map-settings-card span {
     justify-content: center;
     font-size: clamp(0.9rem, 3vw, 1.2rem);
+}
+
+.map-settings-card-compact span {
+    justify-content: center;
+    font-size: clamp(0.8rem, 3vw, 1rem);
 }
 
 .map-settings {
@@ -282,10 +338,22 @@ form {
     gap: 20px;
 }
 
+.map-settings-compact {
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+}
+
 .map-settings-card {
-    padding: 10px;
     border-radius: 10px;
     height: 100%;
+}
+
+.map-settings-card-compact {
+    border-radius: 10px;
+    height: calc(50% - 5px);
 }
 
 .small-card {
@@ -307,7 +375,12 @@ form {
 .map-actions-card {
     width: 100%;
     height: 40px;
-    padding: 10px;
+    border-radius: 10px;
+}
+
+.map-actions-card-compact {
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
 }
 
@@ -355,13 +428,94 @@ form {
     background-color: var(--favorite);
 }
 
+#favorite-compact {
+    background-color: var(--favorite);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 #heart-icon {
     width: 30px;
     height: 30px;
 }
 
+#heart-icon-compact {
+    width: 20px;
+    height: 20px;
+}
+
 .favorite {
     width: 100px;
+}
+
+/* PLAYLIST LIST */
+
+.playlist-container, .playlist-header {
+    min-width: 300px;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.playlist-header {
+    border-radius: 20px;
+    background-color: var(--section-dark);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.playlist-header, .playlist-informations {
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.playlist-header span, .playlist-informations span {
+    width: 100%;
+}
+
+.playlist-description {
+    height: 100%;
+    font-size: 1.1rem;
+}
+
+.playlist-description span {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+.playlist-card {
+    margin: 0 auto;
+    border-radius: 30px;
+    width: 100%;
+    height: 200px;
+    justify-content: space-between;
+    background-color: var(--section-dark);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3)
+}
+
+.playlist-thumbnails {
+    width: 100%;
+    padding: 20px 60px;
+    justify-content: flex-start;
+}
+
+.thumbnail {
+    width: 96px;
+    height: 48px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+.thumbnail-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 /* VIEW */

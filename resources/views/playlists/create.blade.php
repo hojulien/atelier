@@ -5,7 +5,7 @@
 @section('content')
     <h1>create a new playlist</h1>
     
-    <form id="playlistForm" method="POST" action="{{ route('playlists.store') }}">
+    <form class="form" id="playlistForm" method="POST" action="{{ route('playlists.store') }}">
         @csrf
 
         @include('partials.playlistForm', ['playlist' => null])

@@ -6,7 +6,7 @@
     <!-- evolution: separate forms in a partial -->
     <h1>edit playlist</h1>
     
-    <form id="playlistForm" method="POST" action="{{ route('playlists.update', $playlist) }}">
+    <form class="form" id="playlistForm" method="POST" action="{{ route('playlists.update', $playlist) }}">
         @csrf
         @method('PUT')
         

@@ -8,49 +8,73 @@
     <!-- for accessibility purposes, to remove later -->
     <a href="{{ route('playlists.create') }}"><h2>create a playlist</h2></a>
 
-    <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>number of levels</th>
-                <th>description</th>
-                <th>type</th>
-                <th>creator</th>
-                <th colspan="3">actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($playlists as $playlist)
-                <tr>
-                    <td>{{ $playlist->id }}</td>
-                    <td>
-                        @if($playlist->visibility === 'private') 🔒 @endif {{ $playlist->name }} </td>
-                    <td>{{ $playlist->number_levels }}</td>
-                    <td>
-                        @if($playlist->description) 
+    <div class="playlist-header flex flex-f-center p-20">
+            <span>name</span>
+            <span>number of maps</span>
+            <span>length</span>
+            <span>creator</span>
+    </div>
+    <div class="playlist-container flex flex-col g-30">
+        @foreach ($playlists as $playlist)
+            <div 
+                class="playlist-card flex flex-col"
+                onclick="window.location='{{ route('playlists.show', $playlist->id) }}'"
+                style="cursor:pointer;">
+                <div class="playlist-informations flex flex-f-center p-20">
+                    <span>@if($playlist->visibility === 'private') 🔒 @endif {{ $playlist->name }} </td></span>
+                    <span>{{ $playlist->number_levels }} maps</span>
+                    <span>
+                        <!-- displays length value - manual mapping of h/m/s because we want to display >24 hours length -->
+                        @php
+                            $totalSeconds = $playlist->maps->sum('length');
+                            $hours = floor($totalSeconds / 3600);
+                            $minutes = floor(($totalSeconds % 3600) / 60);
+                            $seconds = $totalSeconds % 60;
+                        @endphp
+                        {{ sprintf('%d:%02d:%02d', $hours, $minutes, $seconds) }}
+                    </span>
+                    <span>
+                        <a href="{{ route('users.show', $playlist->user->id) }}" onclick="event.stopPropagation();">
+                                {{ $playlist->user->username }}
+                        </a>
+                    </span>
+                </div>
+                <div class="playlist-description flex flex-f-center">
+                    @if ($playlist->description)
+                        <span>{{ $playlist->description }}</span>
+                    @else
+                        <span>n/a</span>
+                    @endif
+                </div>
+                <div class="playlist-thumbnails flex g-10">
+                    @php
+                        $maps = $playlist->maps->take(6); // first 6 maps
+                        $remaining = $playlist->maps->count() - 6; // grab remaining number of maps
+                    @endphp
+                    @foreach($maps as $map)
+                        <div class="thumbnail" style="background-image: url('{{ asset('storage/images/maps_background/' . $map->background) }}');"></div>
+                    @endforeach
+                    @if($remaining > 0)
+                        <div class="thumbnail-more">
+                            +{{ $remaining }} more...
+                        </div>
+                    @endif
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+                        <!-- @if($playlist->description) 
                             {{ $playlist->description }}
                         @else
                             -
-                        @endif
-                    </td>
-                    <td>{{ $playlist->type }}</td>
-                    <td>{{ $playlist->user->username }}</td>
-                    <td>
-                        <a href="{{ route('playlists.show', $playlist->id) }}">view</a>
-                    </td>
-                    <td>
+                        @endif -->
+
+                        <!-- <a href="{{ route('playlists.show', $playlist->id) }}">view</a>
                         <a href="{{ route('playlists.edit', $playlist->id) }}">edit</a>
-                    </td>
-                    <td>
                         <form action="{{ route('playlists.delete', $playlist) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button onclick="return confirm('delete this playlist?');" id="delete">delete</button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+                        </form> -->
 @endsection

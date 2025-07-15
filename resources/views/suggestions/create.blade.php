@@ -5,7 +5,7 @@
 @section('content')
     <h1>send a suggestion</h1>
     
-    <form id="suggestionForm" method="POST" action="{{ route('suggestions.store') }}" enctype="multipart/form-data">
+    <form class="form" id="suggestionForm" method="POST" action="{{ route('suggestions.store') }}" enctype="multipart/form-data">
         @csrf
 
         @include('partials.suggestionForm', ['suggestion' => null])

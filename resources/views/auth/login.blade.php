@@ -5,7 +5,7 @@
 @section('content')
     <h1>login</h1>
 
-    <form action="{{ route('loginAction') }}" method="POST" id="login">
+    <form class="form" action="{{ route('loginAction') }}" method="POST" id="login">
         @csrf
         <label for="username">username</label>
         <input type="text" name="username" id="username" placeholder="username" value="{{ old('username') }}">

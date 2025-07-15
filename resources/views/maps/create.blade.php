@@ -5,7 +5,7 @@
 @section('content')
     <h1>add a new map</h1>
     
-    <form method="POST" action="{{ route('maps.store') }}" enctype="multipart/form-data">
+    <form class="form" method="POST" action="{{ route('maps.store') }}" enctype="multipart/form-data">
         @csrf
 
         @include('partials.mapForm', ['map' => null])
