@@ -23,37 +23,7 @@
     <!-- shows user's playlists - if none, displays a custom text -->
     <h1>{{ $user->username }}'s playlists</h1>
     @if ($user->playlists->isNotEmpty())
-        <table>
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>number of levels</th>
-                    <th>description</th>
-                    <th>type</th>
-                    <th>creator</th>
-                    <th colspan="2">actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($user->playlists as $playlist)
-                <tr>
-                    <td>{{ $playlist->id }}</td>
-                    <td>{{ $playlist->name }}</td>
-                    <td>{{ $playlist->number_levels }}</td>
-                    <td>{{ $playlist->description }}</td>
-                    <td>{{ $playlist->type }}</td>
-                    <td>{{ $playlist->user->username }}</td>
-                    <td>
-                        <a href="{{ route('playlists.show', $playlist->id) }}">view</a>
-                    </td>
-                    <td>
-                        <a href="{{ route('playlists.edit', $playlist->id) }}">edit</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        @include('partials.playlistList', ['playlists' => $user->playlists])
     @else
         <div>this user doesn't have any registered public playlist.</div>
     @endif
