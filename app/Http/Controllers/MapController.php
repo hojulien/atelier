@@ -9,10 +9,48 @@ use App\Models\Map;
 
 class MapController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // retrieves all maps with the count of users who liked each map, to display on the list
-        $maps = Map::withCount('likedByUsers')->get();
+        // initial query that we will apply actions on before calling get(), with the total amount of users who liked each map (for display)
+        $query = Map::withCount('likedByUsers');
+
+        if ($request->filled('search') && $request->filled('filter')) {
+            // retrieves search input and filter type
+            $input = $request->input('search');
+            $filter = $request->input('filter');
+
+            // whitelist columns for security
+            $allowedFields = ['artist', 'title', 'creator'];
+
+            // execute "where" query depending on filter values (in_array for additional security check)
+            if ($filter === "default") {
+                $query->where('artist', 'like', "%{$input}%")
+                    ->orWhere('title', 'like', "%{$input}%")
+                    ->orWhere('creator', 'like', "%{$input}%");
+            } else if (in_array($filter, $allowedFields)) {
+                $query->where($filter, 'like', "%{$input}%");
+            }
+        }
+
+        if ($request->filled('sortby')) {
+            $sortBy = $request->input('sortby');
+            $allowedFields = ['artist', 'title', 'sr', 'length', 'cs', 'hp', 'ar', 'od', 'submitDate', 'lastUpdated'];
+
+            if (in_array($sortBy, $allowedFields)) {
+                $order = $request->input('order', 'asc'); // defaults to asc if nothing provided
+
+                // double check to prevent any other values from being tried on
+                if (!in_array($order, ['asc', 'desc'])) {
+                    $order = 'asc';
+                }
+
+                $query->orderBy($sortBy, $order);
+            }
+        }
+
+        // get the final query to pass in the view
+        $maps = $query->get();
+
         return view('maps.index', compact('maps'));
     }
 
@@ -41,7 +79,8 @@ class MapController extends Controller
             'mapId' => 'required|numeric|unique:maps,mapId',
             'submitDate' => 'required|date_format:Y-m-d\TH:i:s',
             'lastUpdated' => 'required|date_format:Y-m-d\TH:i:s',
-            'tags' => 'nullable|json',
+            'tags' => 'nullable|array|min:0|max:10',
+            'tags.*' => 'nullable|string|distinct|max:20', // distinct means no duplicates exists within the array
             'background' => 'nullable|image|max:4096'
         ]);
 
@@ -98,7 +137,8 @@ class MapController extends Controller
             'mapId' => 'required|numeric|unique:maps,mapId,' . $id, // passing current map's id to ignore the "unique" constraint for the map itself
             'submitDate' => 'required|date_format:Y-m-d\TH:i:s',
             'lastUpdated' => 'required|date_format:Y-m-d\TH:i:s',
-            'tags' => 'nullable|json',
+            'tags' => 'nullable|array|min:0|max:10',
+            'tags.*' => 'nullable|string|distinct|max:20',
             'background' => 'nullable|mimes:jpg,png|max:4096'
         ]);
 

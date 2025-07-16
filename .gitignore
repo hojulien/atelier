@@ -23,7 +23,4 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 
-# un-ignore later
-/resources/js/mapsTags.js
-
 # for storage ignore, /storage/app/.gitignore

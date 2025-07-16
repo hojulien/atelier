@@ -42,6 +42,12 @@
             <div>{{ $map->lastUpdated }}</div>
         </div>
         <div>
+            <div class="key">tags</div>
+            <div>
+                @foreach ($map->tags as $tag) {{ $tag }} @endforeach
+            </div>
+        </div>
+        <div>
             <div class="key">background</div>
             <div><img width="auto" height="300" src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="background"></div>
         </div>

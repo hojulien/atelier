@@ -51,7 +51,22 @@
         <label for="lastUpdated">last updated</label>
         <input type="datetime-local" name="lastUpdated" step="1" value="{{ old('lastUpdated', $map->lastUpdated ?? '') }}">
 
-        <!-- TO DO LATER: TAGS -->
+        <label for="tags">tags</label>
+        <div id="tags-container" class="flex flex-col g-5">
+            <div class="tag-container flex g-5">
+                <input id="tag1" type="text" name="tags[]" class="tag" />
+                <button type="button" class="remove-tag invisible">✖</button>
+            </div>
+            <div class="tag-container flex g-5">
+                <input id="tag2" type="text" name="tags[]" class="tag" />
+                <button type="button" class="remove-tag invisible">✖</button>
+            </div>            
+            <div class="tag-container flex g-5">
+                <input id="tag3" type="text" name="tags[]" class="tag" />
+                <button type="button" class="remove-tag invisible">✖</button>
+            </div>
+        </div>
+        <button type="button" id="add-tag">+ Add tag</button>
          
         <label for="background">background</label>
         <input type="file" name="background">
