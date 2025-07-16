@@ -66,10 +66,6 @@ body.dark-mode {
     width: auto;
 }
 
-p {
-    font-size: 20px;
-}
-
 /* hiding elements */
 
 .hidden {
@@ -167,27 +163,18 @@ header {
     position: relative;
 }
 
-.left, .center, .right {
-    display: flex;
-    align-items: center;
+.icon-32 {
+    width: 32px;
+    height: 32px;
 }
 
-.center {
+.h-center {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.right {
-    margin-left: auto;
-    gap: 20px;
-}
-
-.div-style {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+.h-button {
     background-color: var(--button);
     border: 2px solid var(--text-main);
     border-radius: 20px;
@@ -195,13 +182,11 @@ header {
     cursor: pointer;
 }
 
-.div-style p {
-    font-size: 20px;
+.h-right {
+    align-items: stretch;
 }
 
 #darkMode {
-    display: flex;
-    align-items: center;
     cursor: pointer;
 }
 
@@ -227,12 +212,17 @@ section {
     margin: 0 auto;
 }
 
-section p {
-    width: 420px;
-    font-size: 20px;
-    padding: 10px;
-    text-align: left;
+footer {
+    display: flex;
+    justify-content: flex-end;
     margin: 0 auto;
+    height: 60px;
+    background-color: var(--main);
+}
+
+#copyright {
+    font-size: 1.2rem;
+    padding: 20px;
 }
 
 /* TABLES */
@@ -254,6 +244,16 @@ table, td, tr, th {
     flex-direction: column;
     align-items: center;
     gap: 5px;
+}
+
+/* home */
+
+.home-container {
+    max-width: 450px;
+    padding: 10px;
+    text-align: left;
+    margin: 0 auto;
+    font-size: 1.2rem;
 }
 
 /* MAP LIST */
@@ -544,6 +544,18 @@ input[type="checkbox"]:checked + .map-card-compact {
 
 /* MEDIA QUERIES */
 
+@media (max-width: 1400px) {
+    /* removes action text */
+    .h-action {
+        display: none;
+    }
+    
+    /* reduces gap between elements */
+    .h-center, .h-right {
+        gap: 10px;
+    }
+}
+
 @media (max-width: 1100px) {
     .map-settings {
         width: 100%;
@@ -623,6 +635,47 @@ input[type="checkbox"]:checked + .map-card-compact {
 }
 
 @media (max-width: 800px) {
+    /* changes flex direction, reduces space */
+    header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        position: static;
+    }
+
+    header h1 {
+        padding: 10px;
+    }
+
+    .h-left, .h-center, .h-right {
+        width: 100%;
+    }
+
+    .h-left {
+        justify-content: center;
+    }
+
+    /* removes transform and takes horizontal space */
+    .h-center {
+        transform: none;
+        justify-content: space-between;
+        position: static;
+    }
+
+    /* make buttons take the entire width */
+    .h-center > a, .h-right > a {
+        width: 100%;
+    }
+
+    .h-action {
+        display: block;
+    }
+
+    /* centers buttons */
+    .h-right {
+        justify-content: center;
+    }
+
     .map-card {
         height: auto;
     }
@@ -645,5 +698,11 @@ input[type="checkbox"]:checked + .map-card-compact {
     #heart-icon {
         width: 20px;
         height: 20px;
+    }
+}
+
+@media (max-width: 550px) {
+    .h-action {
+        display: none;
     }
 }

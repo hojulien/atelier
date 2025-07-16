@@ -49,7 +49,7 @@ class UserController extends Controller
         // password is nullable so we can keep old one if null
         $validated = $request->validate(
         [
-            'username' => 'required|string|min:4|unique:users,username,' . $id, // passing user's id to ignore the "unique" constraint for the user itself
+            'username' => 'required|string|min:4|max:20|unique:users,username,' . $id, // passing user's id to ignore the "unique" constraint for the user itself
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'nullable|confirmed|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}$/',
             'avatar' => 'nullable|mimes:jpg,png|dimensions:max_width=500,max_height=500|max:2048',
@@ -62,6 +62,7 @@ class UserController extends Controller
             'mimes' => 'file must be an image.',
 
             'username.min' => 'username must be at least 4 characters.',
+            'username.max' => 'username must not be longer than 20 characters.',
             'password.regex' => 'password must be at least 8 characters and contain: 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.',
             'avatar.dimensions' => 'avatar must not exceed 500x500.',
             'avatar.max' => 'avatar must not be larger than 2mb.',

@@ -24,6 +24,9 @@ form.addEventListener("submit", (e) => {
     } else if (username.value.length < 3) {
         usernameErr.textContent = "username must be at least 4 characters."
         isValid = setTo(isValid, false);
+    } else if (username.value.length > 20) {
+        usernameErr.textContent = "username must not exceed 20 characters."
+        isValid = setTo(isValid, false);
     } else {
         resetText("error_username", isValid);
     }

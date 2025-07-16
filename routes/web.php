@@ -6,11 +6,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\MapController;
+use App\Models\Playlist;
 use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $adminPlaylists = Playlist::where('type', 'admin')->get();
+    return view('welcome', ['playlists' => $adminPlaylists]);
+})->name('home');
 
 // NO PERMISSIONS - everyone can see these views
 Route::get('/users/profile/{id}', [UserController::class, 'show'])->name('users.profile');
