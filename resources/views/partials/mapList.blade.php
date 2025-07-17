@@ -51,7 +51,7 @@
 
                     <!-- only show edit/delete button if dev mode is enabled (only visible from the admin) -->
                     @if ($devMode)
-                    <a class="map-actions-card flex flex-f-center p-10 g-5 invisible edit no-link" href="{{ route('maps.edit', $map->id) }}" onclick="event.stopPropagation();>
+                    <a class="map-actions-card flex flex-f-center p-10 g-5 invisible edit no-link" href="{{ route('maps.edit', $map->id) }}" onclick="event.stopPropagation();">
                         <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
                         <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
                         <span class="action">edit</span>

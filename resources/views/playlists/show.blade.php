@@ -5,7 +5,7 @@
 @section('content')
     <h1>{{ $playlist->name }}</h1>
     <!-- only let admins and playlist owner add maps to the playlist -->
-    @if(Auth::check() && Auth::user()->id === $playlist->user_id)
+    @if(Auth::check() && Auth::user()->id === $playlist->user_id || Auth::user()->type === "admin")
         <a href="{{ route('playlists.addMaps', $playlist->id) }}"><h2>add maps to playlist</h2></a> <br>
     @endif
 

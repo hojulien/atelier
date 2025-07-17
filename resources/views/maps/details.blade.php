@@ -3,63 +3,154 @@
 @section('title', 'map informations')
 
 @section('content')
-    <h1>map informations</h1>
+    <h1 class="p-20">map informations</h1>
 
-    <div>
-        <div>
-            <div class="key">artist</div>
-            <div>{{ $map->artist }}</div>
-        </div>
-        <div>
-            <div class="key">title</div>
-            <div>{{ $map->title }}</div>
-        </div>
-        <div>
-            <div class="key">creator</div>
-            <div>{{ $map->creator }}</div>
-        </div>
-        <div>
-            <div class="key">length</div>
-            <div>{{ gmdate('i:s', $map->length) }}</div>
-        </div>
-        <div>
-            <div class="key">star rating</div>
-            <div>{{ number_format(ceil($map->sr * 100) / 100, 2) }}★</div></div>
-        </div>
-        <div>
-            <div class="key">settings</div>
-            <div>CS{{ trim_float($map->cs) }}
-                 HP{{ trim_float($map->hp) }}
-                 AR{{ trim_float($map->ar) }}
-                 OD{{ trim_float($map->od) }}
-        </div>
-        <div>
-            <div class="key">submit date</div>
-            <div>{{ $map->submitDate }}</div>
-        </div>
-        <div>
-            <div class="key">last updated</div>
-            <div>{{ $map->lastUpdated }}</div>
-        </div>
-        <div>
-            <div class="key">tags</div>
-            <div>
-                @foreach ($map->tags as $tag) {{ $tag }} @endforeach
+    <div class="details-bg-container">
+        <img src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="background">
+    </div>
+    <div class="details-container flex flex-col flex-f-center p-20 g-10">
+        <div class="details-data flex g-20">
+            <div class="details-key button flex flex-f-center g-5 m-auto">
+                <img class="iconLight icon-32" src="{{ asset('images/icons/artist.svg') }}" alt="artist icon">
+                <img class="iconDark icon-32" src="{{ asset('images/icons/artist_dark.svg') }}" alt="artist icon darkmode">
+                <span class="bold">artist</span>
+            </div>
+            <div class="details-value button flex flex-f-center">
+                <span>{{ $map->artist }}</span>
             </div>
         </div>
-        <div>
-            <div class="key">background</div>
-            <div><img width="auto" height="300" src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="background"></div>
+
+        <div class="details-data flex g-20">
+            <div class="details-key button flex flex-f-center g-5 m-auto">
+                <img class="iconLight icon-32" src="{{ asset('images/icons/title.svg') }}" alt="title icon">
+                <img class="iconDark icon-32" src="{{ asset('images/icons/title_dark.svg') }}" alt="title icon darkmode">
+                <span class="bold">title</span>
+            </div>
+            <div class="details-value button flex flex-f-center">
+                <span>{{ $map->title }}</span>
+            </div>
         </div>
-        <div>
-            <a id="edit" href="{{ route('maps.edit', $map->id) }}">edit map</a>
-            <form action="{{ route('maps.delete', $map) }}" method="POST">
+
+        <div class="details-data flex g-20">
+            <div class="details-key button flex flex-f-center g-5 m-auto">
+                <img class="iconLight icon-32" src="{{ asset('images/icons/user.svg') }}" alt="user icon">
+                <img class="iconDark icon-32" src="{{ asset('images/icons/user_dark.svg') }}" alt="user icon darkmode">
+                <span class="bold">creator</span>
+            </div>
+            <div class="details-value button flex flex-f-center">
+                <span>{{ $map->creator }}</span>
+            </div>
+        </div>
+
+        <div class="details-data flex g-20">
+            <div class="details-key button flex flex-f-center g-5 m-auto">
+                <img class="iconLight icon-32" src="{{ asset('images/icons/length.svg') }}" alt="length icon">
+                <img class="iconDark icon-32" src="{{ asset('images/icons/length_dark.svg') }}" alt="length icon darkmode">
+                <span class="bold">length</span>
+            </div>
+            <div class="details-value button flex flex-f-center">
+                <span>{{ gmdate('i:s', $map->length) }}</span>
+            </div>
+        </div>
+
+        <div class="details-data flex g-20">
+            <div class="details-key button flex flex-f-center g-5 m-auto">
+                <img class="iconLight icon-32" src="{{ asset('images/icons/star.svg') }}" alt="star icon">
+                <img class="iconDark icon-32" src="{{ asset('images/icons/star_dark.svg') }}" alt="star icon darkmode">
+                <span class="bold">star rating</span>
+            </div>
+            <div class="details-value button flex flex-f-center">
+                <span>{{ number_format(ceil($map->sr * 100) / 100, 2) }}★</span>
+            </div>
+        </div>
+
+        <div class="details-data flex g-20">
+            <div class="details-key button flex flex-f-center g-5 m-auto">
+                <img class="iconLight icon-32" src="{{ asset('images/icons/settings.svg') }}" alt="settings icon">
+                <img class="iconDark icon-32" src="{{ asset('images/icons/settings_dark.svg') }}" alt="settings icon darkmode">
+                <span class="bold">settings</span>
+            </div>
+            <div class="details-value settings button flex flex-f-center g-10">
+                <div class="button-mini flex flex-f-center" id="cs">
+                    <span>
+                        CS {{ trim_float($map->cs) }}
+                    </span>
+                </div>
+                <div class="button-mini flex flex-f-center" id="hp">
+                    <span>
+                        HP {{ trim_float($map->hp) }}
+                    </span>
+                </div>
+                <div class="button-mini flex flex-f-center" id="ar">
+                    <span>
+                        AR {{ trim_float($map->ar) }}
+                    </span>
+                </div>
+                <div class="button-mini flex flex-f-center" id="od">
+                    <span>
+                        OD {{ trim_float($map->od) }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-data flex g-20">
+            <div class="details-key button flex flex-f-center g-5 m-auto">
+                <img class="iconLight icon-32" src="{{ asset('images/icons/length.svg') }}" alt="upload icon">
+                <img class="iconDark icon-32" src="{{ asset('images/icons/length_dark.svg') }}" alt="upload icon darkmode">
+                <span class="bold">submit date</span>
+            </div>
+            <div class="details-value button flex flex-f-center">
+                <span>{{ $map->submitDate }}</span>
+            </div>
+        </div>
+
+        <div class="details-data flex g-20">
+            <div class="details-key button flex flex-f-center g-5 m-auto">
+                <img class="iconLight icon-32" src="{{ asset('images/icons/length.svg') }}" alt="update icon">
+                <img class="iconDark icon-32" src="{{ asset('images/icons/length_dark.svg') }}" alt="update icon darkmode">
+                <span class="bold">last updated</span>
+            </div>
+            <div class="details-value button flex flex-f-center">
+                <span>{{ $map->lastUpdated }}</span>
+            </div>
+        </div>
+
+        <div class="details-data flex g-20">
+            <div class="details-key button flex flex-f-center g-5 m-auto">
+                <img class="iconLight icon-32" src="{{ asset('images/icons/tags.svg') }}" alt="tags icon">
+                <img class="iconDark icon-32" src="{{ asset('images/icons/tags_dark.svg') }}" alt="tags icon darkmode">
+                <span class="bold">tags</span>
+            </div>
+            <div class="details-value button flex flex-f-center">
+                <span>@foreach ($map->tags as $tag) {{ $tag }} @endforeach</span>
+            </div>
+        </div>
+
+        <div class="details-data flex flex-f-center g-20">
+            <a id="edit" class="button p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('maps.edit', $map->id) }}">
+                <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
+                <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
+                edit map
+            </a>
+            <form class="button p-10 delete" action="{{ route('maps.delete', $map) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button onclick="return confirm('delete this map? it will also be removed from associated playlists!');" id="delete">delete map</button>
+                <button 
+                    onclick="return confirm('delete this map? it will also be removed from associated playlists!');" 
+                    id="delete"
+                    class="no-button bold flex flex-f-center g-5">
+                    <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
+                    <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/delete_dark.svg') }}" alt="delete icon dark mode">
+                    delete map
+                </button>
             </form>
+            <a href="{{ route('maps.index') }}" class="no-link button return p-10 bold flex flex-f-center g-5">
+                <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/return.svg') }}" alt="return icon">
+                <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/return_dark.svg') }}" alt="return icon dark mode">
+                back to map list
+            </a>
         </div>
     </div>
-    <button class="return"><a href="{{ route('maps.index') }}" >back to map list</a></button>
     
 @endsection
