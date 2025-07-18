@@ -3,25 +3,35 @@
 @section('title', 'user profile')
 
 @section('content')
-    <h1>{{ $user->username }}'s profile</h1>
 
-    <div>
-        <div>
-            <div class="key">username</div>
-            <div>{{ $user->username }}</div>
+    <div class="details-container p-20">
+        <div class="details-banner relative">
+            <img src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="user banner">
+            <div class="profile absolute flex flex-f-center">
+                <img src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="avatar">
+            </div>
         </div>
-        <div>
-            <div class="key">avatar</div>
-            <div><img width="128" height="128" src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="avatar"></div>
-        </div>
-        <div>
-            <div class="key">banner</div>
-            <div><img width="auto" height="300" src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="banner"></div>
+        <div class="details-profile flex flex-f-center g-20">
+            <div class="profile profile-mobile flex flex-f-center">
+                <img src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="avatar">
+            </div>
+            <span class="username bold fsize-32">{{ $user->username }}</span>
+            <div class="stats flex flex-col g-10">
+                <div class="fsize-20">
+                    <span class="fsize-24">{{ $user->playlists()->count() }}</span> playlists 
+                    (<span class="fsize-24">{{ $user->playlists()->where('visibility','private')->count() }}</span> private)
+                </div>
+                <div class="fsize-20">
+                    <span class="fsize-24">{{ $user->likedMaps()->count() }}</span> favorited maps
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- shows user's playlists - if none, displays a custom text -->
-    <h1>{{ $user->username }}'s playlists</h1>
+    <div class="title-container p-20">
+        <h1 class="title">{{ $user->username }}'s playlists</h1>
+    </div>
     @if ($user->playlists->isNotEmpty())
         @include('partials.playlistList', ['playlists' => $user->playlists])
     @else
@@ -29,19 +39,36 @@
     @endif
 
     <!-- shows user's favorited maps - if none, displays a custom text -->
+    <div class="title-container p-20">
+        <h1 class="title">{{ $user->username }}'s favorited maps</h1>
+    </div>
     @if ($user->likedMaps->isNotEmpty())
-        <h1>{{ $user->username }}'s favorited maps</h1>
         @include('partials.mapList', ['maps' => $user->likedMaps, 'devMode' => false])
     @endif
 
-    <div>
-        <a id="edit" href="{{ route('users.edit', $user->id) }}">edit profile</a>
-        <form action="{{ route('users.delete', $user) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button onclick="return confirm('delete this user account? all informations linked to it will be deleted as well!');" id="delete">delete profile</button>
-        </form>
-    </div>
-    <button class="return"><a href="{{ route('users.index') }}" >back to user list</a></button>
+        <div class="details-data flex flex-f-center g-20">
+            <a id="edit" class="button p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('users.edit', $user->id) }}">
+                <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
+                <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
+                edit account
+            </a>
+            <form class="button p-10 delete" action="{{ route('users.delete', $user) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button 
+                    onclick="return confirm('delete this map? it will also be removed from associated playlists!');" 
+                    id="delete"
+                    class="no-button bold flex flex-f-center g-5">
+                    <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
+                    <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/delete_dark.svg') }}" alt="delete icon dark mode">
+                    delete account
+                </button>
+            </form>
+            <a href="{{ route('users.index') }}" class="no-link button return p-10 bold flex flex-f-center g-5">
+                <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/return.svg') }}" alt="return icon">
+                <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/return_dark.svg') }}" alt="return icon dark mode">
+                back to user list
+            </a>
+        </div>
     
 @endsection

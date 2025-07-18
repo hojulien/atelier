@@ -5,7 +5,7 @@
 @section('content')
     <h1 class="p-20">map informations</h1>
 
-    <div class="details-bg-container">
+    <div class="details-bg p-20">
         <img src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="background">
     </div>
     <div class="details-container flex flex-col flex-f-center p-20 g-10">
@@ -129,8 +129,8 @@
 
         <div class="details-data flex flex-f-center g-20">
             <a id="edit" class="button p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('maps.edit', $map->id) }}">
-                <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
-                <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
+                <img class="iconLight icon-24" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
+                <img class="iconDark icon-24" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
                 edit map
             </a>
             <form class="button p-10 delete" action="{{ route('maps.delete', $map) }}" method="POST">
@@ -140,14 +140,14 @@
                     onclick="return confirm('delete this map? it will also be removed from associated playlists!');" 
                     id="delete"
                     class="no-button bold flex flex-f-center g-5">
-                    <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
-                    <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/delete_dark.svg') }}" alt="delete icon dark mode">
+                    <img class="iconLight icon-24" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
+                    <img class="iconDark icon-24" src="{{ asset('images/icons/delete_dark.svg') }}" alt="delete icon dark mode">
                     delete map
                 </button>
             </form>
             <a href="{{ route('maps.index') }}" class="no-link button return p-10 bold flex flex-f-center g-5">
-                <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/return.svg') }}" alt="return icon">
-                <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/return_dark.svg') }}" alt="return icon dark mode">
+                <img class="iconLight icon-24" src="{{ asset('images/icons/return.svg') }}" alt="return icon">
+                <img class="iconDark icon-24" src="{{ asset('images/icons/return_dark.svg') }}" alt="return icon dark mode">
                 back to map list
             </a>
         </div>

@@ -14,6 +14,6 @@
             <span>length</span>
             <span>creator</span>
     </div>
-
+    
     @include('partials.playlistList', ['playlists' => $playlists])
 @endsection

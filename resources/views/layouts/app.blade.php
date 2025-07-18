@@ -87,7 +87,7 @@
             </header>
 
     <main>
-        <section>
+        <section class="p-20">
             <!-- set global session in layouts instead of individual pages -->
             <!-- success/error messages -->
             @if (session('success'))
@@ -121,7 +121,7 @@
         @yield('scripts')
     </main>
     <footer>
-        <p id="copyright">© atelierprism, 2025</p>
+        <p id="copyright">© hjulien, 2025</p>
     </footer>
 </body>
 </html>
