@@ -37,11 +37,12 @@
         </select>
 
         <!-- make the number of playlists per page persist between forms -->
-        <input type="hidden" name="per_page" value="{{ request('per_page', 10) }}">
+        <input type="hidden" name="playlists_per_page" value="{{ request('per_page', 10) }}">
 
         <br>
         <button type="submit">search</button>
     </form>
  
     @include('partials.playlistList', ['playlists' => $playlists])
+    {{ $playlists->onEachSide(2)->links('vendor.pagination.defaultPlaylist') }}
 @endsection

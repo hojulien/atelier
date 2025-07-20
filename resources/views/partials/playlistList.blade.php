@@ -87,5 +87,4 @@
                 </div>
             </div>
         @endforeach
-        {{ $playlists->onEachSide(2)->links('vendor.pagination.defaultPlaylist') }}
     </div>
