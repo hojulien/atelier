@@ -34,14 +34,78 @@ class PlaylistController extends Controller
         return $messages;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        // returns all playlists for admins, else returns only public playlists
+        // initial query with relationships and sum of length (for sorting)
+        $query = Playlist::query()
+            ->with('user')
+            ->with('maps')
+            ->withSum('maps', 'length');
+
+        // filter 1: removes empty playlists (admins) + private playlists (everyone else)
         if (Auth::check() && Auth::user()->type === 'admin') {
-            $playlists = Playlist::all();
+            $query->where('number_levels', '>', '0');
         } else {
-            $playlists = Playlist::where('visibility', 'public')->get();
+            $query->where('visibility', 'public')
+                  ->where('number_levels', '>', '0');
         }
+
+        // filter 2: filtering
+        if ($request->filled('search') && $request->filled('filter')) {
+            $input = $request->input('search');
+
+            switch ($request->input('filter')) {
+                case "name":
+                    $query->where('name', 'like', "%{$input}%");
+                    break;
+                case "creator":
+                    $query->whereHas('user', function ($q) use ($input) {
+                        $q->where('username', 'like', "%{$input}%");
+                    });
+                    break;
+                // isolates the condition so that it doesn't interfere with others
+                default:
+                    $query->where(function ($q) use ($input) {
+                        $q->where('name', 'like', "%{$input}%")
+                          ->orWhereHas('user', function ($q2) use ($input) {
+                                $q2->where('username', 'like', "%{$input}%");
+                            });
+                    });
+                    break;
+            }
+        }
+
+        // filter 3: sorting
+        if ($request->filled('sortby')) {
+            $sortBy = $request->input('sortby');
+            $order = $request->input('order', 'asc'); // defaults to asc if nothing provided
+
+            // double check to prevent any other values from being tried on
+            if (!in_array($order, ['asc', 'desc'])) {
+                $order = 'asc';
+            }
+
+            // for name/number of maps, sort manually
+            // for creator, joins with users table and sort by usernames
+            // for length, order by column created from the withSum() earlier
+            switch ($sortBy) {
+                case 'name':
+                case 'number_levels':
+                    $query->orderBy($sortBy, $order);
+                    break;
+                case 'creator':
+                    $query->join('users', 'playlists.user_id', '=', 'users.id')
+                      ->orderBy('users.username', $order)
+                      ->select('playlists.*');
+                      break;
+                case 'length':
+                    $query->orderBy('maps_sum_length', $order);
+                    break;
+            }
+        }
+        
+        $playlistsPerPage = $request->input('playlists_per_page', 10);
+        $playlists = $query->paginate($playlistsPerPage)->appends(request()->query());
         
         return view('playlists.index', compact('playlists'));
     }
@@ -95,14 +159,17 @@ class PlaylistController extends Controller
         return redirect()->route('playlists.show', $playlist->id)->with('success', 'playlist updated.');
     }
 
-    public function show(string $id)
+    public function show(Request $request, string $id)
     {
-        // retrieves the playlist, and for the maps it contains, retrieve the total like count
-        $playlist = Playlist::with(['maps' => function ($query) {
-            $query->withCount('likedByUsers');
-        }])->findOrFail($id);
+        $playlist = Playlist::findOrFail($id);
+        $mapsPerPage = $request->input('maps_per_page', 10);
 
-        return view('playlists.show', compact('playlist'));
+        $maps = $playlist->maps()
+            ->withCount('likedByUsers')
+            ->paginate($mapsPerPage)
+            ->appends(request()->query());
+
+        return view('playlists.show', compact('playlist', 'maps'));
     }
 
     public function edit(string $id)

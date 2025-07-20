@@ -21,15 +21,24 @@ class UserController extends Controller
         return view('users.index', compact('users'));
     }
 
-    public function show(string $id)
+    public function show(Request $request, string $id)
     {
-        // retrieves the user, and for the maps he liked, retrieve the total like count
-        $user = User::with([
-            'likedMaps' => function ($query) {
-                $query->withCount('likedByUsers');
-            }
-        ])->findOrFail($id);
-        return view('users.profile', compact('user'));
+        $user = User::findOrFail($id);
+
+        $mapsPerPage = $request->input('maps_per_page', 10);
+        $playlistsPerPage = $request->input('playlists_per_page', 10);
+
+        $likedMaps = $user->likedMaps()
+            ->withCount('likedByUsers')
+            ->paginate($mapsPerPage, ['*'], 'maps_page')
+            ->appends($request->except('maps_page'));
+
+        $playlists = $user->playlists()
+            ->withCount('maps')
+            ->paginate($playlistsPerPage, ['*'], 'playlists_page')
+            ->appends($request->except('playlists_page'));
+             
+        return view('users.profile', compact('user', 'likedMaps', 'playlists'));
     }
 
     public function edit(string $id)

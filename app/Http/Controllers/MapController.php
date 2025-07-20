@@ -49,7 +49,8 @@ class MapController extends Controller
         }
 
         // get the final query to pass in the view
-        $maps = $query->get();
+        $mapsPerPage = $request->input('maps_per_page', 10);
+        $maps = $query->paginate($mapsPerPage)->appends(request()->query());
 
         return view('maps.index', compact('maps'));
     }

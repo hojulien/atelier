@@ -112,6 +112,34 @@ body.dark-mode {
     box-shadow: 2px 2px 10px var(--section-dark);
 }
 
+/* pagination */
+
+nav {
+    width: 100%;
+}
+
+.pagination {
+    width: 100%;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.pagination li, .per_page {
+    padding: 10px;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--section-dark);
+    box-shadow: 2px 2px 10px var(--section-dark);
+}
+
+.page-hover {
+    border: 2px solid rgba(0,0,0,0.5) !important;
+    background-color: var(--section-darker) !important;
+    box-shadow: 2px 2px 10px var(--section-darker) !important;
+}
+
 /* error text and error images */
 
 .error {
@@ -644,13 +672,14 @@ input[type="checkbox"]:checked + .map-card-compact {
 
 /* PLAYLIST LIST */
 
-.playlist-container, .playlist-header {
+.playlist-container {
     min-width: 250px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .playlist-header {
+    width: 100%;
     border-radius: 20px;
     background-color: var(--section-dark);
     box-shadow: 2px 2px 10px var(--section-dark);

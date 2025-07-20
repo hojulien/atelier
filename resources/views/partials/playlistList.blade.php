@@ -1,4 +1,10 @@
 <div class="playlist-container flex flex-col p-20 g-30">
+        <div class="playlist-header flex flex-f-center p-20">
+            <span>name</span>
+            <span>number of maps</span>
+            <span>length</span>
+            <span>creator</span>
+        </div>
         @foreach ($playlists as $playlist)
             <div 
                 class="playlist-card flex flex-col"
@@ -81,4 +87,5 @@
                 </div>
             </div>
         @endforeach
+        {{ $playlists->onEachSide(2)->links('vendor.pagination.defaultPlaylist') }}
     </div>

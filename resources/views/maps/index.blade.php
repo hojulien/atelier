@@ -46,6 +46,9 @@
             <option value="desc" {{ request('order') == 'desc' ? 'selected' : '' }}>descending</option>
         </select>
 
+        <!-- make the number of maps per page persist between forms -->
+        <input type="hidden" name="per_page" value="{{ request('per_page', 10) }}">
+
         <br>
         <button type="submit">search</button>
     </form>

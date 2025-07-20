@@ -101,4 +101,5 @@
             </div>
         </div>
     @endforeach
+    {{ $maps->onEachSide(2)->links('vendor.pagination.defaultMaps') }}
     </div>

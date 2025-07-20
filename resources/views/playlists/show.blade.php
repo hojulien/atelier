@@ -25,8 +25,8 @@
         <!-- list of maps from the playlist - if empty, displays specific text -->
         <div>
             <div class="key">list of maps</div>
-            @if ($playlist->maps->isNotEmpty())
-                @include('partials.mapList', ['maps' => $playlist->maps, 'devMode' => false])
+            @if ($maps->isNotEmpty())
+                @include('partials.mapList', ['maps' => $maps, 'devMode' => false])
             @else
                 <div>this playlist is currently empty.</div>
             @endif

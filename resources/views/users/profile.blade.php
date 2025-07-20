@@ -32,8 +32,8 @@
     <div class="title-container p-20">
         <h1 class="title">{{ $user->username }}'s playlists</h1>
     </div>
-    @if ($user->playlists->isNotEmpty())
-        @include('partials.playlistList', ['playlists' => $user->playlists])
+    @if ($playlists->isNotEmpty())
+        @include('partials.playlistList', ['playlists' => $playlists])
     @else
         <div>this user doesn't have any registered public playlist.</div>
     @endif
@@ -42,16 +42,20 @@
     <div class="title-container p-20">
         <h1 class="title">{{ $user->username }}'s favorited maps</h1>
     </div>
-    @if ($user->likedMaps->isNotEmpty())
-        @include('partials.mapList', ['maps' => $user->likedMaps, 'devMode' => false])
+    @if ($likedMaps->isNotEmpty())
+        @include('partials.mapList', ['maps' => $likedMaps, 'devMode' => false])
     @endif
 
+    <!-- displays user actions (edit, delete) -->
+    @if (Auth::check() && Auth::user()->id === $user->id)
         <div class="details-data flex flex-f-center g-20">
+            
             <a id="edit" class="button p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('users.edit', $user->id) }}">
                 <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
                 <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
                 edit account
             </a>
+
             <form class="button p-10 delete" action="{{ route('users.delete', $user) }}" method="POST">
                 @csrf
                 @method('DELETE')
@@ -64,11 +68,16 @@
                     delete account
                 </button>
             </form>
-            <a href="{{ route('users.index') }}" class="no-link button return p-10 bold flex flex-f-center g-5">
-                <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/return.svg') }}" alt="return icon">
-                <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/return_dark.svg') }}" alt="return icon dark mode">
-                back to user list
-            </a>
+
+            <!-- for admins, return to user list -->
+            @if (Auth::check() && Auth::user()->type === "admin")
+                <a href="{{ route('users.index') }}" class="no-link button return p-10 bold flex flex-f-center g-5">
+                    <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/return.svg') }}" alt="return icon">
+                    <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/return_dark.svg') }}" alt="return icon dark mode">
+                    back to user list
+                </a>
+            @endif
         </div>
+    @endif
     
 @endsection
