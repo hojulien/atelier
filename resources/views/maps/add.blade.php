@@ -5,7 +5,7 @@
 @section('content')
     <h1>add a new map</h1>
     
-    <form class="form" method="POST" action="{{ route('maps.store') }}" enctype="multipart/form-data">
+    <form class="form m-auto g-10" method="POST" action="{{ route('maps.store') }}" enctype="multipart/form-data">
         @csrf
 
         @include('partials.mapForm', ['map' => null])
@@ -14,8 +14,6 @@
     </form>
 @endsection
 
-<!-- TO DO LATER
 @section('scripts')
     @vite('resources/js/mapsTags.js')
 @endsection 
--->
