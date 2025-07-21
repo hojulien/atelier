@@ -5,12 +5,15 @@
 @section('content')
     <h1>create a new playlist</h1>
     
-    <form class="form" id="playlistForm" method="POST" action="{{ route('playlists.store') }}">
+    <form class="form m-auto g-10" id="playlistForm" method="POST" action="{{ route('playlists.store') }}">
         @csrf
 
         @include('partials.playlistForm', ['playlist' => null])
 
-        <button type="submit" style="background-color:palegreen;">create playlist</button>
+        <button type="submit" class="button return p-10 bold flex flex-f-center g-5">
+            <img class="iconLight icon-24" src="{{ asset('images/icons/edit.svg') }}" alt="create icon">
+            <img class="iconDark icon-24" src="{{ asset('images/icons/edit_dark.svg') }}" alt="create icon dark mode">
+            create playlist</button>
     </form>
 @endsection
 

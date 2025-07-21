@@ -59,6 +59,7 @@ body.dark-mode {
 .button {
     border-radius: 20px;
     padding: 5px 10px;
+    font-size: 1rem;
 }
 
 .button-mini {
@@ -400,7 +401,11 @@ label {
     align-items: center;
 } */
 
-input {
+textarea {
+    resize: none;
+}
+
+input, textarea, select {
     min-width: 200px;
     width: 100%;
     height: 100%;
@@ -408,6 +413,32 @@ input {
     max-width: 600px;
     padding: 10px;
     border-radius: 20px;
+}
+
+textarea, select {
+    overflow: clip;
+}
+
+input[type="file"] {
+    width: 100%;
+    max-width: 250px;
+}
+
+.input-media {
+    height: auto;
+}
+
+.input-media-container {
+    width: 100%;
+    height: 100%;
+    max-width: 330px;
+    max-height: 128px;
+}
+
+.input-media-container img {
+    width: auto;
+    height: 128px;
+    object-fit: contain;
 }
 
 /* home */
