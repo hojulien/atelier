@@ -75,7 +75,7 @@ class SuggestionController extends Controller
         Suggestion::create($validated);
 
         // evolution: redirect to main page?
-        return redirect()->route('suggestions.index')->with('success', 'your suggestion has been submitted.');
+        return redirect()->route('home')->with('success', 'your suggestion has been submitted.');
     }
 
     public function show(string $id)
@@ -115,7 +115,7 @@ class SuggestionController extends Controller
         }
 
         $suggestion->update($validated);
-        return redirect()->route('suggestions.index')->with('success', 'suggestion updated.');
+        return redirect()->route('home')->with('success', 'suggestion updated.');
     }
 
     public function destroy(string $id)
@@ -123,6 +123,6 @@ class SuggestionController extends Controller
         $suggestion = Suggestion::findOrFail($id);
         $suggestionId = $suggestion->id;
         $suggestion->delete();
-        return redirect()->route('suggestions.index')->with('success', "suggestion n°{$suggestionId} deleted.");
+        return redirect()->route('home')->with('success', "suggestion n°{$suggestionId} deleted.");
     }
 }

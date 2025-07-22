@@ -99,6 +99,6 @@
             <label class="button p-10 bold flex flex-f-center" for="background">background</label>
             <input type="file" name="background">
             @if(isset($map) && $map->background)
-                <img src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="current banner" height="128">
+                <img src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="current banner">
             @endif
         </div>

@@ -3,14 +3,19 @@
 @section('title', 'send a suggestion')
 
 @section('content')
-    <h1>send a suggestion</h1>
+    <div class="title-container p-20">
+        <h1 class="title">send a suggestion</h1>
+    </div>
     
-    <form class="form" id="suggestionForm" method="POST" action="{{ route('suggestions.store') }}" enctype="multipart/form-data">
+    <form class="form m-auto g-10" id="suggestionForm" method="POST" action="{{ route('suggestions.store') }}" enctype="multipart/form-data">
         @csrf
 
         @include('partials.suggestionForm', ['suggestion' => null])
 
-        <button type="submit" style="background-color:palegreen;">submit suggestion</button>
+        <button type="submit" class="button return p-10 bold flex flex-f-center g-5">
+            <img class="iconLight icon-24" src="{{ asset('images/icons/edit.svg') }}" alt="create icon">
+            <img class="iconDark icon-24" src="{{ asset('images/icons/edit_dark.svg') }}" alt="create icon dark mode">
+            submit suggestion</button>
     </form>
 @endsection
 

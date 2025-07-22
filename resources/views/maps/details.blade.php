@@ -3,7 +3,9 @@
 @section('title', 'map informations')
 
 @section('content')
-    <h1 class="p-20">map informations</h1>
+    <div class="title-container p-20">
+        <h1 class="title">map informations</h1>
+    </div>
 
     <div class="details-bg p-20">
         <img src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="background">

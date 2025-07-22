@@ -3,7 +3,9 @@
 @section('title', 'map list')
 
 @section('content')
-    <h1>map list</h1>
+    <div class="title-container p-20">
+        <h1 class="title">map list</h1>
+    </div>
 
     @if (Auth::check() && Auth::user()->type === 'admin')
         <a href="{{ route('maps.add') }}"><h2>add new map</h2></a> <br> <!-- for accessibility purposes, to remove later -->
@@ -13,7 +15,7 @@
 
     <br>
 
-    <form method="GET" action="{{ route('maps.index') }}">
+    <form class="form m-auto g-10" method="GET" action="{{ route('maps.index') }}">
         <!-- searchbar -->
         <input type="text" name="search" placeholder="search map..." value="{{ request('search') }}">
 
@@ -50,7 +52,10 @@
         <input type="hidden" name="maps_per_page" value="{{ request('per_page', 10) }}">
 
         <br>
-        <button type="submit">search</button>
+        <button type="submit" class="button return p-10 bold flex flex-f-center g-5">
+            <img class="iconLight icon-24" src="{{ asset('images/icons/search.svg') }}" alt="search icon">
+            <img class="iconDark icon-24" src="{{ asset('images/icons/search_dark.svg') }}" alt="search icon dark mode">
+            search</button>
     </form>
 
     <!-- TO DO: replace by artistunicode/titleunicode with a js script -->

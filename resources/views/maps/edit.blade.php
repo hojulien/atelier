@@ -3,7 +3,9 @@
 @section('title', 'update map')
 
 @section('content')
-    <h1>update map</h1>
+    <div class="title-container p-20">
+        <h1 class="title">update</h1>
+    </div>
     
     <form class="form m-auto g-10" method="POST" action="{{ route('maps.update', $map) }}" enctype="multipart/form-data">
         @csrf
@@ -11,7 +13,10 @@
         
         @include('partials.mapForm', ['map' => $map])
 
-        <button type="submit" style="background-color:palegreen;">update map</button>
+        <button type="submit" class="button return p-10 bold flex flex-f-center g-5">
+            <img class="iconLight icon-24" src="{{ asset('images/icons/update.svg') }}" alt="update icon">
+            <img class="iconDark icon-24" src="{{ asset('images/icons/update_dark.svg') }}" alt="update icon dark mode">
+            update map</button>
     </form>
 @endsection
 
