@@ -3,14 +3,16 @@
 @section('title', 'playlist list')
 
 @section('content')
-    <h1>playlist list</h1>
+    <div class="title-container p-20">
+        <h1 class="title">playlist list</h1>
+    </div>
 
     <!-- for accessibility purposes, to remove later -->
     <a href="{{ route('playlists.create') }}"><h2>create a playlist</h2></a>
 
     <br>
 
-    <form method="GET" action="{{ route('playlists.index') }}">
+    <form class="form m-auto g-10" method="GET" action="{{ route('playlists.index') }}">
         <!-- searchbar -->
         <input type="text" name="search" placeholder="search playlist..." value="{{ request('search') }}">
 
@@ -40,7 +42,10 @@
         <input type="hidden" name="playlists_per_page" value="{{ request('per_page', 10) }}">
 
         <br>
-        <button type="submit">search</button>
+        <button type="submit" class="button return p-10 bold flex flex-f-center g-5">
+            <img class="iconLight icon-24" src="{{ asset('images/icons/search.svg') }}" alt="search icon">
+            <img class="iconDark icon-24" src="{{ asset('images/icons/search_dark.svg') }}" alt="search icon dark mode">
+            search</button>
     </form>
  
     @include('partials.playlistList', ['playlists' => $playlists])
