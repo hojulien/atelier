@@ -3,9 +3,12 @@
 @section('title', 'playlist informations')
 
 @section('content')
-    <h1>{{ $playlist->name }}</h1>
+    <div class="title-container p-20">
+        <h1 class="title">{{ $playlist->name }}</h1>
+    </div>
+
     <!-- only let admins and playlist owner add maps to the playlist -->
-    @if(Auth::check() && Auth::user()->id === $playlist->user_id || Auth::user()->type === "admin")
+    @if(Auth::check() && (Auth::user()->id === $playlist->user_id || Auth::user()->type === "admin"))
         <a href="{{ route('playlists.addMaps', $playlist->id) }}"><h2>add maps to playlist</h2></a> <br>
     @endif
 
@@ -49,15 +52,39 @@
             @endif
         </div>
 
-        <div>
-            <a id="edit" href="{{ route('playlists.edit', $playlist->id) }}">edit playlist</a>
-            <form action="{{ route('playlists.delete', $playlist) }}" method="POST">
+    </div>
+
+    @if(Auth::check() && (Auth::user()->id === $playlist->user_id || Auth::user()->type === "admin"))
+        <div class="details-data flex flex-f-center g-20">
+            
+            <a id="edit" class="button p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('playlists.edit', $playlist->id) }}">
+                <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
+                <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
+                edit playlist
+            </a>
+
+            <form class="button p-10 delete" action="{{ route('playlists.delete', $playlist) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button onclick="return confirm('delete this playlist?');" id="delete">delete playlist</button>
+                <button 
+                    onclick="return confirm('delete this map? it will also be removed from associated playlists!');" 
+                    id="delete"
+                    class="no-button bold flex flex-f-center g-5">
+                    <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
+                    <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/delete_dark.svg') }}" alt="delete icon dark mode">
+                    delete playlist
+                </button>
             </form>
+
+            <!-- for admins, return to user list -->
+            @if (Auth::check() && Auth::user()->type === "admin")
+                <a href="{{ route('playlists.index') }}" class="no-link button return p-10 bold flex flex-f-center g-5">
+                    <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/return.svg') }}" alt="return icon">
+                    <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/return_dark.svg') }}" alt="return icon dark mode">
+                    back to playlist list
+                </a>
+            @endif
         </div>
-    </div>
-    <button class="return"><a href="{{ route('playlists.index') }}" >back to playlist list</a></button>
+    @endif
     
 @endsection

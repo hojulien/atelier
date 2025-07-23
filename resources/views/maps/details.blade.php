@@ -7,9 +7,10 @@
         <h1 class="title">map informations</h1>
     </div>
 
-    <div class="details-bg p-20">
+    <div class="details-bg m-auto p-20">
         <img src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="background">
     </div>
+
     <div class="details-container flex flex-col flex-f-center p-20 g-10">
         <div class="details-data flex g-20">
             <div class="details-key button flex flex-f-center g-5 m-auto">
@@ -98,8 +99,8 @@
 
         <div class="details-data flex g-20">
             <div class="details-key button flex flex-f-center g-5 m-auto">
-                <img class="iconLight icon-32" src="{{ asset('images/icons/length.svg') }}" alt="upload icon">
-                <img class="iconDark icon-32" src="{{ asset('images/icons/length_dark.svg') }}" alt="upload icon darkmode">
+                <img class="iconLight icon-32" src="{{ asset('images/icons/calendar.svg') }}" alt="calendar icon">
+                <img class="iconDark icon-32" src="{{ asset('images/icons/calendar_dark.svg') }}" alt="calendar icon darkmode">
                 <span class="bold">submit date</span>
             </div>
             <div class="details-value button flex flex-f-center">
@@ -109,8 +110,8 @@
 
         <div class="details-data flex g-20">
             <div class="details-key button flex flex-f-center g-5 m-auto">
-                <img class="iconLight icon-32" src="{{ asset('images/icons/length.svg') }}" alt="update icon">
-                <img class="iconDark icon-32" src="{{ asset('images/icons/length_dark.svg') }}" alt="update icon darkmode">
+                <img class="iconLight icon-32" src="{{ asset('images/icons/update.svg') }}" alt="update icon">
+                <img class="iconDark icon-32" src="{{ asset('images/icons/update_dark.svg') }}" alt="update icon darkmode">
                 <span class="bold">last updated</span>
             </div>
             <div class="details-value button flex flex-f-center">
@@ -128,31 +129,31 @@
                 <span>@foreach ($map->tags as $tag) {{ $tag }} @endforeach</span>
             </div>
         </div>
+    </div>
 
-        <div class="details-data flex flex-f-center g-20">
-            <a id="edit" class="button p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('maps.edit', $map->id) }}">
-                <img class="iconLight icon-24" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
-                <img class="iconDark icon-24" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
-                edit map
-            </a>
-            <form class="button p-10 delete" action="{{ route('maps.delete', $map) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button 
-                    onclick="return confirm('delete this map? it will also be removed from associated playlists!');" 
-                    id="delete"
-                    class="no-button bold flex flex-f-center g-5">
-                    <img class="iconLight icon-24" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
-                    <img class="iconDark icon-24" src="{{ asset('images/icons/delete_dark.svg') }}" alt="delete icon dark mode">
-                    delete map
-                </button>
-            </form>
-            <a href="{{ route('maps.index') }}" class="no-link button return p-10 bold flex flex-f-center g-5">
-                <img class="iconLight icon-24" src="{{ asset('images/icons/return.svg') }}" alt="return icon">
-                <img class="iconDark icon-24" src="{{ asset('images/icons/return_dark.svg') }}" alt="return icon dark mode">
-                back to map list
-            </a>
-        </div>
+    <div class="details-data flex flex-f-center g-20">
+        <a id="edit" class="button p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('maps.edit', $map->id) }}">
+            <img class="iconLight icon-24" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
+            <img class="iconDark icon-24" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
+            edit map
+        </a>
+        <form class="button p-10 delete" action="{{ route('maps.delete', $map) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button 
+                onclick="return confirm('delete this map? it will also be removed from associated playlists!');" 
+                id="delete"
+                class="no-button bold flex flex-f-center g-5">
+                <img class="iconLight icon-24" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
+                <img class="iconDark icon-24" src="{{ asset('images/icons/delete_dark.svg') }}" alt="delete icon dark mode">
+                delete map
+            </button>
+        </form>
+        <a href="{{ route('maps.index') }}" class="no-link button return p-10 bold flex flex-f-center g-5">
+            <img class="iconLight icon-24" src="{{ asset('images/icons/return.svg') }}" alt="return icon">
+            <img class="iconDark icon-24" src="{{ asset('images/icons/return_dark.svg') }}" alt="return icon dark mode">
+            back to map list
+        </a>
     </div>
     
 @endsection

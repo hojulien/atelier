@@ -65,7 +65,7 @@
                 </li>
             @endif
 
-            <form method="GET" action="{{ route('maps.index') }}">
+            <form method="GET" action="{{ url()->current() }}">
                 <!-- make all search inputs persist between forms -->
                 <input type="hidden" name="search" value="{{ request('search') }}">
                 <input type="hidden" name="filter" value="{{ request('filter') }}">

@@ -18,11 +18,21 @@
             <span class="username bold fsize-32">{{ $user->username }}</span>
             <div class="stats flex flex-col g-10">
                 <div class="fsize-20">
-                    <span class="fsize-24">{{ $user->playlists()->count() }}</span> playlists 
+                    <span class="fsize-24">{{ $user->playlists()->count() }}</span>
+                    @if($user->playlists()->count() === 1)
+                        playlist
+                    @else
+                        playlists
+                    @endif
                     (<span class="fsize-24">{{ $user->playlists()->where('visibility','private')->count() }}</span> private)
                 </div>
                 <div class="fsize-20">
-                    <span class="fsize-24">{{ $user->likedMaps()->count() }}</span> favorited maps
+                    <span class="fsize-24">{{ $user->likedMaps()->count() }}</span> 
+                    @if($user->likedMaps()->count() === 1)
+                        favorited map
+                    @else
+                        favorited maps
+                    @endif
                 </div>
             </div>
         </div>
