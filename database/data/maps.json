@@ -1,7 +1,6 @@
 [
     {
         "id": 1,
-        "rc": 1,
         "artist": "Mandarin",
         "title": "Mushitachi no Yasoukyoku",
         "artistUnicode": "マンダリン",
@@ -27,7 +26,6 @@
     },
     {
         "id": 2,
-        "rc": 1,
         "artist": "Hamu",
         "title": "Kumonagare",
         "artistUnicode": "ハム",
@@ -53,7 +51,6 @@
     },
     {
         "id": 3,
-        "rc": 1,
         "artist": "Hamu",
         "title": "il mare-prologue-",
         "artistUnicode": "ハム",
@@ -79,7 +76,6 @@
     },
     {
         "id": 4,
-        "rc": 1,
         "artist": "Hamu",
         "title": "Hirusagari no yuuutsu",
         "artistUnicode": "ハム",
@@ -104,7 +100,6 @@
     },
     {
         "id": 5,
-        "rc": 1,
         "artist": "relaxdaily",
         "title": "Angel from the Realms of Glory",
         "artistUnicode": null,
@@ -129,7 +124,6 @@
     },
     {
         "id": 6,
-        "rc": 1,
         "artist": "Arata Iiyoshi",
         "title": "Jigen no Tou Sai Joubu",
         "artistUnicode": "飯吉新",
@@ -153,7 +147,6 @@
     },
     {
         "id": 7,
-        "rc": 1,
         "artist": "Hamu",
         "title": "water-mirror",
         "artistUnicode": "ハム",
@@ -177,7 +170,6 @@
     },
     {
         "id": 8,
-        "rc": 1,
         "artist": "Yu-ki",
         "title": "Kappa no Kawanagare",
         "artistUnicode": null,
@@ -203,7 +195,6 @@
     },
     {
         "id": 9,
-        "rc": 1,
         "artist": "fino",
         "title": "aerial crossover",
         "artistUnicode": null,
@@ -227,7 +218,6 @@
     },
     {
         "id": 10,
-        "rc": 1,
         "artist": "relaxdaily",
         "title": "Relaxation rdN°003",
         "artistUnicode": null,
@@ -251,7 +241,6 @@
     },
     {
         "id": 11,
-        "rc": 1,
         "artist": "Various Artists",
         "title": "Ekoro's Relaxing Compilation",
         "artistUnicode": null,
@@ -274,7 +263,6 @@
     },
     {
         "id": 12,
-        "rc": 2,
         "artist": "Toshimasa",
         "title": "Makuai ~Amefuru Mori~",
         "artistUnicode": null,
@@ -302,7 +290,6 @@
     },
     {
         "id": 13,
-        "rc": 2,
         "artist": "da, Mandarin",
         "title": "Sabotage Biyori",
         "artistUnicode": "だ, マンダリン",
@@ -330,7 +317,6 @@
     },
     {
         "id": 14,
-        "rc": 2,
         "artist": "Kogawa Yusuke",
         "title": "Seiten Hekireki",
         "artistUnicode": "こがわ悠介",
@@ -355,7 +341,6 @@
     },
     {
         "id": 15,
-        "rc": 2,
         "artist": "Moon-Tone",
         "title": "Kappa Booty",
         "artistUnicode": null,
@@ -379,7 +364,6 @@
     },
     {
         "id": 16,
-        "rc": 2,
         "artist": "Scale, Toshimasa",
         "title": "Mukaebi",
         "artistUnicode": null,
@@ -406,7 +390,6 @@
     },
     {
         "id": 17,
-        "rc": 2,
         "artist": "katsu",
         "title": "Land of Snow",
         "artistUnicode": null,
@@ -431,7 +414,6 @@
     },
     {
         "id": 18,
-        "rc": 2,
         "artist": "relaxdaily",
         "title": "Relaxation rdN042",
         "artistUnicode": null,
@@ -456,7 +438,6 @@
     },
     {
         "id": 19,
-        "rc": 2,
         "artist": "Yu-ki",
         "title": "Owan de Nangoku e",
         "artistUnicode": null,
@@ -482,7 +463,6 @@
     },
     {
         "id": 20,
-        "rc": 2,
         "artist": "Yu-ki",
         "title": "Flower Village",
         "artistUnicode": null,
@@ -509,7 +489,6 @@
     },
     {
         "id": 21,
-        "rc": 2,
         "artist": "Hamu",
         "title": "heaven sunshine",
         "artistUnicode": "ハム",
@@ -533,7 +512,6 @@
     },
     {
         "id": 22,
-        "rc": 2,
         "artist": "Various Artists",
         "title": "Ekoro's Relaxing Compilation 2",
         "artistUnicode": null,
@@ -556,7 +534,6 @@
     },
     {
         "id": 23,
-        "rc": 3,
         "artist": "Hamu",
         "title": "Yumemi Gokochi",
         "artistUnicode": "ハム",
@@ -582,7 +559,6 @@
     },
     {
         "id": 24,
-        "rc": 3,
         "artist": "Toshimasa, sawara",
         "title": "Kuuchuu Teien",
         "artistUnicode": "Toshimasa, さわら",
@@ -607,7 +583,6 @@
     },
     {
         "id": 25,
-        "rc": 3,
         "artist": "da",
         "title": "mellow distance",
         "artistUnicode": "だ",
@@ -633,7 +608,6 @@
     },
     {
         "id": 26,
-        "rc": 3,
         "artist": "NAGI*",
         "title": "LOG",
         "artistUnicode": "NAGI☆",
@@ -659,7 +633,6 @@
     },
     {
         "id": 27,
-        "rc": 3,
         "artist": "Shibayan",
         "title": "meu querido",
         "artistUnicode": null,
@@ -684,7 +657,6 @@
     },
     {
         "id": 28,
-        "rc": 3,
         "artist": "Yu-ki, Toshimasa",
         "title": "Road to the moon",
         "artistUnicode": null,
@@ -711,7 +683,6 @@
     },
     {
         "id": 29,
-        "rc": 3,
         "artist": "Field",
         "title": "No o mau shibuki",
         "artistUnicode": "ふぃ～るど",
@@ -737,7 +708,6 @@
     },
     {
         "id": 30,
-        "rc": 3,
         "artist": "wonder",
         "title": "Cookie watch",
         "artistUnicode": null,
@@ -761,7 +731,6 @@
     },
     {
         "id": 31,
-        "rc": 3,
         "artist": "Various Artists",
         "title": "Ekoro's Relaxing Compilation 3",
         "artistUnicode": null,
@@ -784,7 +753,6 @@
     },
     {
         "id": 32,
-        "rc": 4,
         "artist": "Hamu",
         "title": "Negai no Hate",
         "artistUnicode": "ハム",
@@ -810,7 +778,6 @@
     },
     {
         "id": 33,
-        "rc": 4,
         "artist": "Terry@LDMT",
         "title": "GENSO-MIYAKO-BUSHI",
         "artistUnicode": "てりー@LDMT",
@@ -836,7 +803,6 @@
     },
     {
         "id": 34,
-        "rc": 4,
         "artist": "Aizawa",
         "title": "Akarui Yami no Aru Tokoro",
         "artistUnicode": "あいざわ",
@@ -861,7 +827,6 @@
     },
     {
         "id": 35,
-        "rc": 4,
         "artist": "Aizawa",
         "title": "Yomi no Hana",
         "artistUnicode": "あいざわ",
@@ -886,7 +851,6 @@
     },
     {
         "id": 36,
-        "rc": 4,
         "artist": "Hamu",
         "title": "Kutsushita o wa ita Neko",
         "artistUnicode": "ハム",
@@ -911,7 +875,6 @@
     },
     {
         "id": 37,
-        "rc": 4,
         "artist": "Yu-ki",
         "title": "Houjou no utage",
         "artistUnicode": null,
@@ -937,7 +900,6 @@
     },
     {
         "id": 38,
-        "rc": 4,
         "artist": "Hamu",
         "title": "natsu-iro",
         "artistUnicode": "ハム",
@@ -962,7 +924,6 @@
     },
     {
         "id": 39,
-        "rc": 4,
         "artist": "Hamu",
         "title": "O Dekake Kibun de",
         "artistUnicode": "ハム",
@@ -988,7 +949,6 @@
     },
     {
         "id": 40,
-        "rc": 4,
         "artist": "Aizawa",
         "title": "Futari de Hitotsu",
         "artistUnicode": "あいざわ",
@@ -1013,7 +973,6 @@
     },
     {
         "id": 41,
-        "rc": 4,
         "artist": "Various Artists",
         "title": "Ekoro's Relaxing Compilation 4",
         "artistUnicode": null,
@@ -1037,7 +996,6 @@
     },
     {
         "id": 42,
-        "rc": 5,
         "artist": "Hamu",
         "title": "awake",
         "artistUnicode": "ハム",
@@ -1062,7 +1020,6 @@
     },
     {
         "id": 43,
-        "rc": 5,
         "artist": "NAGI*",
         "title": "The Other Side",
         "artistUnicode": "NAGI☆",
@@ -1087,7 +1044,6 @@
     },
     {
         "id": 44,
-        "rc": 5,
         "artist": "ARA",
         "title": "Mushinooto yo Hibike Tsukiyo ni",
         "artistUnicode": null,
@@ -1112,7 +1068,6 @@
     },
     {
         "id": 45,
-        "rc": 5,
         "artist": "Takeharu Ishimoto",
         "title": "The Price of Freedom",
         "artistUnicode": "石元丈晴",
@@ -1137,7 +1092,6 @@
     },
     {
         "id": 46,
-        "rc": 5,
         "artist": "ginkiha",
         "title": "nightfall",
         "artistUnicode": null,
@@ -1161,7 +1115,6 @@
     },
     {
         "id": 47,
-        "rc": 5,
         "artist": "Toshimasa",
         "title": "Taidou",
         "artistUnicode": null,
@@ -1187,7 +1140,6 @@
     },
     {
         "id": 48,
-        "rc": 5,
         "artist": "wonder",
         "title": "Cannon Strike",
         "artistUnicode": null,
@@ -1212,7 +1164,6 @@
     },
     {
         "id": 49,
-        "rc": 5,
         "artist": "Various Artists",
         "title": "Ekoro's Relaxing Compilation 5",
         "artistUnicode": null,
@@ -1235,7 +1186,6 @@
     },
     {
         "id": 50,
-        "rc": 6,
         "artist": "spctrm",
         "title": "The Daffodils",
         "artistUnicode": null,
@@ -1261,7 +1211,6 @@
     },
     {
         "id": 51,
-        "rc": 6,
         "artist": "spctrm",
         "title": "L'eternite",
         "artistUnicode": null,
@@ -1285,7 +1234,6 @@
     },
     {
         "id": 52,
-        "rc": 6,
         "artist": "Hamu",
         "title": "claudia",
         "artistUnicode": "ハム",
@@ -1309,7 +1257,6 @@
     },
     {
         "id": 53,
-        "rc": 6,
         "artist": "Hamu",
         "title": "sweep sleep",
         "artistUnicode": "ハム",
@@ -1333,7 +1280,6 @@
     },
     {
         "id": 54,
-        "rc": 6,
         "artist": "Hamu",
         "title": "Tatta Hitotsu no Chisana Uso",
         "artistUnicode": "ハム",
@@ -1359,7 +1305,6 @@
     },
     {
         "id": 55,
-        "rc": 6,
         "artist": "Hamu",
         "title": "Reimei no Kaze, Gyoten no Hoshi",
         "artistUnicode": "ハム",
@@ -1384,7 +1329,6 @@
     },
     {
         "id": 56,
-        "rc": 6,
         "artist": "Cororo",
         "title": "Silk reel",
         "artistUnicode": null,
@@ -1410,7 +1354,6 @@
     },
     {
         "id": 57,
-        "rc": 6,
         "artist": "Tainokobone",
         "title": "Poping Water",
         "artistUnicode": "鯛の小骨",
@@ -1436,7 +1379,6 @@
     },
     {
         "id": 58,
-        "rc": 6,
         "artist": "Various Artists",
         "title": "Ekoro's Relaxing Compilation 6",
         "artistUnicode": null,
@@ -1459,7 +1401,6 @@
     },
     {
         "id": 59,
-        "rc": 7,
         "artist": "Hamu",
         "title": "Yukigesho ni Tsutsuma Rete",
         "artistUnicode": "ハム",
@@ -1485,7 +1426,6 @@
     },
     {
         "id": 60,
-        "rc": 7,
         "artist": "Hamu, da",
         "title": "Suihou",
         "artistUnicode": "ハム, だ",
@@ -1513,7 +1453,6 @@
     },
     {
         "id": 61,
-        "rc": 7,
         "artist": "da",
         "title": "Hoshizuku no Kaeru Basho",
         "artistUnicode": "だ",
@@ -1540,7 +1479,6 @@
     },
     {
         "id": 62,
-        "rc": 7,
         "artist": "Sato Hitomi",
         "title": "Humilau City Gym",
         "artistUnicode": "佐藤仁美",
@@ -1564,7 +1502,6 @@
     },
     {
         "id": 63,
-        "rc": 7,
         "artist": "TOKINE",
         "title": "Tsuki wa Gensou no Mama ni",
         "artistUnicode": null,
@@ -1589,7 +1526,6 @@
     },
     {
         "id": 64,
-        "rc": 7,
         "artist": "koutaq",
         "title": "Amenochi Nanairo",
         "artistUnicode": null,
@@ -1614,7 +1550,6 @@
     },
     {
         "id": 65,
-        "rc": 7,
         "artist": "da",
         "title": "H-36",
         "artistUnicode": "だ",
@@ -1641,7 +1576,6 @@
     },
     {
         "id": 66,
-        "rc": 7,
         "artist": "wonder",
         "title": "Slope of Intention",
         "artistUnicode": null,
@@ -1666,7 +1600,6 @@
     },
     {
         "id": 67,
-        "rc": 7,
         "artist": "Various Artists",
         "title": "Ekoro's Relaxing Compilation 7",
         "artistUnicode": null,
@@ -1690,7 +1623,6 @@
     },
     {
         "id": 68,
-        "rc": 8,
         "artist": "Aizawa",
         "title": "Kikoemasu ka?",
         "artistUnicode": "あいざわ",
@@ -1715,7 +1647,6 @@
     },
     {
         "id": 69,
-        "rc": 8,
         "artist": "Hamu",
         "title": "Yugure Akatonbo",
         "artistUnicode": "ハム",
@@ -1742,7 +1673,6 @@
     },
     {
         "id": 70,
-        "rc": 8,
         "artist": "koutaq",
         "title": "pause with ...",
         "artistUnicode": null,
@@ -1767,7 +1697,6 @@
     },
     {
         "id": 71,
-        "rc": 8,
         "artist": "Hamu",
         "title": "Garasu-iro no Hoshizora",
         "artistUnicode": "ハム",
@@ -1792,7 +1721,6 @@
     },
     {
         "id": 72,
-        "rc": 8,
         "artist": "Aizawa",
         "title": "Itsumo Issho",
         "artistUnicode": "あいざわ",
@@ -1818,7 +1746,6 @@
     },
     {
         "id": 73,
-        "rc": 8,
         "artist": "Sabao",
         "title": "Danro o Kakonde",
         "artistUnicode": "さば夫",
@@ -1843,7 +1770,6 @@
     },
     {
         "id": 74,
-        "rc": 8,
         "artist": "Yu-ki",
         "title": "Hokkai e no tsuioku",
         "artistUnicode": null,
@@ -1871,7 +1797,6 @@
     },
     {
         "id": 75,
-        "rc": 8,
         "artist": "da, poru",
         "title": "Tsukiyo no Passage",
         "artistUnicode": "だ, ポール",
@@ -1897,7 +1822,6 @@
     },
     {
         "id": 76,
-        "rc": 8,
         "artist": "da, poru",
         "title": "Yumemikyou",
         "artistUnicode": "だ, ポール",
@@ -1925,7 +1849,6 @@
     },
     {
         "id": 77,
-        "rc": 8,
         "artist": "Various Artists",
         "title": "Ekoro's Relaxing Compilation 8",
         "artistUnicode": null,
@@ -1949,7 +1872,6 @@
     },
     {
         "id": 78,
-        "rc": 9,
         "artist": "da",
         "title": "Ameagari no Sora",
         "artistUnicode": "だ",
@@ -1975,7 +1897,6 @@
     },
     {
         "id": 79,
-        "rc": 9,
         "artist": "Forest306+Unity-Gain",
         "title": "breeze whisper",
         "artistUnicode": null,
@@ -2002,7 +1923,6 @@
     },
     {
         "id": 80,
-        "rc": 9,
         "artist": "da",
         "title": "Dear the Moon",
         "artistUnicode": "だ",
@@ -2028,7 +1948,6 @@
     },
     {
         "id": 81,
-        "rc": 9,
         "artist": "Forest306+Unity-Gain",
         "title": "a warm day",
         "artistUnicode": null,
@@ -2054,7 +1973,6 @@
     },
     {
         "id": 82,
-        "rc": 9,
         "artist": "Suzumaru",
         "title": "A STARRY SKY",
         "artistUnicode": "鈴丸",
@@ -2080,7 +1998,6 @@
     },
     {
         "id": 83,
-        "rc": 9,
         "artist": "Casket",
         "title": "Finger-spasming lullabye",
         "artistUnicode": null,
@@ -2107,7 +2024,6 @@
     },
     {
         "id": 84,
-        "rc": 9,
         "artist": "tomoya",
         "title": "Dancers in the dark",
         "artistUnicode": null,
@@ -2132,7 +2048,6 @@
     },
     {
         "id": 85,
-        "rc": 9,
         "artist": "Floating Cloud",
         "title": "Kyoukai-sen o Meguru Festa",
         "artistUnicode": null,
@@ -2160,7 +2075,6 @@
     },
     {
         "id": 86,
-        "rc": 9,
         "artist": "Various Artists",
         "title": "RC9 ~autumn session~",
         "artistUnicode": null,
@@ -2184,7 +2098,6 @@
     },
     {
         "id": 87,
-        "rc": 10,
         "artist": "NAGI*",
         "title": "In my room",
         "artistUnicode": "NAGI☆",
@@ -2210,7 +2123,6 @@
     },
     {
         "id": 88,
-        "rc": 10,
         "artist": "Mandarin",
         "title": "Morning set",
         "artistUnicode": "マンダリン",
@@ -2235,7 +2147,6 @@
     },
     {
         "id": 89,
-        "rc": 10,
         "artist": "wonder",
         "title": "kitchen said",
         "artistUnicode": null,
@@ -2260,7 +2171,6 @@
     },
     {
         "id": 90,
-        "rc": 10,
         "artist": "Tainokobone",
         "title": "Kaze no Taki",
         "artistUnicode": "鯛の小骨",
@@ -2286,7 +2196,6 @@
     },
     {
         "id": 91,
-        "rc": 10,
         "artist": "wonder",
         "title": "70's alchemy cooking",
         "artistUnicode": null,
@@ -2311,7 +2220,6 @@
     },
     {
         "id": 92,
-        "rc": 10,
         "artist": "Tadao",
         "title": "Anchor Girl Harpist",
         "artistUnicode": "タダオ",
@@ -2338,7 +2246,6 @@
     },
     {
         "id": 93,
-        "rc": 10,
         "artist": "Arata Iiyoshi",
         "title": "Sky Peak Forest",
         "artistUnicode": "飯吉新",
@@ -2362,7 +2269,6 @@
     },
     {
         "id": 94,
-        "rc": 10,
         "artist": "TAMUSIC",
         "title": "Rokubousei Epilogue",
         "artistUnicode": "TAMUSIC",
@@ -2386,7 +2292,6 @@
     },
     {
         "id": 95,
-        "rc": 10,
         "artist": "mitsu mitsuru",
         "title": "Ennichi",
         "artistUnicode": "みつみつる",
@@ -2412,7 +2317,6 @@
     },
     {
         "id": 96,
-        "rc": 10,
         "artist": "Various Artists",
         "title": "RC10 ~spring session~",
         "artistUnicode": null,
@@ -2436,7 +2340,6 @@
     },
     {
         "id": 97,
-        "rc": 11,
         "artist": "da",
         "title": "Mado-goshi no Keshiki [gt. duo]",
         "artistUnicode": "だ",
@@ -2462,7 +2365,6 @@
     },
     {
         "id": 98,
-        "rc": 11,
         "artist": "Hamu",
         "title": "cycle blue",
         "artistUnicode": "ハム",
@@ -2488,7 +2390,6 @@
     },
     {
         "id": 99,
-        "rc": 11,
         "artist": "Ringing Volcano",
         "title": "Tsuyushigure",
         "artistUnicode": "風鈴ぼるけいの",
@@ -2514,7 +2415,6 @@
     },
     {
         "id": 100,
-        "rc": 11,
         "artist": "da",
         "title": "Full Moon Samba",
         "artistUnicode": "だ",
@@ -2540,7 +2440,6 @@
     },
     {
         "id": 101,
-        "rc": 11,
         "artist": "Hamu",
         "title": "Hajimari no Asa",
         "artistUnicode": "ハム",
@@ -2565,7 +2464,6 @@
     },
     {
         "id": 102,
-        "rc": 11,
         "artist": "wonder",
         "title": "open the square box",
         "artistUnicode": null,
@@ -2590,7 +2488,6 @@
     },
     {
         "id": 103,
-        "rc": 11,
         "artist": "wonder",
         "title": "Magical Dinner",
         "artistUnicode": null,
@@ -2615,7 +2512,6 @@
     },
     {
         "id": 104,
-        "rc": 11,
         "artist": "Ringing Volcano",
         "title": "Kinmokusei",
         "artistUnicode": "風鈴ぼるけいの",
@@ -2641,7 +2537,6 @@
     },
     {
         "id": 105,
-        "rc": 11,
         "artist": "tak",
         "title": "Heart Strings",
         "artistUnicode": null,
@@ -2667,7 +2562,6 @@
     },
     {
         "id": 106,
-        "rc": 11,
         "artist": "Various Artists",
         "title": "RC11 ~summer session~",
         "artistUnicode": null,
@@ -2691,7 +2585,6 @@
     },
     {
         "id": 107,
-        "rc": 12,
         "artist": "Kou Ogata",
         "title": "Sougen no Mura Saruuba",
         "artistUnicode": null,
@@ -2716,7 +2609,6 @@
     },
     {
         "id": 108,
-        "rc": 12,
         "artist": "da",
         "title": "tea break",
         "artistUnicode": "だ",
@@ -2741,7 +2633,6 @@
     },
     {
         "id": 109,
-        "rc": 12,
         "artist": "da",
         "title": "Feel like Love",
         "artistUnicode": "だ",
@@ -2767,7 +2658,6 @@
     },
     {
         "id": 110,
-        "rc": 12,
         "artist": "Kyoutansu",
         "title": "Deep forest where a dragon sleeps",
         "artistUnicode": "京箪笥",
@@ -2793,7 +2683,6 @@
     },
     {
         "id": 111,
-        "rc": 12,
         "artist": "da",
         "title": "pwpr act",
         "artistUnicode": "だ",
@@ -2817,7 +2706,6 @@
     },
     {
         "id": 112,
-        "rc": 12,
         "artist": "wonder",
         "title": "bad strawberry",
         "artistUnicode": null,
@@ -2843,7 +2731,6 @@
     },
     {
         "id": 113,
-        "rc": 12,
         "artist": "Toshimasa",
         "title": "Yousei no Iru Fuukei",
         "artistUnicode": null,
@@ -2869,7 +2756,6 @@
     },
     {
         "id": 114,
-        "rc": 12,
         "artist": "Hamu",
         "title": "Komorebi no Shosai Kara",
         "artistUnicode": "ハム",
@@ -2895,7 +2781,6 @@
     },
     {
         "id": 115,
-        "rc": 12,
         "artist": "Yu-ki",
         "title": "Kappa no Kawanagare",
         "artistUnicode": null,
@@ -2921,7 +2806,6 @@
     },
     {
         "id": 116,
-        "rc": 12,
         "artist": "mitsu mitsuru",
         "title": "Amenochi Kumorinochi Hare",
         "artistUnicode": "みつみつる",
@@ -2947,7 +2831,6 @@
     },
     {
         "id": 117,
-        "rc": 12,
         "artist": "Kou Ogata",
         "title": "Saihate no Shima",
         "artistUnicode": null,
@@ -2972,7 +2855,6 @@
     },
     {
         "id": 118,
-        "rc": 12,
         "artist": "Various Artists",
         "title": "RC12 ~spring session, act 2~",
         "artistUnicode": null,
@@ -2996,7 +2878,6 @@
     },
     {
         "id": 119,
-        "rc": 13,
         "artist": "Hamu",
         "title": "Hajimari no Basho Kara",
         "artistUnicode": "ハム",
@@ -3021,7 +2902,6 @@
     },
     {
         "id": 120,
-        "rc": 13,
         "artist": "da",
         "title": "Kore mo mata Aikatsu da ne",
         "artistUnicode": "だ",
@@ -3046,7 +2926,6 @@
     },
     {
         "id": 121,
-        "rc": 13,
         "artist": "Tainokobone",
         "title": "Sagume-sama 3-minutes cooking",
         "artistUnicode": "鯛の小骨",
@@ -3071,7 +2950,6 @@
     },
     {
         "id": 122,
-        "rc": 13,
         "artist": "da",
         "title": "marisanha",
         "artistUnicode": "だ",
@@ -3099,7 +2977,6 @@
     },
     {
         "id": 123,
-        "rc": 13,
         "artist": "Hamu",
         "title": "Verunigoode no Shasoo Kara",
         "artistUnicode": "ハム",
@@ -3124,7 +3001,6 @@
     },
     {
         "id": 124,
-        "rc": 13,
         "artist": "Hamu",
         "title": "Futari Aruku Natsu",
         "artistUnicode": "ハム",
@@ -3148,7 +3024,6 @@
     },
     {
         "id": 125,
-        "rc": 13,
         "artist": "da",
         "title": "Ceu e flores e da cidade",
         "artistUnicode": "だ",
@@ -3173,7 +3048,6 @@
     },
     {
         "id": 126,
-        "rc": 13,
         "artist": "bellwo",
         "title": "Jihihonsui ~ Fluye Constantemente",
         "artistUnicode": null,
@@ -3200,7 +3074,6 @@
     },
     {
         "id": 127,
-        "rc": 13,
         "artist": "Hamu",
         "title": "Ano Natsu ga Kikoeru",
         "artistUnicode": "ハム",
@@ -3226,7 +3099,6 @@
     },
     {
         "id": 128,
-        "rc": 13,
         "artist": "Various Artists",
         "title": "RC13 ~summer session, act 2~",
         "artistUnicode": null,
@@ -3250,7 +3122,6 @@
     },
     {
         "id": 129,
-        "rc": 14,
         "artist": "katsu",
         "title": "Land of Snow",
         "artistUnicode": null,
@@ -3275,7 +3146,6 @@
     },
     {
         "id": 130,
-        "rc": 14,
         "artist": "Hamu",
         "title": "Tantan Awa",
         "artistUnicode": "ハム",
@@ -3300,7 +3170,6 @@
     },
     {
         "id": 131,
-        "rc": 14,
         "artist": "Hamu",
         "title": "Mitorete Maaburuchiiku",
         "artistUnicode": "ハム",
@@ -3324,7 +3193,6 @@
     },
     {
         "id": 132,
-        "rc": 14,
         "artist": "OdiakeS",
         "title": "warm glow night",
         "artistUnicode": null,
@@ -3351,7 +3219,6 @@
     },
     {
         "id": 133,
-        "rc": 14,
         "artist": "Ringing Volcano",
         "title": "Aya Hata Momi Pajama Party",
         "artistUnicode": "風鈴ぼるけいの",
@@ -3378,7 +3245,6 @@
     },
     {
         "id": 134,
-        "rc": 14,
         "artist": "Ringing Volcano",
         "title": "Flan-chan Taisou Dai ni",
         "artistUnicode": "風鈴ぼるけいの",
@@ -3403,7 +3269,6 @@
     },
     {
         "id": 135,
-        "rc": 14,
         "artist": "yukina",
         "title": "Endless Record -Winter ver.-",
         "artistUnicode": null,
@@ -3427,7 +3292,6 @@
     },
     {
         "id": 136,
-        "rc": 14,
         "artist": "maritumix",
         "title": "Desire for existence",
         "artistUnicode": "まりつみ",
@@ -3453,7 +3317,6 @@
     },
     {
         "id": 137,
-        "rc": 14,
         "artist": "Hamu",
         "title": "Yofukashi Sweet Time",
         "artistUnicode": "ハム",
@@ -3479,7 +3342,6 @@
     },
     {
         "id": 138,
-        "rc": 14,
         "artist": "Various Artists",
         "title": "RC14 ~winter session~",
         "artistUnicode": null,
@@ -3503,7 +3365,6 @@
     },
     {
         "id": 139,
-        "rc": null,
         "artist": "maritumix",
         "title": "dream prison",
         "artistUnicode": "まりつみ",
@@ -3528,7 +3389,6 @@
     },
     {
         "id": 140,
-        "rc": null,
         "artist": "Ringing Volcano",
         "title": "Marisa's Drawers",
         "artistUnicode": "風鈴ぼるけいの",
@@ -3554,7 +3414,6 @@
     },
     {
         "id": 141,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Unraveled Story",
         "artistUnicode": "ハム",
@@ -3578,7 +3437,6 @@
     },
     {
         "id": 142,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Theme of Illuminight Storia",
         "artistUnicode": "ハム",
@@ -3601,7 +3459,6 @@
     },
     {
         "id": 143,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Royal Capital Prena Nowa",
         "artistUnicode": "ハム",
@@ -3624,7 +3481,6 @@
     },
     {
         "id": 144,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Frie Street",
         "artistUnicode": "ハム",
@@ -3647,7 +3503,6 @@
     },
     {
         "id": 145,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Phoni's Tool Shop",
         "artistUnicode": "ハム",
@@ -3671,7 +3526,6 @@
     },
     {
         "id": 146,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Silent Owl Pavilion",
         "artistUnicode": "ハム",
@@ -3694,7 +3548,6 @@
     },
     {
         "id": 147,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Libera Church",
         "artistUnicode": "ハム",
@@ -3717,7 +3570,6 @@
     },
     {
         "id": 148,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Anemos Plain",
         "artistUnicode": "ハム",
@@ -3740,7 +3592,6 @@
     },
     {
         "id": 149,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Tarva Cave",
         "artistUnicode": "ハム",
@@ -3763,7 +3614,6 @@
     },
     {
         "id": 150,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Megelli Ark Tower County",
         "artistUnicode": "ハム",
@@ -3786,7 +3636,6 @@
     },
     {
         "id": 151,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Labbit Battle \/ Victory!",
         "artistUnicode": "ハム",
@@ -3809,7 +3658,6 @@
     },
     {
         "id": 152,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Fleeting Rest",
         "artistUnicode": "ハム",
@@ -3833,7 +3681,6 @@
     },
     {
         "id": 153,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Busy City",
         "artistUnicode": "ハム",
@@ -3856,7 +3703,6 @@
     },
     {
         "id": 154,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Forest Invitation",
         "artistUnicode": "ハム",
@@ -3879,7 +3725,6 @@
     },
     {
         "id": 155,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Attera Underground Lake",
         "artistUnicode": "ハム",
@@ -3902,7 +3747,6 @@
     },
     {
         "id": 156,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Put Your Thoughts On The Blow",
         "artistUnicode": "ハム",
@@ -3925,7 +3769,6 @@
     },
     {
         "id": 157,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Nightmare",
         "artistUnicode": "ハム",
@@ -3949,7 +3792,6 @@
     },
     {
         "id": 158,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Ancient City Highen Leuo",
         "artistUnicode": "ハム",
@@ -3972,7 +3814,6 @@
     },
     {
         "id": 159,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Mechanical Fortress Armadina",
         "artistUnicode": "ハム",
@@ -3995,7 +3836,6 @@
     },
     {
         "id": 160,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Feel The Wind",
         "artistUnicode": "ハム",
@@ -4019,7 +3859,6 @@
     },
     {
         "id": 161,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Sealed Sanctuary Zapriet",
         "artistUnicode": "ハム",
@@ -4042,7 +3881,6 @@
     },
     {
         "id": 162,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Those Dragged Down From The Throne",
         "artistUnicode": "ハム",
@@ -4065,7 +3903,6 @@
     },
     {
         "id": 163,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Everlasting Story",
         "artistUnicode": "ハム",
@@ -4088,7 +3925,6 @@
     },
     {
         "id": 164,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Theme of Illuminight Storia -Epilogue-",
         "artistUnicode": "ハム",
@@ -4112,7 +3948,6 @@
     },
     {
         "id": 165,
-        "rc": "storia",
         "artist": "Hamu",
         "title": "Illuminight Storia",
         "artistUnicode": "ハム",
@@ -4136,7 +3971,6 @@
     },
     {
         "id": 166,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Tabijitaku",
         "artistUnicode": "街角麻婆豆",
@@ -4160,7 +3994,6 @@
     },
     {
         "id": 167,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Let's chu-chu",
         "artistUnicode": "街角麻婆豆",
@@ -4185,7 +4018,6 @@
     },
     {
         "id": 168,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Daite Idakarete",
         "artistUnicode": "街角麻婆豆",
@@ -4209,7 +4041,6 @@
     },
     {
         "id": 169,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Jukai",
         "artistUnicode": "街角麻婆豆",
@@ -4234,7 +4065,6 @@
     },
     {
         "id": 170,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Onaka ippai de Manzoku",
         "artistUnicode": "街角麻婆豆",
@@ -4259,7 +4089,6 @@
     },
     {
         "id": 171,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Otome, Wataame, Ringoame",
         "artistUnicode": "街角麻婆豆",
@@ -4283,7 +4112,6 @@
     },
     {
         "id": 172,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Touhou Bijin",
         "artistUnicode": "街角麻婆豆",
@@ -4307,7 +4135,6 @@
     },
     {
         "id": 173,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Vodka ga Renko o Nomu!",
         "artistUnicode": "1街角麻婆豆",
@@ -4331,7 +4158,6 @@
     },
     {
         "id": 174,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Tejinashi Merry",
         "artistUnicode": "街角麻婆豆",
@@ -4355,7 +4181,6 @@
     },
     {
         "id": 175,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Cafe Terrace Polka",
         "artistUnicode": "街角麻婆豆",
@@ -4379,7 +4204,6 @@
     },
     {
         "id": 176,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "La strada pastello",
         "artistUnicode": "街角麻婆豆",
@@ -4404,7 +4228,6 @@
     },
     {
         "id": 177,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Jirasanaide...",
         "artistUnicode": "街角麻婆豆",
@@ -4428,7 +4251,6 @@
     },
     {
         "id": 178,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "La java de verdure",
         "artistUnicode": "街角麻婆豆",
@@ -4452,7 +4274,6 @@
     },
     {
         "id": 179,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Boyle no Housoku",
         "artistUnicode": "街角麻婆豆",
@@ -4477,7 +4298,6 @@
     },
     {
         "id": 180,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Deshantrapa",
         "artistUnicode": "街角麻婆豆",
@@ -4501,7 +4321,6 @@
     },
     {
         "id": 181,
-        "rc": "folk dance",
         "artist": "Machikado-Mapoze",
         "title": "Otsugi wa doko de odorimashou ka",
         "artistUnicode": "街角麻婆豆",
@@ -4526,7 +4345,6 @@
     },
     {
         "id": 182,
-        "rc": 15,
         "artist": "Shibayan feat. 3L",
         "title": "Preparacao",
         "artistUnicode": null,
@@ -4551,7 +4369,6 @@
     },
     {
         "id": 183,
-        "rc": 15,
         "artist": "Tainokobone",
         "title": "MUKOU NO BEACH",
         "artistUnicode": "鯛の小骨",
@@ -4576,7 +4393,6 @@
     },
     {
         "id": 184,
-        "rc": 15,
         "artist": "Hamu",
         "title": "Ryuusei o Kugutte",
         "artistUnicode": "ハム",
@@ -4601,7 +4417,6 @@
     },
     {
         "id": 185,
-        "rc": 15,
         "artist": "Akiyuki Tateyama",
         "title": "Solocamp no Tashinami",
         "artistUnicode": "立山秋航",
@@ -4627,7 +4442,6 @@
     },
     {
         "id": 186,
-        "rc": 15,
         "artist": "bellwo",
         "title": "La Hakureina ~ Hakurei Jinja no Hanamatsuri",
         "artistUnicode": null,
@@ -4654,7 +4468,6 @@
     },
     {
         "id": 187,
-        "rc": 15,
         "artist": "Field",
         "title": "No o mau shibuki",
         "artistUnicode": "ふぃ～るど",
@@ -4680,7 +4493,6 @@
     },
     {
         "id": 188,
-        "rc": 15,
         "artist": "Hamu",
         "title": "Sweets*Smile*Soleil",
         "artistUnicode": "ハム",
@@ -4703,7 +4515,6 @@
     },
     {
         "id": 189,
-        "rc": 15,
         "artist": "KA=YA",
         "title": "Mellow Waves",
         "artistUnicode": "KA=YA",
@@ -4728,7 +4539,6 @@
     },
     {
         "id": 190,
-        "rc": 15,
         "artist": "Hamu",
         "title": "Kimi no Moto e",
         "artistUnicode": "ハム",
@@ -4753,7 +4563,6 @@
     },
     {
         "id": 191,
-        "rc": 15,
         "artist": "Various Artists",
         "title": "RC15 ~summer session, act 3~",
         "artistUnicode": null,
@@ -4777,7 +4586,6 @@
     },
     {
         "id": 192,
-        "rc": "fall road",
         "artist": "Hamu",
         "title": "Ohayou-san no Patrol",
         "artistUnicode": "ハム",
@@ -4800,7 +4608,6 @@
     },
     {
         "id": 193,
-        "rc": "fall road",
         "artist": "Hamu",
         "title": "Wagamichi, Hosomichi, Uousaou",
         "artistUnicode": "ハム",
@@ -4823,7 +4630,6 @@
     },
     {
         "id": 194,
-        "rc": "fall road",
         "artist": "Hamu",
         "title": "Sakanaya-san no Naisho Gohan",
         "artistUnicode": "ハム",
@@ -4846,7 +4652,6 @@
     },
     {
         "id": 195,
-        "rc": "fall road",
         "artist": "Hamu",
         "title": "Koko wa Hidamari Shuukaisho",
         "artistUnicode": "ハム",
@@ -4869,7 +4674,6 @@
     },
     {
         "id": 196,
-        "rc": "fall road",
         "artist": "Hamu",
         "title": "Kiiroi Juutan o Kakemawatte",
         "artistUnicode": "ハム",
@@ -4892,7 +4696,6 @@
     },
     {
         "id": 197,
-        "rc": "fall road",
         "artist": "Hamu",
         "title": "Oyuhan Kaoru Yuuyake Doori",
         "artistUnicode": "ハム",
@@ -4915,7 +4718,6 @@
     },
     {
         "id": 198,
-        "rc": "fall road",
         "artist": "Hamu",
         "title": "kimagure fall road",
         "artistUnicode": "ハム",
@@ -4939,7 +4741,6 @@
     },
     {
         "id": 199,
-        "rc": 15.5,
         "artist": "Sato Hitomi",
         "title": "Kotobuki City (Minemal Remix)",
         "artistUnicode": "佐藤仁美",
@@ -4963,7 +4764,6 @@
     },
     {
         "id": 200,
-        "rc": 15.5,
         "artist": "Ringing Volcano",
         "title": "Senakaawase no butoukai",
         "artistUnicode": "風鈴ぼるけいの",
@@ -4988,7 +4788,6 @@
     },
     {
         "id": 201,
-        "rc": 15.5,
         "artist": "bellwo",
         "title": "Camino a la Luna ~ Tsuki e itaru yamamichi",
         "artistUnicode": "bellwo",
@@ -5016,7 +4815,6 @@
     },
     {
         "id": 202,
-        "rc": 15.5,
         "artist": "Accord on Codes",
         "title": "Conscious Gene",
         "artistUnicode": null,
@@ -5041,7 +4839,6 @@
     },
     {
         "id": 203,
-        "rc": 15.5,
         "artist": "Forest306+Unity-Gain",
         "title": "hibernation",
         "artistUnicode": null,
@@ -5066,7 +4863,6 @@
     },
     {
         "id": 204,
-        "rc": 15.5,
         "artist": "Various Artists",
         "title": "RC15.5 ~autumn intermission~",
         "artistUnicode": null,
@@ -5090,7 +4886,6 @@
     },
     {
         "id": 205,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama",
         "title": "Yurukyan no Theme",
         "artistUnicode": "立山秋航",
@@ -5115,7 +4910,6 @@
     },
     {
         "id": 206,
-        "rc": "camp1-1",
         "artist": "Asaka",
         "title": "SHINY DAYS (TV Size)",
         "artistUnicode": "亜咲花",
@@ -5139,7 +4933,6 @@
     },
     {
         "id": 207,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama",
         "title": "Kyanpujou no Theme ~Motosuko~",
         "artistUnicode": "立山秋航",
@@ -5165,7 +4958,6 @@
     },
     {
         "id": 208,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama",
         "title": "Nokuru no Jikan (Wacha Wacha!)",
         "artistUnicode": "立山秋航",
@@ -5188,7 +4980,6 @@
     },
     {
         "id": 209,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama",
         "title": "Solocamp no Susume",
         "artistUnicode": "立山秋航",
@@ -5213,7 +5004,6 @@
     },
     {
         "id": 210,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama",
         "title": "Yuruyaka na Jikan",
         "artistUnicode": "立山秋航",
@@ -5238,7 +5028,6 @@
     },
     {
         "id": 211,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama",
         "title": "Kyanpujou no Theme ~Fumoto~",
         "artistUnicode": "立山秋航",
@@ -5263,7 +5052,6 @@
     },
     {
         "id": 212,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama",
         "title": "Oshaberi to Mug Cup",
         "artistUnicode": "立山秋航",
@@ -5287,7 +5075,6 @@
     },
     {
         "id": 213,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama",
         "title": "Going your way",
         "artistUnicode": "立山秋航",
@@ -5310,7 +5097,6 @@
     },
     {
         "id": 214,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama",
         "title": "Wakupara!",
         "artistUnicode": "立山秋航",
@@ -5333,7 +5119,6 @@
     },
     {
         "id": 215,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama",
         "title": "Nokuru no Jikan (Wacha,,,)",
         "artistUnicode": "立山秋航",
@@ -5357,7 +5142,6 @@
     },
     {
         "id": 216,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama",
         "title": "Kyanpujou no Theme ~Takabocchi, Eastwood~",
         "artistUnicode": "立山秋航",
@@ -5382,7 +5166,6 @@
     },
     {
         "id": 217,
-        "rc": "camp1-1",
         "artist": "Akiyuki Tateyama, Asaka",
         "title": "Yuru Camp Original Soundtrack (Part 1)",
         "artistUnicode": "立山秋航, 亜咲花",
@@ -5407,7 +5190,6 @@
     },
     {
         "id": 218,
-        "rc": "little adventure",
         "artist": "Ringing Volcano",
         "title": "Ittekimasu",
         "artistUnicode": "風鈴ぼるけいの",
@@ -5432,7 +5214,6 @@
     },
     {
         "id": 219,
-        "rc": "little adventure",
         "artist": "Ringing Volcano",
         "title": "Tsuyushigure",
         "artistUnicode": "風鈴ぼるけいの",
@@ -5458,7 +5239,6 @@
     },
     {
         "id": 220,
-        "rc": "little adventure",
         "artist": "Ringing Volcano",
         "title": "Yamabiko Taisou Dai ni",
         "artistUnicode": "風鈴ぼるけいの",
@@ -5483,7 +5263,6 @@
     },
     {
         "id": 221,
-        "rc": "little adventure",
         "artist": "Ringing Volcano",
         "title": "Kakekkonara Ittoushou",
         "artistUnicode": "風鈴ぼるけいの",
@@ -5508,7 +5287,6 @@
     },
     {
         "id": 222,
-        "rc": "little adventure",
         "artist": "Ringing Volcano",
         "title": "Anata wa Ittai Dare Kashira",
         "artistUnicode": "風鈴ぼるけいの",
@@ -5533,7 +5311,6 @@
     },
     {
         "id": 223,
-        "rc": "little adventure",
         "artist": "Ringing Volcano",
         "title": "Jarimichi Broadway",
         "artistUnicode": "風鈴ぼるけいの",
@@ -5558,7 +5335,6 @@
     },
     {
         "id": 224,
-        "rc": "little adventure",
         "artist": "Ringing Volcano",
         "title": "Neko to Karasu to Oyashikito",
         "artistUnicode": "風鈴ぼるけいの",
@@ -5583,7 +5359,6 @@
     },
     {
         "id": 225,
-        "rc": "little adventure",
         "artist": "Ringing Volcano",
         "title": "Uchi no Goshujin",
         "artistUnicode": "風鈴ぼるけいの",
@@ -5607,7 +5382,6 @@
     },
     {
         "id": 226,
-        "rc": "little adventure",
         "artist": "Ringing Volcano",
         "title": "Kinmokusei",
         "artistUnicode": "風鈴ぼるけいの",
@@ -5633,7 +5407,6 @@
     },
     {
         "id": 227,
-        "rc": "little adventure",
         "artist": "Ringing Volcano",
         "title": "Tadaima",
         "artistUnicode": "風鈴ぼるけいの",
@@ -5658,7 +5431,6 @@
     },
     {
         "id": 228,
-        "rc": "little adventure",
         "artist": "Ringing Volcano",
         "title": "Shinmyoumaru no Chiisana Bouken",
         "artistUnicode": "風鈴ぼるけいの",
@@ -5684,7 +5456,6 @@
     },
     {
         "id": 229,
-        "rc": "camp1-2",
         "artist": "Akiyuki Tateyama",
         "title": "Yoake no Shinkokyuu",
         "artistUnicode": "立山秋航",
@@ -5709,7 +5480,6 @@
     },
     {
         "id": 230,
-        "rc": "camp1-2",
         "artist": "Akiyuki Tateyama",
         "title": "Kyanpujou no Theme ~Shibireko~",
         "artistUnicode": "立山秋航",
@@ -5736,7 +5506,6 @@
     },
     {
         "id": 231,
-        "rc": "camp1-2",
         "artist": "Akiyuki Tateyama",
         "title": "Kyanpu Ikouyo!",
         "artistUnicode": "立山秋航",
@@ -5761,7 +5530,6 @@
     },
     {
         "id": 232,
-        "rc": "camp1-2",
         "artist": "Akiyuki Tateyama",
         "title": "Nokuru no Jikan (Wacha Wacha Wacha!!)",
         "artistUnicode": "立山秋航",
@@ -5784,7 +5552,6 @@
     },
     {
         "id": 233,
-        "rc": "camp1-2",
         "artist": "Akiyuki Tateyama",
         "title": "Kyanpujou no Theme ~Jinbagatayama~",
         "artistUnicode": "立山秋航",
@@ -5812,7 +5579,6 @@
     },
     {
         "id": 234,
-        "rc": "camp1-2",
         "artist": "Akiyuki Tateyama",
         "title": "Tameiki Hitotsu",
         "artistUnicode": "立山秋航",
@@ -5836,7 +5602,6 @@
     },
     {
         "id": 235,
-        "rc": "camp1-2",
         "artist": "Akiyuki Tateyama",
         "title": "Dekobokongu",
         "artistUnicode": "立山秋航",
@@ -5860,7 +5625,6 @@
     },
     {
         "id": 236,
-        "rc": "camp1-2",
         "artist": "Akiyuki Tateyama",
         "title": "Dottanbattan",
         "artistUnicode": "立山秋航",
@@ -5884,7 +5648,6 @@
     },
     {
         "id": 237,
-        "rc": "camp1-2",
         "artist": "Akiyuki Tateyama",
         "title": "Nangoku Fantasy",
         "artistUnicode": "立山秋航",
@@ -5909,7 +5672,6 @@
     },
     {
         "id": 238,
-        "rc": "camp1-2",
         "artist": "Akiyuki Tateyama",
         "title": "Kyanpujou no Theme ~Asagiri Kougen~",
         "artistUnicode": "立山秋航",
@@ -5936,7 +5698,6 @@
     },
     {
         "id": 239,
-        "rc": "camp1-2",
         "artist": "Eri Sasaki",
         "title": "Fuyu Biyori (Hikigatari Version)",
         "artistUnicode": "佐々木恵梨",
@@ -5963,7 +5724,6 @@
     },
     {
         "id": 240,
-        "rc": "camp1-2",
         "artist": "Akiyuki Tateyama, Eri Sasaki",
         "title": "Yuru Camp Original Soundtrack (Part 2)",
         "artistUnicode": "立山秋航, 佐々木恵梨",
@@ -5987,7 +5747,6 @@
     },
     {
         "id": 241,
-        "rc": "naturaleza",
         "artist": "bellwo",
         "title": "Seiga de Sangre ~ Seiga Nyan Nyan, Chi o Hossu",
         "artistUnicode": null,
@@ -6013,7 +5772,6 @@
     },
     {
         "id": 242,
-        "rc": "naturaleza",
         "artist": "bellwo",
         "title": "Cielo en Cueva ~ Nanpou no Touten",
         "artistUnicode": null,
@@ -6040,7 +5798,6 @@
     },
     {
         "id": 243,
-        "rc": "naturaleza",
         "artist": "bellwo",
         "title": "El Rio Venomoso ~ Shoukou no Hen",
         "artistUnicode": null,
@@ -6066,7 +5823,6 @@
     },
     {
         "id": 244,
-        "rc": "naturaleza",
         "artist": "bellwo",
         "title": "Fe, para Humanos Efimeros ~ Shinkou wa Hakanaki Ningen no tame ni",
         "artistUnicode": null,
@@ -6092,7 +5848,6 @@
     },
     {
         "id": 245,
-        "rc": "naturaleza",
         "artist": "bellwo",
         "title": "Alma de Cinabrio ~ Tansha-iro no Tamashii",
         "artistUnicode": null,
@@ -6119,7 +5874,6 @@
     },
     {
         "id": 246,
-        "rc": "naturaleza",
         "artist": "bellwo",
         "title": "Solo Anhelando la Eternidad ~ Tada, Yuukyuu o Omou",
         "artistUnicode": null,
@@ -6145,7 +5899,6 @@
     },
     {
         "id": 247,
-        "rc": "naturaleza",
         "artist": "bellwo",
         "title": "La Naturaleza Esconda ~ Kakusareta Honshou",
         "artistUnicode": null,
@@ -6172,7 +5925,6 @@
     },
     {
         "id": 248,
-        "rc": "estilo",
         "artist": "bellwo",
         "title": "La Nina Pasa ~ Shoujo wa Tonde Yuku",
         "artistUnicode": null,
@@ -6199,7 +5951,6 @@
     },
     {
         "id": 249,
-        "rc": "estilo",
         "artist": "bellwo",
         "title": "Cascabeles ~ Barei",
         "artistUnicode": null,
@@ -6225,7 +5976,6 @@
     },
     {
         "id": 250,
-        "rc": "estilo",
         "artist": "bellwo",
         "title": "Te Helado de la Tarde ~ Hirusagari no Iced Tea",
         "artistUnicode": null,
@@ -6252,7 +6002,6 @@
     },
     {
         "id": 251,
-        "rc": "estilo",
         "artist": "bellwo",
         "title": "Hoguera a la Luna Inocente ~ Kagaribi wa Tenshin no Tsuki o Kogasu",
         "artistUnicode": null,
@@ -6278,7 +6027,6 @@
     },
     {
         "id": 252,
-        "rc": "estilo",
         "artist": "bellwo",
         "title": "Mar de Nubes, Verde Eterno ~ Ake no Unkai, Tokiwa no Midori",
         "artistUnicode": null,
@@ -6304,7 +6052,6 @@
     },
     {
         "id": 253,
-        "rc": "estilo",
         "artist": "bellwo",
         "title": "Mi Estilo, Mi Manera ~ Garyuu Gadou",
         "artistUnicode": null,
@@ -6331,7 +6078,6 @@
     },
     {
         "id": 254,
-        "rc": "fairy dance",
         "artist": "Toshimasa",
         "title": "Koukishin",
         "artistUnicode": null,
@@ -6357,7 +6103,6 @@
     },
     {
         "id": 255,
-        "rc": "fairy dance",
         "artist": "Escarmew",
         "title": "Hotarugari",
         "artistUnicode": null,
@@ -6383,7 +6128,6 @@
     },
     {
         "id": 256,
-        "rc": "fairy dance",
         "artist": "Terry@LDMT",
         "title": "Kisha wa Hashiru",
         "artistUnicode": "てりー@LDMT",
@@ -6410,7 +6154,6 @@
     },
     {
         "id": 257,
-        "rc": "fairy dance",
         "artist": "sawara, Toshimasa",
         "title": "Doudoumeguri",
         "artistUnicode": "さわら, Toshimasa",
@@ -6436,7 +6179,6 @@
     },
     {
         "id": 258,
-        "rc": "fairy dance",
         "artist": "mitsu mitsuru",
         "title": "Makuai ~ Touno Noriyuki",
         "artistUnicode": "みつみつる",
@@ -6463,7 +6205,6 @@
     },
     {
         "id": 259,
-        "rc": "fairy dance",
         "artist": "Toshimasa",
         "title": "Yousei no Iru Fuukei",
         "artistUnicode": null,
@@ -6489,7 +6230,6 @@
     },
     {
         "id": 260,
-        "rc": "fairy dance",
         "artist": "Toshimasa feat. sawara",
         "title": "Tankyuu Shoujo no Monogatari",
         "artistUnicode": "Toshimasa feat. さわら",
@@ -6516,7 +6256,6 @@
     },
     {
         "id": 261,
-        "rc": "fairy dance",
         "artist": "Toshimasa, Miyabi",
         "title": "Yuukyuu no Kurenai ma-kan",
         "artistUnicode": null,
@@ -6542,7 +6281,6 @@
     },
     {
         "id": 262,
-        "rc": "fairy dance",
         "artist": "Toshimasa",
         "title": "Yukidote no Oto",
         "artistUnicode": null,
@@ -6568,7 +6306,6 @@
     },
     {
         "id": 263,
-        "rc": "fairy dance",
         "artist": "mitsu mitsuru",
         "title": "Ennichi",
         "artistUnicode": "みつみつる",
@@ -6594,7 +6331,6 @@
     },
     {
         "id": 264,
-        "rc": "fairy dance",
         "artist": "Floating Cloud",
         "title": "Yousei Kitan",
         "artistUnicode": null,
@@ -6621,7 +6357,6 @@
     },
     {
         "id": 265,
-        "rc": null,
         "artist": "Asaka",
         "title": "The Sunshower (TV Size)",
         "artistUnicode": "亜咲花",

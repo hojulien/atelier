@@ -22,7 +22,6 @@ class MapSeeder extends Seeder
         
         foreach ($maps as $map) {
             Map::create([
-                'rc' => $map['rc'],
                 'artist' => $map['artist'],
                 'title' => $map['title'],
                 'artistUnicode' => $map['artistUnicode'],

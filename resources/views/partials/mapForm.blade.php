@@ -21,11 +21,6 @@
         </div>
 
         <div class="input-container flex flex-f-center g-10">
-            <label class="button p-10 bold flex flex-f-center" for="rc">theme</label>
-            <input type="text" name="rc" max="20" value="{{ old('rc', $map->rc ?? '') }}">
-        </div>
-
-        <div class="input-container flex flex-f-center g-10">
             <label class="button p-10 bold flex flex-f-center" for="creator">creator</label>
             <input type="text" name="creator" max="20" value="{{ old('creator', $map->creator ?? '') }}">
         </div>

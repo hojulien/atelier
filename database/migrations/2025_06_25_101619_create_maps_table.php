@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
-            $table->string('rc', 20)->nullable();
             $table->string('artist', 40);
             $table->string('title', 80);
             $table->string('artistUnicode', 25)->nullable();
