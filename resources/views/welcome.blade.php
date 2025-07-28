@@ -19,6 +19,6 @@
     @if ($playlists->isNotEmpty())
         @include('partials.playlistList', ['playlists' => $playlists])
     @else
-        <div>no admin public playlists available.</div>
+        <div class="fsize-24 bold p-20">no admin public playlists available.</div>
     @endif
 @endsection

@@ -49,9 +49,18 @@
         </select>
 
         <!-- make the number of maps per page persist between forms -->
-        <input type="hidden" name="maps_per_page" value="{{ request('per_page', 10) }}">
+        <input type="hidden" name="maps_per_page" value="{{ request('maps_per_page', 10) }}">
 
         <br>
+
+        <div class="tags-filter p-20 flex g-10">
+            @foreach($tags as $tag)
+            <label class="label-tag" for="{{ $tag }}">{{ $tag }}</label>
+            <input type="checkbox" name="tags[]" value="{{ $tag }}"
+                @if (in_array($tag, request()->input('tags', []))) checked @endif>
+            @endforeach
+        </div>
+        
         <button type="submit" class="button return p-10 bold flex flex-f-center g-5">
             <img class="iconLight icon-24" src="{{ asset('images/icons/search.svg') }}" alt="search icon">
             <img class="iconDark icon-24" src="{{ asset('images/icons/search_dark.svg') }}" alt="search icon dark mode">
@@ -60,7 +69,12 @@
     </form>
 
     <!-- TO DO: replace by artistunicode/titleunicode with a js script -->
-    @include('partials.mapList', ['maps' => $maps, 'devMode' => true])
+
+    @if ($maps->isNotEmpty())
+        @include('partials.mapList', ['maps' => $maps, 'devMode' => true])
+    @else
+        <div class="fsize-24 bold p-20">no maps found.</div>
+    @endif
 @endsection
 
 @section('scripts')

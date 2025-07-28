@@ -45,7 +45,7 @@
     @if ($playlists->isNotEmpty())
         @include('partials.playlistList', ['playlists' => $playlists])
     @else
-        <div>this user doesn't have any registered public playlist.</div>
+        <div class="fsize-24 bold p-20">this user doesn't have any registered public playlist.</div>
     @endif
 
     <!-- shows user's favorited maps - if none, displays a custom text -->
@@ -54,6 +54,8 @@
     </div>
     @if ($likedMaps->isNotEmpty())
         @include('partials.mapList', ['maps' => $likedMaps, 'devMode' => false])
+    @else
+        <div class="fsize-24 bold p-20">this user doesn't have any favorited maps.</div>
     @endif
 
     <!-- displays user actions (edit, delete) -->

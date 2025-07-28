@@ -11,8 +11,28 @@ class MapController extends Controller
 {
     public function index(Request $request)
     {
-        // initial query that we will apply actions on before calling get(), with the total amount of users who liked each map (for display)
+        // 1 - INITIAL QUERY - we get all maps with their like count
         $query = Map::withCount('likedByUsers');
+
+        // 2 - GET ALL TAGS - gets all tags and filters them to be normalized and distinct. used for tag filtering.
+        $tags = $query->pluck('tags')
+            ->filter()
+            ->flatMap(function($tag) {
+                return array_map('trim', $tag);
+            })
+            ->map(fn($tag) => strtolower($tag))
+            ->unique()->sort()->values();
+
+        // 3 - VARIOUS FILTERS - filters by search/filter, sortby, and tags.
+        if ($request->filled('tags')) {
+            $selectedTags = $request->input('tags');
+
+            $query->where(function ($q) use ($selectedTags) {
+                foreach ($selectedTags as $tag) {
+                    $q->where('tags', 'like', '%' . $tag . '%');
+                }
+            });
+        }
 
         if ($request->filled('search') && $request->filled('filter')) {
             // retrieves search input and filter type
@@ -48,11 +68,11 @@ class MapController extends Controller
             }
         }
 
-        // get the final query to pass in the view
+        // 4 - GET THE QUERY - after all filters, finalizes the query
         $mapsPerPage = $request->input('maps_per_page', 10);
         $maps = $query->paginate($mapsPerPage)->appends(request()->query());
 
-        return view('maps.index', compact('maps'));
+        return view('maps.index', compact('maps', 'tags'));
     }
 
     public function add()
