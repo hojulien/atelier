@@ -3,7 +3,9 @@
 @section('title', 'login')
 
 @section('content')
-    <h1>login</h1>
+    <div class="title-container p-20">
+        <h1 class="title">login</h1>
+    </div>
 
     <form class="form m-auto g-10" action="{{ route('loginAction') }}" method="POST" id="login">
         @csrf

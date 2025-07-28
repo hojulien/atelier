@@ -55,7 +55,8 @@
         <button type="submit" class="button return p-10 bold flex flex-f-center g-5">
             <img class="iconLight icon-24" src="{{ asset('images/icons/search.svg') }}" alt="search icon">
             <img class="iconDark icon-24" src="{{ asset('images/icons/search_dark.svg') }}" alt="search icon dark mode">
-            search</button>
+            <span>search</span>
+        </button>
     </form>
 
     <!-- TO DO: replace by artistunicode/titleunicode with a js script -->

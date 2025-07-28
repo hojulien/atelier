@@ -4,8 +4,9 @@
 
 @section('content')
     <!-- div will be filled up with css later -->
-    
-    <h1>view suggestion n°{{ $suggestion->id }}</h1>
+    <div class="title-container p-20">
+        <h1 class="title">view suggestion n°{{ $suggestion->id }}</h1>
+    </div>
 
     <div>
         <div>

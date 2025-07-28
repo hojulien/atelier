@@ -61,6 +61,8 @@ Route::middleware([IsAdmin::class, 'auth'])->group(function () {
     Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestions.index');
     Route::get('/suggestions/edit/{id}', [SuggestionController::class, 'edit'])->name('suggestions.edit');
     Route::put('/suggestions/update/{id}', [SuggestionController::class, 'update'])->name('suggestions.update');
+    Route::delete('/suggestions/archive/{id}', [SuggestionController::class, 'archive'])->name('suggestions.archive');
+    Route::patch('/suggestions/restore/{id}', [SuggestionController::class, 'restore'])->name('suggestions.restore');
     Route::delete('/suggestions/delete/{id}', [SuggestionController::class, 'destroy'])->name('suggestions.delete');
 
     Route::get('/maps/add', [MapController::class, 'add'])->name('maps.add');

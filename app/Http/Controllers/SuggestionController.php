@@ -39,10 +39,23 @@ class SuggestionController extends Controller
         return $messages;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $suggestions = Suggestion::all();
+        $perPage = $request->input('maps_per_page', 10);
+        $filter = $request->input('filter', 'default');
+
+        if ($filter === 'archived') {
+            $query = Suggestion::onlyTrashed(); // archived
+        } else if ($filter === 'active' || $filter === 'default') {
+            $query = Suggestion::query(); // non-archived
+        } else {
+            $query = Suggestion::withTrashed(); // fallback case
+        }
+
+        $suggestions = $query->paginate($perPage)->appends($request->query());
+
         return view('suggestions.index', compact('suggestions'));
+
     }
 
     public function create()
@@ -115,14 +128,33 @@ class SuggestionController extends Controller
         }
 
         $suggestion->update($validated);
-        return redirect()->route('home')->with('success', 'suggestion updated.');
+        return redirect()->route('suggestions.index')->with('success', 'suggestion updated.');
     }
 
-    public function destroy(string $id)
+    // soft deletes the entry, making it still exist in the database but not show up (unless using trashed())
+    public function archive(string $id)
     {
         $suggestion = Suggestion::findOrFail($id);
         $suggestionId = $suggestion->id;
         $suggestion->delete();
-        return redirect()->route('home')->with('success', "suggestion n°{$suggestionId} deleted.");
+        return redirect()->route('suggestions.index')->with('success', "suggestion n°{$suggestionId} archived.");
+    }
+
+    // undoes the soft delete
+    public function restore(string $id)
+    {
+        $suggestion = Suggestion::withTrashed()->findOrFail($id);
+        $suggestionId = $suggestion->id;
+        $suggestion->restore();
+        return redirect()->route('suggestions.index')->with('success', "suggestion n°{$suggestionId} restored.");
+    }
+
+    // fully delete the entry
+    public function destroy(string $id)
+    {
+        $suggestion = Suggestion::findOrFail($id);
+        $suggestionId = $suggestion->id;
+        $suggestion->forceDelete();
+        return redirect()->route('suggestions.index')->with('success', "suggestion n°{$suggestionId} deleted.");
     }
 }

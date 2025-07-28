@@ -52,16 +52,16 @@
                     <!-- only show edit/delete button if dev mode is enabled (only visible from the admin) -->
                     @if ($devMode)
                     <a class="map-actions-card flex flex-f-center p-10 g-5 invisible edit no-link" href="{{ route('maps.edit', $map->id) }}" onclick="event.stopPropagation();">
-                        <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
-                        <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
+                        <img class="iconLight icon-24" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
+                        <img class="iconDark icon-24" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
                         <span class="action">edit</span>
                     </a>
                     <form class="map-actions-card flex flex-f-center p-10 g-5 invisible delete" action="{{ route('maps.delete', $map) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button class="no-button flex flex-f-center g-5" onclick="return confirm('delete this map? it will also be removed from associated playlists!');">
-                            <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
-                            <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/delete_dark.svg') }}" alt="delete icon dark mode">
+                            <img class="iconLight icon-24" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
+                            <img class="iconDark icon-24" src="{{ asset('images/icons/delete_dark.svg') }}" alt="delete icon dark mode">
                             <span class="action">delete</span>
                         </button>
                     </form>
@@ -74,8 +74,8 @@
                                 @csrf
                                 @method('DELETE')
                                 <button class="favorite no-button flex flex-f-center g-5" type="submit">
-                                    <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/unlike.svg') }}" alt="unlike icon">
-                                    <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/unlike_dark.svg') }}" alt="unlike icon dark mode">
+                                    <img class="iconLight icon-24" src="{{ asset('images/icons/unlike.svg') }}" alt="unlike icon">
+                                    <img class="iconDark icon-24" src="{{ asset('images/icons/unlike_dark.svg') }}" alt="unlike icon dark mode">
                                     <span class="action">unfavorite</span>
                                 </button>
                             </form>
@@ -83,8 +83,8 @@
                             <form class="flex flex-y-center g-5 no-link" action="{{ route('maps.like', $map->id) }}" method="POST">
                                 @csrf
                                 <button class="favorite no-button flex flex-f-center g-5" type="submit">
-                                    <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/like.svg') }}" alt="like icon">
-                                    <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/like_dark.svg') }}" alt="like icon dark mode">
+                                    <img class="iconLight icon-24" src="{{ asset('images/icons/like.svg') }}" alt="like icon">
+                                    <img class="iconDark icon-24" src="{{ asset('images/icons/like_dark.svg') }}" alt="like icon dark mode">
                                     <span class="action">favorite</span>
                                 </button>
                             </form>

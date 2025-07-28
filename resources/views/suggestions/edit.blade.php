@@ -3,7 +3,9 @@
 @section('title', 'update suggestion')
 
 @section('content')
-    <h1>update suggestion</h1>
+    <div class="title-container p-20">
+        <h1 class="title">update suggestion</h1>
+    </div>
     
     <form class="form m-auto g-10" id="suggestionForm" method="POST" action="{{ route('suggestions.update', $suggestion) }}" enctype="multipart/form-data">
         @csrf

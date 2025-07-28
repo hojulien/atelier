@@ -3,7 +3,9 @@
 @section('title', 'add maps to playlist')
 
 @section('content')
-    <h1>add maps to playlist</h1>
+    <div class="title-container p-20">
+        <h1 class="title">add maps to playlist</h1>
+    </div>
 
     <p>select the maps you would like to add to "{{ $playlist->name }}".</p>
 

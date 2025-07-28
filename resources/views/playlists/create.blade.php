@@ -3,7 +3,9 @@
 @section('title', 'create a new playlist')
 
 @section('content')
-    <h1>create a new playlist</h1>
+    <div class="title-container p-20">
+        <h1 class="title">create a new playlist</h1>
+    </div>
     
     <form class="form m-auto g-10" id="playlistForm" method="POST" action="{{ route('playlists.store') }}">
         @csrf

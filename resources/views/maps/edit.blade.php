@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="title-container p-20">
-        <h1 class="title">update</h1>
+        <h1 class="title">update map</h1>
     </div>
     
     <form class="form m-auto g-10" method="POST" action="{{ route('maps.update', $map) }}" enctype="multipart/form-data">

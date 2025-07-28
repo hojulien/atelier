@@ -3,7 +3,9 @@
 @section('title', 'edit playlist')
 
 @section('content')
-    <h1>edit playlist</h1>
+    <div class="title-container p-20">
+        <h1 class="title">edit playlist</h1>
+    </div>
     
     <form class="form m-auto g-10" id="playlistForm" method="POST" action="{{ route('playlists.update', $playlist) }}">
         @csrf

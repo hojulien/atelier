@@ -4,7 +4,9 @@
 
 @section('content')
 
-    <h1>register</h1>
+    <div class="title-container p-20">
+        <h1 class="title">register</h1>
+    </div>
     
     <form class="form m-auto g-10" method="POST" id="register" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
