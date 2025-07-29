@@ -20,7 +20,10 @@ class SuggestionController extends Controller
             'type' => 'required|string',
             'description' => 'required|string',
             'media_file' => 'required_if:type,media|mimes:jpg,png|max:8192',
-            'media_url' => 'required_if:type,music|url',
+            'media_url' => [
+                'required_if:type,music',
+                'regex:/^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)[\w\-]{11}$/'
+            ],
         ];
 
         return $rules;
@@ -33,7 +36,7 @@ class SuggestionController extends Controller
             'media_file.image' => 'media should be an image file.',
             'media_file.max' => 'image must not be larger than 8mb.',
             'media_url.required_if' => 'a link should be provided for the music suggestion.',
-            'media_url.url' => 'media should be a valid URL.'
+            'media_url.regex' => 'media should be a youtube link.'
         ];
 
         return $messages;

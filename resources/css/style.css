@@ -32,6 +32,8 @@ body, span {
     --edit: #90ee90;
     --archive: #f5c493;
     --delete: #e37971;
+    --success: #2f7a4d;
+    --error: #8a1d15;
     --link-osu: #ffb6c1;
 }
 
@@ -55,6 +57,8 @@ body.dark-mode {
     --edit:	#2f7a4d;
     --archive: #a0491a;
     --delete: #8a1d15;
+    --success: #90ee90;
+    --error: #e37971;
     --link-osu: #8a4b5d;
 }
 
@@ -174,9 +178,18 @@ nav {
 
 /* error text and error images */
 
-.error {
-    color: red;
+.success {
+    color: var(--success);
     font-size: 14px;
+    background-color: var(--edit);
+    box-shadow: 0px 2px 5px var(--edit);
+}
+
+.error {
+    color: var(--error);
+    font-size: 14px;
+    background-color: var(--delete);
+    box-shadow: 0px 2px 5px var(--delete);
 }
 
 .error-img {
