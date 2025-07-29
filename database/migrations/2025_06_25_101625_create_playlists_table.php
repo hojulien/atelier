@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('playlists', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->integer('number_levels');
+            $table->integer('number_maps');
             $table->text('description')->nullable();
             $table->enum('type', ['user', 'admin'])->default('user');
             $table->enum('visibility', ['public', 'private'])->default('public');

@@ -44,10 +44,10 @@ class PlaylistController extends Controller
 
         // filter 1: removes empty playlists (admins) + private playlists (everyone else)
         if (Auth::check() && Auth::user()->type === 'admin') {
-            $query->where('number_levels', '>', '0');
+            $query->where('number_maps', '>', '0');
         } else {
             $query->where('visibility', 'public')
-                  ->where('number_levels', '>', '0');
+                  ->where('number_maps', '>', '0');
         }
 
         // filter 2: filtering
@@ -90,7 +90,7 @@ class PlaylistController extends Controller
             // for length, order by column created from the withSum() earlier
             switch ($sortBy) {
                 case 'name':
-                case 'number_levels':
+                case 'number_maps':
                     $query->orderBy($sortBy, $order);
                     break;
                 case 'creator':
@@ -123,7 +123,7 @@ class PlaylistController extends Controller
         // manual entry
         $validated['user_id'] = Auth::user()->id;
         $validated['type'] = Auth::user()->type;
-        $validated['number_levels'] = 0;
+        $validated['number_maps'] = 0;
         $playlist = Playlist::create($validated);
 
         return redirect()->route('playlists.show', $playlist->id)->with('success', 'your playlist has been created.');
@@ -153,7 +153,7 @@ class PlaylistController extends Controller
         $playlist->maps()->sync($mapsId);
 
         // updates maps count
-        $playlist->number_levels = count($mapsId);
+        $playlist->number_maps = count($mapsId);
         $playlist->save();
 
         return redirect()->route('playlists.show', $playlist->id)->with('success', 'playlist updated.');

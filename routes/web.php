@@ -11,7 +11,7 @@ use App\Models\Playlist;
 use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
-    $adminPlaylists = Playlist::where('type', 'admin')->where('number_levels','>','0')->limit(10)->get();
+    $adminPlaylists = Playlist::where('type', 'admin')->where('number_maps','>','0')->limit(10)->get();
     return view('welcome', ['playlists' => $adminPlaylists]);
 })->name('home');
 

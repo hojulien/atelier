@@ -8,7 +8,7 @@ class Playlist extends Model
 {
     protected $fillable = [
         'name',
-        'number_levels',
+        'number_maps',
         'description',
         'type',
         'visibility',

@@ -16,7 +16,7 @@ class PlaylistSeeder extends Seeder
         $playlists = [
             [
                 'name' => 'chill playlist',
-                'number_levels' => 0,
+                'number_maps' => 0,
                 'description' => 'practically all the relaxing maps i\'ve made since 2014. contains tags that you can filter by, too!',
                 'type' => 'admin',
                 'visibility' => 'public',
@@ -24,7 +24,7 @@ class PlaylistSeeder extends Seeder
             ],
             [
                 'name' => 'seiga nyannyan',
-                'number_levels' => 0,
+                'number_maps' => 0,
                 'description' => 'i love seiga',
                 'type' => 'user',
                 'visibility' => 'public',
@@ -32,7 +32,7 @@ class PlaylistSeeder extends Seeder
             ],
             [
                 'name' => 'cafe playlist',
-                'number_levels' => 0,
+                'number_maps' => 0,
                 'description' => 'something just for me',
                 'type' => 'user',
                 'visibility' => 'private',
@@ -40,7 +40,7 @@ class PlaylistSeeder extends Seeder
             ],
             [
                 'name' => 'aim training',
-                'number_levels' => 0,
+                'number_maps' => 0,
                 'description' => null,
                 'type' => 'user',
                 'visibility' => 'public',
@@ -51,7 +51,7 @@ class PlaylistSeeder extends Seeder
         foreach ($playlists as $playlist) {
             Playlist::create([
                 'name' => $playlist['name'],
-                'number_levels' => $playlist['number_levels'],
+                'number_maps' => $playlist['number_maps'],
                 'description' => $playlist['description'],
                 'type' => $playlist['type'],
                 'visibility' => $playlist['visibility'],

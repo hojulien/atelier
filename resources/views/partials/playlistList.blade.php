@@ -27,7 +27,7 @@
                             <img class="iconLight icon-32" src="{{ asset('images/icons/map.svg') }}" alt="map icon">
                             <img class="iconDark icon-32" src="{{ asset('images/icons/map_dark.svg') }}" alt="map icon darkmode">
                         </div>
-                        <span>{{ $playlist->number_levels }} maps</span>
+                        <span>{{ $playlist->number_maps }} maps</span>
                     </div>
                     <div class="playlist-information flex flex-f-center">
                         <!-- displays length value - manual mapping of h/m/s because we want to display >24 hours length -->

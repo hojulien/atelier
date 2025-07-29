@@ -28,7 +28,7 @@
             <option value="">sort by...</option>
             <option value="name" {{ request('sortby') == 'name' ? 'selected' : '' }}>name</option>
             <option value="creator" {{ request('sortby') == 'creator' ? 'selected' : '' }}>creator</option>
-            <option value="number_levels" {{ request('sortby') == 'number_levels' ? 'selected' : '' }}>number of maps</option>
+            <option value="number_maps" {{ request('sortby') == 'number_maps' ? 'selected' : '' }}>number of maps</option>
             <option value="length" {{ request('sortby') == 'length' ? 'selected' : '' }}>length</option>
         </select>
 
