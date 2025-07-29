@@ -180,14 +180,14 @@ nav {
 
 .success {
     color: var(--success);
-    font-size: 14px;
+    font-size: 16px;
     background-color: var(--edit);
     box-shadow: 0px 2px 5px var(--edit);
 }
 
 .error {
     color: var(--error);
-    font-size: 14px;
+    font-size: 16px;
     background-color: var(--delete);
     box-shadow: 0px 2px 5px var(--delete);
 }
@@ -349,6 +349,7 @@ section {
     box-shadow: 2px 2px 5px var(--section);
     text-align: center;
     margin: 0 auto;
+    padding-bottom: 20px;
 }
 
 footer {

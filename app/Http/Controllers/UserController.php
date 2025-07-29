@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Map;
-use IlluminateSupportCarbon;
 
 class UserController extends Controller
 {
@@ -60,6 +60,7 @@ class UserController extends Controller
         [
             'username' => 'required|string|min:4|max:20|unique:users,username,' . $id, // passing user's id to ignore the "unique" constraint for the user itself
             'email' => 'required|email|unique:users,email,' . $id,
+            'current_password' => 'required_with:password',
             'password' => 'nullable|confirmed|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}$/',
             'avatar' => 'nullable|mimes:jpg,png|dimensions:max_width=500,max_height=500|max:2048',
             'banner' => 'nullable|mimes:jpg,png|dimensions:min_width=1200,min_height=500|max:8192'
@@ -72,16 +73,25 @@ class UserController extends Controller
 
             'username.min' => 'username must be at least 4 characters.',
             'username.max' => 'username must not be longer than 20 characters.',
+            'current_password.required_with' => 'you must confirm your current password before setting a new one.',
             'password.regex' => 'password must be at least 8 characters and contain: 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.',
             'avatar.dimensions' => 'avatar must not exceed 500x500.',
             'avatar.max' => 'avatar must not be larger than 2mb.',
             'banner.dimensions' => 'banner must be at least 1200x500.',
             'banner.max' => 'avatar must not be larger than 8mb.'
         ]);
-        
-        // if field is empty, keeps old hashed password
-        if (empty($validated['password'])) {
-            $validated['password'] = $user->password;
+
+        // checks if a new password has been provided
+        if (!empty($validated['password'])) {
+            // returns an error if old password isn't correct
+            if (!Hash::check($request->input('current_password'), $user->password)) {
+                return back()->withErrors(['current_password' => 'the current password is incorrect.'])->withInput();
+            }
+
+            // assign the password (will be hashed via casts)
+            $user->password = $validated['password'];
+        } else {
+            unset($validated['password']); // if empty, unsets to prevent triggering an update with an empty value
         }
 
         // if new file, adds it and delete old one (if it exists and is NOT the default file)
@@ -102,7 +112,7 @@ class UserController extends Controller
             $filename = Str::uuid() . '.' . $extension;
             $file->storeAs('images/banners', $filename, 'public');
             $validated['banner'] = $filename;
-            if ($user->banner && $user->avatar !== 'default.png') {
+            if ($user->banner && $user->banner !== 'default.png') {
                 Storage::disk('public')->delete('images/banners/' . $user->banner);
             }
         }

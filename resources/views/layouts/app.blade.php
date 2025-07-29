@@ -90,23 +90,23 @@
             <!-- set global session in layouts instead of individual pages -->
             <!-- success/error messages -->
             @if (session('success'))
-                <div class="success m-auto p-10">
+                <div class="success bold m-auto p-10">
                     {{ session('success') }}
                 </div>
             @endif
 
             @if (session('error'))
-                <div class="error m-auto p-10">
+                <div class="error bold m-auto p-10">
                     {{ session('error') }}
                 </div>
             @endif
 
             <!-- form validation errors -->
             @if ($errors->any())
-                <div class="error">
+                <div class="error bold m-auto p-10">
                     <ul>
                         @foreach ($errors->all() as $error)
-                            <li>{{ strtolower($error) }}</li>
+                            <li class="p-5">{{ strtolower($error) }}</li>
                         @endforeach
                     </ul>
                 </div>

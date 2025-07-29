@@ -10,14 +10,22 @@
             <div class="error" id="error_email"></div>
         </div>
 
+        @if(isset($user))
+            <div class="input-container flex flex-f-center g-10">
+                <label class="button p-10 bold flex flex-f-center" for="current_password">current password</label>
+                <input type="password" id="current_password" name="current_password">
+                <div class="error" id="error_current_password"></div>
+            </div>
+        @endif
+
         <div class="input-container flex flex-f-center g-10">
-            <label class="button p-10 bold flex flex-f-center" for="password">password</label>
+            <label class="button p-10 bold flex flex-f-center" for="password">@if(isset($user)) new @endif password</label>
             <input type="password" id="password" name="password">
             <div class="error" id="error_password"></div>
         </div>
 
         <div class="input-container flex flex-f-center g-10">
-            <label class="button p-10 bold flex flex-f-center" for="password_confirmation">confirm password</label>
+            <label class="button p-10 bold flex flex-f-center" for="password_confirmation">confirm @if(isset($user)) new @endif password</label>
             <input type="password" id="password_confirmation" name="password_confirmation">
             <div class="error" id="error_password_confirmation"></div>
         </div>
