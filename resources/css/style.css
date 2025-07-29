@@ -59,14 +59,12 @@ body.dark-mode {
 }
 
 .button {
-    border-radius: 20px;
     padding: 5px 10px;
     font-size: 1rem;
 }
 
 .button-mini {
     width: 70px;
-    border-radius: 10px;
     padding: 5px 10px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
@@ -81,6 +79,39 @@ body.dark-mode {
 
 .w-full {
     width: 100%;
+}
+
+.max-w-300 {
+    max-width: 300px;
+}
+
+.max-w-600 {
+    max-width: 600px;
+}
+
+.max-w-1000 {
+    max-width: 1000px;
+}
+
+.max-w-1200 {
+    max-width: 1200px;
+}
+
+.round-10 {
+    border-radius: 10px;
+}
+
+.round-20 {
+    border-radius: 20px;
+}
+
+.round-30 {
+    border-radius: 30px;
+}
+
+.bg-dark {
+    background-color: var(--section-dark);
+    box-shadow: 2px 2px 10px var(--section-dark);
 }
 
 .relative {
@@ -103,14 +134,8 @@ body.dark-mode {
     font-size: 2rem;
 }
 
-.title-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .title {
     width: 100%;
-    border-radius: 20px;
     background-color: var(--section-dark);
     box-shadow: 2px 2px 10px var(--section-dark);
 }
@@ -382,9 +407,7 @@ label {
 }
 
 .input-container img {
-    width: 100%;
     max-width: 380px;
-    border-radius: 10px;
     height: auto;
     max-height: 200px;
     object-fit: cover;
@@ -461,12 +484,21 @@ input[type="file"] {
     font-size: 1.2rem;
 }
 
-/* details */ 
+/* dashboard */
 
-.details-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.dashboard {
+    height: 400px;
 }
+
+.dashboard-option {
+    flex: 1;
+    height: 100%;
+    border: 3px solid var(--section-darker);
+    background-color: var(--section-dark);
+    box-shadow: 2px 2px 5px var(--section-dark);
+}
+
+/* details */ 
 
 .details-data {
     width: 100%;
@@ -494,8 +526,6 @@ input[type="file"] {
 }
 
 .details-bg, .details-banner {
-    width: 100%;
-    max-width: 1200px;
     height: 300px;
 }
 
@@ -503,11 +533,6 @@ input[type="file"] {
     object-fit: cover;
     object-position: center;
 }
-
-.details-bg img, .profile img {
-    border-radius: 20px;
-}
-
 
 .details-banner img {
     border-radius: 20px 20px 0 0;
@@ -534,7 +559,6 @@ input[type="file"] {
     max-width: 150px;
     max-height: 150px;
     background-color: var(--section-darker);
-    border-radius: 20px;
     top: 200px;
     left: 50px;
 }
@@ -570,14 +594,13 @@ input[type="file"] {
 
 .map-container {
     min-width: 250px;
-    max-width: 1200px;
-    margin: 0 auto;
+    /* max-width: 1200px;
+    margin: 0 auto; */
 }
 
 .map-card {
     margin: 0 auto;
     gap: 20px;
-    border-radius: 30px;
     width: 100%;
     height: 180px;
     background-size: cover;
@@ -588,7 +611,6 @@ input[type="file"] {
 .map-card-compact {
     margin: 0 auto;
     gap: 20px;
-    border-radius: 20px;
     width: 100%;
     height: 90px;
     background-size: cover;
@@ -597,8 +619,6 @@ input[type="file"] {
 
 .tags-filter {
     flex-wrap: wrap;
-    max-width: 600px;
-    border-radius: 10px;
     background-color: var(--section-dark);
     box-shadow: 2px 2px 5px var(--section-dark);
 }
@@ -617,7 +637,6 @@ input[type="checkbox"]:checked + .map-card-compact {
 .map-data {
     background-color: var(--map-card);
     box-shadow: 2px 2px 5px var(--map-card);
-    border-radius: 20px;
     height: 100%;
     width: 60%;
 }
@@ -625,7 +644,6 @@ input[type="checkbox"]:checked + .map-card-compact {
 .map-data-compact {
     background-color: var(--map-card);
     box-shadow: 2px 2px 5px var(--map-card);
-    border-radius: 20px;
     height: 100%;
     width: 50%;
 }
@@ -681,12 +699,10 @@ input[type="checkbox"]:checked + .map-card-compact {
 }
 
 .map-settings-card {
-    border-radius: 10px;
     height: 100%;
 }
 
 .map-settings-card-compact {
-    border-radius: 10px;
     height: calc(50% - 5px);
 }
 
@@ -710,13 +726,11 @@ input[type="checkbox"]:checked + .map-card-compact {
 .map-actions-card {
     width: 100%;
     height: 40px;
-    border-radius: 10px;
 }
 
 .map-actions-card-compact {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
 }
 
 .view {
@@ -803,13 +817,11 @@ input[type="checkbox"]:checked + .map-card-compact {
 
 .playlist-container {
     min-width: 250px;
-    max-width: 1200px;
-    margin: 0 auto;
+    /* max-width: 1200px;
+    margin: 0 auto; */
 }
 
 .playlist-header {
-    width: 100%;
-    border-radius: 20px;
     background-color: var(--section-dark);
     box-shadow: 2px 2px 10px var(--section-dark);
 }
@@ -839,8 +851,6 @@ input[type="checkbox"]:checked + .map-card-compact {
 
 .playlist-card {
     margin: 0 auto;
-    border-radius: 30px;
-    width: 100%;
     height: auto;
     justify-content: space-between;
     background-color: var(--section-dark);
@@ -862,7 +872,6 @@ input[type="checkbox"]:checked + .map-card-compact {
     height: 72px;
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
@@ -1049,6 +1058,15 @@ input[type="checkbox"]:checked + .map-card-compact {
     /* centers buttons */
     .h-right {
         justify-content: center;
+    }
+
+    .dashboard {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .dashboard-option {
+        width: 100%;
     }
 
     .details-profile {

@@ -41,8 +41,7 @@
                     </a>
                     <!-- dashboard for admins -->
                     @if (Auth::check() && Auth::user()->type === "admin")
-                        <!-- replace by dashboard when ready -->
-                        <a class="no-link" href="{{ route('home') }}">
+                        <a class="no-link" href="{{ route('dashboard') }}">
                             <div class="button h-button flex flex-f-center g-5">
                                 <img class="iconLight icon-32" src="{{ asset('images/icons/admin.svg') }}" alt="admin icon">
                                 <img class="iconDark icon-32" src="{{ asset('images/icons/admin_dark.svg') }}" alt="admin icon darkmode">

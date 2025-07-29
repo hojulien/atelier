@@ -16,7 +16,7 @@
             <label class="button p-10 bold flex flex-f-center">media</label>
             <input type="file" name="media_file" id="media-field">
                 @if(isset($suggestion) && $suggestion->type === "media")
-                <img src="{{ asset('storage/images/suggestions/' . $suggestion->media) }}" alt="current suggestion media" height="128">
+                <img class="w-full round-10" src="{{ asset('storage/images/suggestions/' . $suggestion->media) }}" alt="current suggestion media" height="128">
                 @endif
             <!-- evolution: restrict to specific trusted music websites for safety -->
             <input type="text" name="media_url" id="music-field" placeholder="music url (youtube, spotify, etc.)" value="{{ old('media_url', $suggestion->media ?? '') }}">

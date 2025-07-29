@@ -3,8 +3,8 @@
 @section('title', 'playlist informations')
 
 @section('content')
-    <div class="title-container p-20">
-        <h1 class="title">{{ $playlist->name }}</h1>
+    <div class="max-w-1200 m-auto p-20">
+        <h1 class="title round-20">{{ $playlist->name }}</h1>
     </div>
 
     <!-- only let admins and playlist owner add maps to the playlist -->
@@ -13,14 +13,14 @@
     @endif
 
     <div>
-        <div class="details-container flex flex-col flex-f-center p-20 g-10">
+        <div class="max-w-1200 m-auto flex flex-col flex-f-center p-20 g-10">
             <div class="details-data flex g-20">
-                <div class="details-key button flex flex-f-center g-5 m-auto">
+                <div class="details-key button round-20 flex flex-f-center g-5 m-auto">
                     <img class="iconLight icon-32" src="{{ asset('images/icons/description.svg') }}" alt="description icon">
                     <img class="iconDark icon-32" src="{{ asset('images/icons/description_dark.svg') }}" alt="description icon darkmode">
                     <span class="bold">description</span>
                 </div>
-                <div class="details-value button flex flex-f-center">
+                <div class="details-value button round-20 flex flex-f-center">
                     @if ($playlist->description)
                         <span class="description">{{ $playlist->description }}</span>
                     @else
@@ -41,8 +41,8 @@
         </div>
 
         <!-- list of maps from the playlist - if empty, displays specific text -->
-        <div class="title-container p-20">
-            <h1 class="title">list of maps</h1>
+        <div class="max-w-1200 m-auto p-20">
+            <h1 class="title round-20">list of maps</h1>
         </div>
         <div>
             @if ($maps->isNotEmpty())

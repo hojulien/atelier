@@ -26,7 +26,7 @@
             <label class="button p-10 bold flex flex-f-center" for="avatar">avatar (max 500x500)</label>
             @if(isset($user) && $user->avatar)
             <div class="input-media-container">
-                <img src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="current avatar">
+                <img class="w-full round-10" src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="current avatar">
             </div>
             @endif
             <input type="file" name="avatar">
@@ -36,7 +36,7 @@
             <label class="button p-10 bold flex flex-f-center" for="banner">banner (min 1200x500)</label>
             @if(isset($user) && $user->banner)
             <div class="input-media-container">
-                <img src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="current banner">
+                <img class="w-full round-10" src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="current banner">
             </div>    
             @endif
             <input type="file" name="banner">

@@ -3,7 +3,9 @@
 @section('title', 'user list')
 
 @section('content')
-    <h1>user list</h1>
+    <div class="max-w-1000 m-auto p-20">
+        <h1 class="title round-20">user list</h1>
+    </div>
 
     <table>
         <thead>

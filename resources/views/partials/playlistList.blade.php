@@ -1,5 +1,5 @@
-<div class="playlist-container flex flex-col p-20 g-30">
-        <div class="playlist-header flex flex-f-center p-20">
+<div class="playlist-container max-w-1200 m-auto flex flex-col p-20 g-30">
+        <div class="playlist-header w-full flex flex-f-center p-20 round-20">
             <span>name</span>
             <span>number of maps</span>
             <span>length</span>
@@ -7,7 +7,7 @@
         </div>
         @foreach ($playlists as $playlist)
             <div 
-                class="playlist-card flex flex-col"
+                class="playlist-card flex flex-col w-full round-30"
                 onclick="window.location='{{ route('playlists.show', $playlist->id) }}'"
                 style="cursor:pointer;">
 
@@ -16,14 +16,14 @@
 
                     <!-- playlist-information: individual information -->
                     <div class="playlist-information flex flex-f-center">
-                        <div class="button playlist-icon">
+                        <div class="button round-20 playlist-icon">
                             <img class="iconLight icon-32" src="{{ asset('images/icons/title.svg') }}" alt="title icon">
                             <img class="iconDark icon-32" src="{{ asset('images/icons/title_dark.svg') }}" alt="title icon darkmode">
                         </div>
                         <span>@if($playlist->visibility === 'private') 🔒 @endif {{ $playlist->name }}</span>
                     </div>
                     <div class="playlist-information flex flex-f-center">
-                        <div class="button playlist-icon">
+                        <div class="button round-20 playlist-icon">
                             <img class="iconLight icon-32" src="{{ asset('images/icons/map.svg') }}" alt="map icon">
                             <img class="iconDark icon-32" src="{{ asset('images/icons/map_dark.svg') }}" alt="map icon darkmode">
                         </div>
@@ -37,14 +37,14 @@
                             $minutes = floor(($totalSeconds % 3600) / 60);
                             $seconds = $totalSeconds % 60;
                         @endphp
-                        <div class="button playlist-icon">
+                        <div class="button round-20 playlist-icon">
                             <img class="iconLight icon-32" src="{{ asset('images/icons/length.svg') }}" alt="length icon">
                             <img class="iconDark icon-32" src="{{ asset('images/icons/length_dark.svg') }}" alt="length icon darkmode">
                         </div>
                         <span>{{ sprintf('%d:%02d:%02d', $hours, $minutes, $seconds) }}</span>
                     </div>
                     <div class="playlist-information flex flex-f-center">
-                        <div class="button playlist-icon">
+                        <div class="button round-20 playlist-icon">
                             <img class="iconLight icon-32" src="{{ asset('images/icons/user.svg') }}" alt="user icon">
                             <img class="iconDark icon-32" src="{{ asset('images/icons/user_dark.svg') }}" alt="user icon darkmode">
                         </div>
@@ -75,7 +75,7 @@
 
                     <!-- display up to 6 thumbnails -->
                     @foreach($maps as $map)
-                        <div class="thumbnail" style="background-image: url('{{ asset('storage/images/maps_background/' . $map->background) }}');"></div>
+                        <div class="thumbnail round-10" style="background-image: url('{{ asset('storage/images/maps_background/' . $map->background) }}');"></div>
                     @endforeach
 
                     <!-- show more if playlist has more than 6 maps -->

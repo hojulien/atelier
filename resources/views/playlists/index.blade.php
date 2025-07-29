@@ -3,8 +3,8 @@
 @section('title', 'playlist list')
 
 @section('content')
-    <div class="title-container p-20">
-        <h1 class="title">playlist list</h1>
+    <div class="max-w-1200 m-auto p-20">
+        <h1 class="title round-20">playlist list</h1>
     </div>
 
     <!-- for accessibility purposes, to remove later -->
@@ -42,7 +42,7 @@
         <input type="hidden" name="playlists_per_page" value="{{ request('per_page', 10) }}">
 
         <br>
-        <button type="submit" class="button return p-10 bold flex flex-f-center g-5">
+        <button type="submit" class="button round-20 return p-10 bold flex flex-f-center g-5">
             <img class="iconLight icon-24" src="{{ asset('images/icons/search.svg') }}" alt="search icon">
             <img class="iconDark icon-24" src="{{ asset('images/icons/search_dark.svg') }}" alt="search icon dark mode">
             search</button>

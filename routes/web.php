@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\AdminController;
 use App\Models\Playlist;
 use App\Http\Middleware\IsAdmin;
 
@@ -56,6 +57,7 @@ Route::middleware('auth')->group(function () {
 
 // ADMINS ONLY - redirects to 403 (or login) if trying to access
 Route::middleware([IsAdmin::class, 'auth'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     
     Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestions.index');

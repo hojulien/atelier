@@ -4,8 +4,8 @@
 
 @section('content')
     <!-- div will be filled up with css later -->
-    <div class="title-container p-20">
-        <h1 class="title">view suggestion n°{{ $suggestion->id }}</h1>
+    <div class="max-w-1200 m-auto p-20">
+        <h1 class="title round-20">view suggestion n°{{ $suggestion->id }}</h1>
     </div>
 
     <div>
