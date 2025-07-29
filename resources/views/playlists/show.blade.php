@@ -67,7 +67,7 @@
                 @csrf
                 @method('DELETE')
                 <button 
-                    onclick="return confirm('delete this map? it will also be removed from associated playlists!');" 
+                    onclick="return confirm('delete this playlist? it cannot be recovered!');" 
                     id="delete"
                     class="no-button bold flex flex-f-center g-5">
                     <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
