@@ -3,17 +3,17 @@
 @section('title', 'login')
 
 @section('content')
-    <div class="title-container p-20">
-        <h1 class="title">login</h1>
+    <div class="max-w-1200 m-auto p-20">
+        <h1 class="title max-w-600 m-auto round-20">login</h1>
     </div>
 
     <form class="form m-auto g-10" action="{{ route('loginAction') }}" method="POST" id="login">
         @csrf
-        <label for="username">username</label>
+        <label class="max-w-600 p-10" for="username">username</label>
         <input type="text" name="username" id="username" placeholder="username" value="{{ old('username') }}">
         <div class="error" id="error_username"></div>
         
-        <label for="password">password</label>
+        <label class="max-w-600 p-10" for="password">password</label>
         <input type="password" name="password" id="password" placeholder="password">
         <div class="error" id="error_password"></div>
 

@@ -93,8 +93,8 @@
 
                     <!-- constructs an osu url to redirect to the map's official page -->
                     <a class="map-actions-card flex flex-f-center p-10 g-5 round-10 link-osu no-link" href="{{ "https://osu.ppy.sh/beatmapsets/" . $map->setId . "#osu/" . $map->mapId }}" target="_blank" onclick="event.stopPropagation();">
-                        <img width="24" height="24" class="iconLight" src="{{ asset('images/icons/osu_logo.svg') }}" alt="osu! logo">
-                        <img width="24" height="24" class="iconDark" src="{{ asset('images/icons/osu_logo_dark.svg') }}" alt="osu! logo dark mode">
+                        <img class="iconLight icon-24" src="{{ asset('images/icons/osu_logo.svg') }}" alt="osu! logo">
+                        <img class="iconDark icon-24" src="{{ asset('images/icons/osu_logo_dark.svg') }}" alt="osu! logo dark mode">
                         <span>link</span>
                     </a>
                 </div>
