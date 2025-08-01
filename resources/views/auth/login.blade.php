@@ -18,13 +18,13 @@
         <div class="error" id="error_password"></div>
 
         <p> don't have an account?</p>
-            <a href="{{ route('register') }}" class="no-link button round-20 return p-10 bold flex flex-f-center g-5 ">
+            <a href="{{ route('register') }}" class="no-link button w-full max-w-600 round-20 return p-10 bold flex flex-f-center g-5 ">
                     <img class="iconLight icon-24" src="{{ asset('images/icons/add.svg') }}" alt="add icon">
                     <img class="iconDark icon-24" src="{{ asset('images/icons/add_dark.svg') }}" alt="add icon dark mode">
                     create account
                 </a>
 
-        <button type="submit" class="button round-20 return p-10 bold flex flex-f-center g-5">
+        <button type="submit" class="button w-full max-w-600 round-20 return p-10 bold flex flex-f-center g-5">
             <img class="iconLight icon-24" src="{{ asset('images/icons/login.svg') }}" alt="login icon">
             <img class="iconDark icon-24" src="{{ asset('images/icons/login_dark.svg') }}" alt="login icon dark mode">
             login</button>

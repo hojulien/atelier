@@ -435,9 +435,8 @@ label {
 }
 
 .input-settings input {
-    min-width: 80px;
-    width: 100%;
-    max-width: 125px;
+    min-width: 80px !important;
+    max-width: 125px !important;
 }
 
 .input-tags {

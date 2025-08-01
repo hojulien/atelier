@@ -1,7 +1,7 @@
 <div class="map-container max-w-1200 m-auto flex flex-col flex-y-center p-20 g-30">
     @foreach($maps as $map)
-        <div class="map-card round-30 flex p-20"
-            style="background-image: linear-gradient(to right,rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url('{{ asset('storage/images/maps_background/' . $map->background) }}'); cursor: pointer;"
+        <div class="map-card round-30 flex p-20 pointer"
+            style="background-image: linear-gradient(to right,rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url('{{ asset('storage/images/maps_background/' . $map->background) }}');"
             onclick="window.location='{{ route('maps.details', $map->id) }}'">
 
             <!-- map-data - contains artist name and song title -->

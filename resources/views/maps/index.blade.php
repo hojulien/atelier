@@ -58,10 +58,12 @@
         <br>
 
         <div class="tags-filter max-w-600 round-10 p-20 flex g-10">
-            @foreach($tags as $tag)
-            <label class="label-tag" for="{{ $tag }}">{{ $tag }}</label>
-            <input type="checkbox" name="tags[]" value="{{ $tag }}"
-                @if (in_array($tag, request()->input('tags', []))) checked @endif>
+            @foreach($tags as $index => $tag)
+            @if (trim($tag) !== '')
+                <label class="label-tag" for="tag-{{ $index }}">{{ $tag }}</label>
+                <input type="checkbox" id="tag-{{ $index }}" name="tags[]" value="{{ $tag }}"
+                    @if (in_array($tag, request()->input('tags', []))) checked @endif>
+            @endif
             @endforeach
         </div>
         

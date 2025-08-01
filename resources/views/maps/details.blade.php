@@ -18,7 +18,7 @@
                 <img class="iconDark icon-32" src="{{ asset('images/icons/artist_dark.svg') }}" alt="artist icon darkmode">
                 <span class="bold">artist</span>
             </div>
-            <div class="details-value button flex flex-f-center">
+            <div class="details-value button round-20 flex flex-f-center">
                 <span>{{ $map->artist }}</span>
             </div>
         </div>
@@ -103,7 +103,7 @@
                 <img class="iconDark icon-32" src="{{ asset('images/icons/calendar_dark.svg') }}" alt="calendar icon darkmode">
                 <span class="bold">submit date</span>
             </div>
-            <div class="details-value button flex flex-f-center">
+            <div class="details-value button round-20 flex flex-f-center">
                 <span>{{ $map->submitDate }}</span>
             </div>
         </div>

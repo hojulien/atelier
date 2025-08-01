@@ -104,6 +104,11 @@ class MapController extends Controller
             'background' => 'nullable|image|max:4096'
         ]);
 
+        // filters empty values
+        if (isset($validated['tags'])) {
+            $validated['tags'] = array_filter($validated['tags'], fn($tag) => trim($tag) !== '');
+        }
+
         // changes submitDate/lastUpdated to fit the (true) correct format
         // YYYY-MM-DDTHH:MM:SS -> YYYY-MM-DD HH:MM:SS
         $validated['submitDate'] = str_replace('T', ' ', $validated['submitDate']);
@@ -121,7 +126,7 @@ class MapController extends Controller
             $map->save();
         }
 
-        return redirect()->route('maps.index')->with('success', "map {$map->mapId} added.");
+        return redirect()->route('maps.index')->with('success', "map n°{$map->mapId} added.");
     }
 
     public function show(string $id)
