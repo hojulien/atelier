@@ -96,7 +96,7 @@ class SuggestionController extends Controller
 
     public function show(string $id)
     {
-        $suggestion = Suggestion::findOrFail($id);
+        $suggestion = Suggestion::withTrashed()->findOrFail($id);
         $this->authorize('view', $suggestion);
         return view('suggestions.show', compact('suggestion'));
     }
@@ -104,14 +104,14 @@ class SuggestionController extends Controller
     public function edit(string $id)
     {
         $users = User::all();
-        $suggestion = Suggestion::findOrFail($id);
+        $suggestion = Suggestion::withTrashed()->findOrFail($id);
         return view('suggestions.edit', compact('suggestion','users'));
     }
 
     public function update(Request $request, string $id)
     {
         // not needed, but left there for the admin to update if he needs to
-        $suggestion = Suggestion::findOrFail($id);
+        $suggestion = Suggestion::withTrashed()->findOrFail($id);
 
         $validated = $request->validate($this->rules(), $this->messages());
 
@@ -155,7 +155,7 @@ class SuggestionController extends Controller
     // fully delete the entry
     public function destroy(string $id)
     {
-        $suggestion = Suggestion::findOrFail($id);
+        $suggestion = Suggestion::withTrashed()->findOrFail($id);
         $suggestionId = $suggestion->id;
         $suggestion->forceDelete();
         return redirect()->route('suggestions.index')->with('success', "suggestion n°{$suggestionId} deleted.");

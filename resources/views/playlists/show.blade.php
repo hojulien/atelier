@@ -9,7 +9,11 @@
 
     <!-- only let admins and playlist owner add maps to the playlist -->
     @if(Auth::check() && (Auth::user()->id === $playlist->user_id || Auth::user()->type === "admin"))
-        <a href="{{ route('playlists.addMaps', $playlist->id) }}"><h2>add maps to playlist</h2></a> <br>
+        <a id="addMap" class="max-w-600 w-full m-auto hidden button round-20 p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('playlists.addMaps', $playlist->id) }}">
+            <img class="iconLight icon-24" src="{{ asset('images/icons/add.svg') }}" alt="add icon">
+            <img class="iconDark icon-24" src="{{ asset('images/icons/add_dark.svg') }}" alt="add icon dark mode">
+            add maps to playlist
+        </a>
     @endif
 
     <div>

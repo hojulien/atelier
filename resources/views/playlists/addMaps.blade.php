@@ -16,11 +16,11 @@
         @csrf
 
         <!-- evolution: update partials for mapList with a compact version -->
-        <div class="map-container flex flex-col flex-y-center p-10 g-20">
+        <div class="map-container m-auto flex flex-col flex-y-center p-10 g-20">
         @foreach($maps as $map)
-            <label>
+            <label class="max-w-1200">
                 <input type="checkbox" name="map_id[]" value="{{ $map->id }}" hidden @if(in_array($map->id, $existingMaps)) checked @endif>
-                <div class="map-card-compact round-20 flex p-10"
+                <div class="map-card-compact round-20 flex p-10 g-20"
                     style="background-image: linear-gradient(to right,rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url('{{ asset('storage/images/maps_background/' . $map->background) }}');">
                     <div class="map-data-compact flex flex-col flex-x-center p-10 round-20">
                         <span>{{ $map->artist }}</span>
