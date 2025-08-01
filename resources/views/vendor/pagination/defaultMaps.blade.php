@@ -65,7 +65,7 @@
                 </li>
             @endif
 
-            <form method="GET" action="{{ url()->current() }}">
+            <form class="flex flex-f-center g-10" method="GET" action="{{ url()->current() }}">
                 <!-- make all search inputs persist between forms -->
                 <input type="hidden" name="search" value="{{ request('search') }}">
                 <input type="hidden" name="filter" value="{{ request('filter') }}">
@@ -77,7 +77,7 @@
                     <option value="25" @if(request('maps_per_page') == 25) selected @endif>25</option>
                     <option value="50" @if(request('maps_per_page') == 50) selected @endif>50</option>
                 </select>
-                <label for="maps_per_page">maps per page</label>
+                <label class="p-10" for="maps_per_page">maps per page</label>
             </form>
         </ul>
     </nav>

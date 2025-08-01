@@ -17,11 +17,17 @@
         <input type="password" name="password" id="password" placeholder="password">
         <div class="error" id="error_password"></div>
 
-        <p style="text-align:center;">
-            don't have an account? <br>
-            <a href="{{ route('register') }}">create an account</a>
-        </p>
-        <button type="submit">login</button>
+        <p> don't have an account?</p>
+            <a href="{{ route('register') }}" class="no-link button round-20 return p-10 bold flex flex-f-center g-5 ">
+                    <img class="iconLight icon-24" src="{{ asset('images/icons/add.svg') }}" alt="add icon">
+                    <img class="iconDark icon-24" src="{{ asset('images/icons/add_dark.svg') }}" alt="add icon dark mode">
+                    create account
+                </a>
+
+        <button type="submit" class="button round-20 return p-10 bold flex flex-f-center g-5">
+            <img class="iconLight icon-24" src="{{ asset('images/icons/login.svg') }}" alt="login icon">
+            <img class="iconDark icon-24" src="{{ asset('images/icons/login_dark.svg') }}" alt="login icon dark mode">
+            login</button>
     </form>
 @endsection
 

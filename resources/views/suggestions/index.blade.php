@@ -7,7 +7,7 @@
         <h1 class="title round-20">suggestion list</h1>
     </div>
 
-    <form class="form m-auto g-10" method="GET" action="{{ route('suggestions.index') }}">
+    <form class="form m-auto p-20 g-10" method="GET" action="{{ route('suggestions.index') }}">
         <!-- search options -->
         <select name="filter" id="filter">
             <option value="default">search by...</option>

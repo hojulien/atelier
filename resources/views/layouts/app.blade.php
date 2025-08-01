@@ -72,9 +72,11 @@
                     <form method="POST" action="{{ route('logout') }}">
                         <div class="button h-button flex flex-f-center g-5">
                             @csrf
-                            <img class="iconLight icon-32" src="{{ asset('images/icons/logout.svg') }}" alt="logout icon">
-                            <img class="iconDark icon-32" src="{{ asset('images/icons/logout_dark.svg') }}" alt="logout icon darkmode">
-                            <button type="submit" class="no-button"><span class="h-action">logout</span></button>
+                            <button type="submit" class="no-button flex flex-f-center g-5">
+                                <img class="iconLight icon-32" src="{{ asset('images/icons/logout.svg') }}" alt="logout icon">
+                                <img class="iconDark icon-32" src="{{ asset('images/icons/logout_dark.svg') }}" alt="logout icon darkmode">
+                                <span class="h-action">logout</span>
+                            </button>
                         </div>
                     </form>
                 @endguest

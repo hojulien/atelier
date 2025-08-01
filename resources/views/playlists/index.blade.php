@@ -7,12 +7,15 @@
         <h1 class="title round-20">playlist list</h1>
     </div>
 
-    <!-- for accessibility purposes, to remove later -->
-    <a href="{{ route('playlists.create') }}"><h2>create a playlist</h2></a>
+    @if (Auth::check())
+    <a id="addMap" class="max-w-600 w-full m-auto hidden button round-20 p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('playlists.create') }}">
+            <img class="iconLight icon-24" src="{{ asset('images/icons/add.svg') }}" alt="add icon">
+            <img class="iconDark icon-24" src="{{ asset('images/icons/add_dark.svg') }}" alt="add icon dark mode">
+            create a new playlist
+    </a>
+    @endif
 
-    <br>
-
-    <form class="form m-auto g-10" method="GET" action="{{ route('playlists.index') }}">
+    <form class="form m-auto p-20 g-10" method="GET" action="{{ route('playlists.index') }}">
         <!-- searchbar -->
         <input type="text" name="search" placeholder="search playlist..." value="{{ request('search') }}">
 
@@ -42,7 +45,7 @@
         <input type="hidden" name="playlists_per_page" value="{{ request('per_page', 10) }}">
 
         <br>
-        <button type="submit" class="button round-20 return p-10 bold flex flex-f-center g-5">
+        <button type="submit" class="button round-20 return p-10 bold w-full max-w-600 flex flex-f-center g-5">
             <img class="iconLight icon-24" src="{{ asset('images/icons/search.svg') }}" alt="search icon">
             <img class="iconDark icon-24" src="{{ asset('images/icons/search_dark.svg') }}" alt="search icon dark mode">
             search</button>
