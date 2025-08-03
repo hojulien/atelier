@@ -7,7 +7,7 @@
         <h1 class="title round-20">update map</h1>
     </div>
     
-    <form class="form m-auto g-10 p-20" method="POST" action="{{ route('maps.update', $map) }}" enctype="multipart/form-data">
+    <form class="form m-auto g-10 p-20" id="mapForm" method="POST" action="{{ route('maps.update', $map) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         
@@ -21,5 +21,5 @@
 @endsection
 
 @section('scripts')
-    @vite('resources/js/mapsTags.js')
+    @vite(['resources/js/mapsTags.js', 'resources/js/forms/map.js'])
 @endsection 

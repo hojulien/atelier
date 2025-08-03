@@ -1,11 +1,6 @@
-// setTo changes a boolean to the passed value
-export function setTo(bool, val){
-    bool = val;
-    return bool;
-}
-
-// resetText empties error message and calls setTo to true
+// resetText empties error message and sets validation boolean to true
 export function resetText(id, bool) {
     document.getElementById(id).textContent = "";
-    bool = setTo(bool, true);
+    document.getElementById(id).classList.add("hidden");
+    bool = true;
 }

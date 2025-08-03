@@ -1,4 +1,4 @@
-import { setTo, resetText } from "../utils.js";
+import { resetText } from "../utils.js";
 
 let form = document.getElementById("playlistForm");
 
@@ -11,10 +11,10 @@ form.addEventListener("submit", (e) => {
     // NAME
     if (name.value.length == 0) {
         nameErr.textContent = "playlist must have a name.";
-        isValid = setTo(isValid, false);
+        isValid = false;
     } else if (name.value.length < 5 || name.value.length > 50) {
         nameErr.textContent = "playlist name must be between 5 and 60 characters.";
-        isValid = setTo(isValid, false);
+        isValid = false;
     } else {
         resetText("error_playlist_name",isValid);
     }

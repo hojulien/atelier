@@ -1,4 +1,4 @@
-import { setTo, resetText } from "../utils.js";
+import { resetText } from "../utils.js";
 
 let form = document.getElementById("register");
 
@@ -19,13 +19,13 @@ form.addEventListener("submit", (e) => {
     // USERNAME
     if (username.value.length == 0) {
         usernameErr.textContent = "please enter an username."
-        isValid = setTo(isValid, false);
+        isValid = false;
     } else if (username.value.length < 3) {
         usernameErr.textContent = "username must be at least 4 characters."
-        isValid = setTo(isValid, false);
+        isValid = false;
     } else if (username.value.length > 20) {
         usernameErr.textContent = "username must not exceed 20 characters."
-        isValid = setTo(isValid, false);
+        isValid = false;
     } else {
         resetText("error_username", isValid);
     }
@@ -33,10 +33,10 @@ form.addEventListener("submit", (e) => {
     // EMAIL
     if (email.value.length == 0) {
         emailErr.textContent = "please enter an email address."
-        isValid = setTo(isValid, false);
+        isValid = false;
     } else if (!emailPattern.test(email.value)) {
         emailErr.textContent = "email address must be a valid format."
-        isValid = setTo(isValid, false);
+        isValid = false;
     } else {
         resetText("error_email", isValid);
     }
@@ -44,10 +44,10 @@ form.addEventListener("submit", (e) => {
     // PASSWORD
     if (password.value.length == 0) {
         passwordErr.textContent = "please enter a password."
-        isValid = setTo(isValid, false);
+        isValid = false;
     } else if (!pwPattern.test(password.value)) {
         passwordErr.textContent = "password must be at least 8 characters and contain: 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character."
-        isValid = setTo(isValid, false);
+        isValid = false;
     } else {
         resetText("error_password", isValid);
     }
@@ -55,7 +55,7 @@ form.addEventListener("submit", (e) => {
     // PASSWORD CONFIRM
     if (document.getElementById("password_confirmation").value !== password.value) {
         document.getElementById("error_password_confirmation").textContent = "password must match."
-        isValid = setTo(isValid, false);
+        isValid = false;
     } else {
         resetText("error_password_confirmation", isValid);
     }

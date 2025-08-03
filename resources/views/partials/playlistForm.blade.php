@@ -1,8 +1,8 @@
         <div class="input-container flex flex-f-center g-10">
             <label class="button p-10 bold flex flex-f-center" for="name">name</label>
             <input type="text" id="playlist_name" name="name" value="{{ old('name', $playlist->name ?? '') }}">
-            <div class="error" id="error_playlist_name"></div>
         </div>
+        <div class="error" id="error_playlist_name"></div>
 
         <div class="input-container flex flex-f-center g-10">
             <label class="button p-10 bold flex flex-f-center" for="description">description</label>
