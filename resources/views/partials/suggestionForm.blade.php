@@ -6,14 +6,14 @@
             </select>
         </div>
 
-        <div class="input-container flex flex-f-center g-10">
-            <label class="button p-10 bold flex flex-f-center" for="description">description</label>
+        <div class="input-container flex stretch g-10">
+            <label class="button p-10 bold flex flex-f-center input-media" for="description">description</label>
             <textarea name="description" id="suggestion_description">{{ old('description', $suggestion->description ?? '') }}</textarea>
         </div>
         <div class="error" id="error_suggestion_description"></div>
 
         <div class="input-container flex flex-f-center g-10">
-            <label class="button p-10 bold flex flex-f-center">media</label>
+            <label class="button p-10 bold flex flex-f-center input-media">media</label>
             <input type="file" name="media_file" id="media-field">
                 @if(isset($suggestion) && $suggestion->type === "media")
                 <img class="w-full round-10" src="{{ asset('storage/images/suggestions/' . $suggestion->media) }}" alt="current suggestion media" height="128">

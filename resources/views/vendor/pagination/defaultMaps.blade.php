@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
     <nav class="flex g-10">
-        <ul class="pagination flex flex-f-center g-10">
+        <ul class="pagination w-full flex flex-f-center g-10">
 
             <!-- first page link -->
             @if ($paginator->onFirstPage())

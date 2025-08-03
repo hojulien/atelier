@@ -30,8 +30,8 @@
             <div class="error" id="error_password_confirmation"></div>
         </div>
 
-        <div class="input-container input-media flex flex-f-center g-10">
-            <label class="button p-10 bold flex flex-f-center" for="avatar">avatar (max 500x500)</label>
+        <div class="input-container flex stretch g-10">
+            <label class="button p-10 bold flex flex-f-center input-media" for="avatar">avatar (max 500x500)</label>
             @if(isset($user) && $user->avatar)
             <div class="input-media-container">
                 <img class="w-full round-10" src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="current avatar">
@@ -40,8 +40,8 @@
             <input type="file" name="avatar">
         </div>
 
-        <div class="input-container input-media flex flex-f-center g-10">
-            <label class="button p-10 bold flex flex-f-center" for="banner">banner (min 1200x500)</label>
+        <div class="input-container flex stretch g-10">
+            <label class="button p-10 bold flex flex-f-center input-media" for="banner">banner (min 1200x500)</label>
             @if(isset($user) && $user->banner)
             <div class="input-media-container">
                 <img class="w-full round-10" src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="current banner">

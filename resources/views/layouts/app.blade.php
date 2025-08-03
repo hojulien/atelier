@@ -10,14 +10,14 @@
     <title>@yield('title')</title>
 </head>
 <body>
-            <header>
+            <header class="flex flex-y-center m-auto g-20 relative">
                 <!-- left side: website name -->
                 <div class="h-left flex flex-y-center">
                     <a class="no-link" href="{{ route('home') }}"><h1>BeatmapSelector</h1></a>
                 </div>
 
                 <!-- middle side: playlists/maps/suggestions -->
-                <div class="h-center flex flex-y-center g-10">
+                <div class="h-center flex flex-y-center g-10 absolute">
                     <a class="no-link" href="{{ route('playlists.index') }}">
                         <div class="button h-button flex flex-f-center g-5">
                                 <img class="iconLight icon-32" src="{{ asset('images/icons/playlist.svg') }}" alt="playlist icon">
@@ -80,7 +80,7 @@
                         </div>
                     </form>
                 @endguest
-                    <div id="darkMode" class="button h-button flex flex-f-center">
+                    <div id="darkMode" class="button h-button flex flex-f-center pointer">
                         <img id="dark" src="{{ asset('images/icons/dark_mode.svg') }}" alt="dark mode">
                         <img id="light" src="{{ asset('images/icons/light_mode.svg') }}" alt="light mode">
                     </div>
@@ -88,24 +88,24 @@
             </header>
 
     <main>
-        <section>
+        <section class="text-center m-auto">
             <!-- set global session in layouts instead of individual pages -->
             <!-- success/error messages -->
             @if (session('success'))
-                <div class="success bold m-auto p-10">
+                <div class="success fsize-16 bold m-auto p-10">
                     {{ session('success') }}
                 </div>
             @endif
 
             @if (session('error'))
-                <div class="error bold m-auto p-10">
+                <div class="error fsize-16 bold m-auto p-10">
                     {{ session('error') }}
                 </div>
             @endif
 
             <!-- form validation errors -->
             @if ($errors->any())
-                <div class="error bold m-auto p-10">
+                <div class="error fsize-16 bold m-auto p-10">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li class="p-5">{{ strtolower($error) }}</li>
@@ -121,8 +121,8 @@
         <!-- scripts (if needed) -->
         @yield('scripts')
     </main>
-    <footer>
-        <p id="copyright">© hjulien, 2025</p>
+    <footer class="flex m-auto">
+        <p class="fsize-20 p-20">© hjulien, 2025</p>
     </footer>
 </body>
 </html>

@@ -7,8 +7,8 @@
         <h1 class="title round-20">user list</h1>
     </div>
 
-    <div class="table-container p-20">
-        <table>
+    <div class="table-container m-auto p-20">
+        <table class="w-full">
             <thead>
                 <tr>
                     <th>id</th>
@@ -24,8 +24,8 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td><a href="{{ route('users.profile', $user->id) }}">{{ $user->username }}</a></td>
-                    <td><img src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="avatar" height="128" loading="lazy"></td>
-                    <td><img src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="banner" height="128" loading="lazy"></td>
+                    <td><img id="avatar" src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="avatar" loading="lazy"></td>
+                    <td><img id="banner" class="w-full" src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="banner" loading="lazy"></td>
                     <td>{{ $user->type }}</td>
                     <td>
                         <div class="flex flex-f-center g-10">

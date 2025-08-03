@@ -12,7 +12,7 @@
 
         @include('partials.mapForm', ['map' => null])
 
-        <button type="submit" class="button round-20 return p-10 bold flex flex-f-center g-5">
+        <button type="submit" class="button round-20 w-full max-w-300 return bold flex flex-f-center p-10  g-5">
             <img class="iconLight icon-24" src="{{ asset('images/icons/edit.svg') }}" alt="create icon">
             <img class="iconDark icon-24" src="{{ asset('images/icons/edit_dark.svg') }}" alt="create icon dark mode">
             add map</button>

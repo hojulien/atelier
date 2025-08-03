@@ -29,8 +29,8 @@
         $isArchivedFilter = request('filter') === 'archived'; // rearranges table if showing archived suggestions
     @endphp
 
-    <div class="table-container p-20">
-        <table>
+    <div class="table-container m-auto p-20">
+        <table class="w-full">
             <thead>
                 <tr>
                     <th>id</th>

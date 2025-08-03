@@ -71,9 +71,9 @@
             <input type="datetime-local" name="lastUpdated" step="1" value="{{ old('lastUpdated', $map->lastUpdated ?? '') }}">
         </div>
 
-        <div class="input-container input-tags flex flex-f-center g-10">
+        <div class="input-container input-tags flex stretch g-10">
             <label class="button round-20 p-10 bold flex flex-f-center" for="tags">tags</label>
-            <div id="tags-container" class="flex flex-f-center g-10">
+            <div id="tags-container" class="g-10">
                 <div class="tag-container flex flex-f-center g-10">
                     <input id="tag1" type="text" name="tags[]" class="tag" />
                     <button type="button" class="remove-tag invisible">✖</button>
