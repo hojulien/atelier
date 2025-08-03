@@ -16,6 +16,7 @@ form.addEventListener("submit", (e) => {
     // DESCRIPTION
     if (desc.value.length === 0) {
         descErr.textContent = "please give a context to your suggestion.";
+        descErr.classList.remove("hidden");
         isValid = false;
     } else {
         resetText("error_suggestion_description",isValid);
@@ -25,9 +26,11 @@ form.addEventListener("submit", (e) => {
     if (selectedType.value === "music") {
         if (mediaUrl.value.length === 0) {
             mediaUrlErr.textContent = "please fill an url.";
+            mediaUrlErr.classList.remove("hidden");
             isValid = false;
         } else if (!ytPattern.test(mediaUrl.value)) {
             mediaUrlErr.textContent = "must be a youtube url."
+            mediaUrlErr.classList.remove("hidden");
             isValid = false;
         } else {
             resetText("error_music_field",isValid);

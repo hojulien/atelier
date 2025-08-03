@@ -11,9 +11,11 @@ form.addEventListener("submit", (e) => {
     // NAME
     if (name.value.length == 0) {
         nameErr.textContent = "playlist must have a name.";
+        nameErr.classList.remove("hidden");
         isValid = false;
     } else if (name.value.length < 5 || name.value.length > 50) {
         nameErr.textContent = "playlist name must be between 5 and 60 characters.";
+        nameErr.classList.remove("hidden");
         isValid = false;
     } else {
         resetText("error_playlist_name",isValid);

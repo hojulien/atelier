@@ -19,13 +19,16 @@ form.addEventListener("submit", (e) => {
 
     // USERNAME
     if (username.value.length == 0) {
-        usernameErr.textContent = "please enter an username."
+        usernameErr.textContent = "please enter an username.";
+        usernameErr.classList.remove("hidden");
         isValid = false;
     } else if (username.value.length < 3) {
-        usernameErr.textContent = "username must be at least 4 characters."
+        usernameErr.textContent = "username must be at least 4 characters.";
+        usernameErr.classList.remove("hidden");
         isValid = false;
     } else if (username.value.length > 20) {
-        usernameErr.textContent = "username must not exceed 20 characters."
+        usernameErr.textContent = "username must not exceed 20 characters.";
+        usernameErr.classList.remove("hidden");
         isValid = false;
     } else {
         resetText("error_username", isValid);
@@ -33,10 +36,12 @@ form.addEventListener("submit", (e) => {
     
     // EMAIL
     if (email.value.length == 0) {
-        emailErr.textContent = "please enter an email address."
+        emailErr.textContent = "please enter an email address.";
+        emailErr.classList.remove("hidden");
         isValid = false;
     } else if (!emailPattern.test(email.value)) {
-        emailErr.textContent = "email address must be a valid format."
+        emailErr.textContent = "email address must be a valid format.";
+        emailErr.classList.remove("hidden");
         isValid = false;
     } else {
         resetText("error_email", isValid);
@@ -45,7 +50,8 @@ form.addEventListener("submit", (e) => {
     // PASSWORD
     console.log(password.value.length);
     if (password.value.length != 0 && !pwPattern.test(password.value)) {
-        passwordErr.textContent = "password must be at least 8 characters and contain: 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character."
+        passwordErr.textContent = "password must be at least 8 characters and contain: 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.";
+        passwordErr.classList.remove("hidden");
         isValid = false;
     } else {
         resetText("error_password", isValid);
@@ -53,7 +59,8 @@ form.addEventListener("submit", (e) => {
     
     // PASSWORD CONFIRM
     if (document.getElementById("password_confirmation").value !== password.value) {
-        document.getElementById("error_password_confirmation").textContent = "password must match."
+        document.getElementById("error_password_confirmation").textContent = "password must match.";
+        document.getElementById("error_password_confirmation").classList.remove("hidden");
         isValid = false;
     } else {
         resetText("error_password_confirmation", isValid);

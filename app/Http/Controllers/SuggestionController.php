@@ -90,7 +90,6 @@ class SuggestionController extends Controller
 
         Suggestion::create($validated);
 
-        // evolution: redirect to main page?
         return redirect()->route('home')->with('success', 'your suggestion has been submitted.');
     }
 

@@ -74,8 +74,6 @@
         </button>
     </form>
 
-    <!-- TO DO: replace by artistunicode/titleunicode with a js script -->
-
     @if ($maps->isNotEmpty())
         @include('partials.mapList', ['maps' => $maps, 'devMode' => true])
     @else

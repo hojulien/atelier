@@ -8,7 +8,7 @@
     </div>
 
     @if (Auth::check())
-    <a id="addMap" class="max-w-600 w-full m-auto hidden button round-20 p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('playlists.create') }}">
+    <a id="addMap" class="max-w-600 w-full m-auto button round-20 p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('playlists.create') }}">
             <img class="iconLight icon-24" src="{{ asset('images/icons/add.svg') }}" alt="add icon">
             <img class="iconDark icon-24" src="{{ asset('images/icons/add_dark.svg') }}" alt="add icon dark mode">
             create a new playlist

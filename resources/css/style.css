@@ -92,6 +92,10 @@ body.dark-mode {
     height: 100%;
 }
 
+.h-auto {
+    height: auto;
+}
+
 .max-w-300 {
     max-width: 300px;
 }

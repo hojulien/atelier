@@ -102,10 +102,12 @@
             <button type="button" id="add-tag">+ Add tag</button>
         </div>
          
-        <div class="input-container flex flex-f-center g-10">
-            <label class="button round-20 p-10 bold flex flex-f-center" for="background">background</label>
-            <input type="file" name="background">
-            @if(isset($map) && $map->background)
-                <img class="w-full round-10" src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="current background">
-            @endif
+        <div class="input-container flex stretch g-10">
+            <label class="button round-20 p-10 bold h-auto flex flex-f-center" for="background">background</label>
+            <div class="flex flex-col flex-f-center w-full max-w-600">
+                <input type="file" name="background">
+                @if(isset($map) && $map->background)
+                    <img class="w-full round-10" src="{{ asset('storage/images/maps_background/' . $map->background) }}" alt="current background">
+                @endif
+            </div>
         </div>
