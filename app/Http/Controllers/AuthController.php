@@ -34,7 +34,7 @@ class AuthController extends Controller
 
             // redirects to different pages depending on user type
             if (Auth::user()->type === "admin") {
-                return redirect()->intended(route('users.index')); // evolution: update to dashboard page
+                return redirect()->intended(route('dashboard')); // evolution: update to dashboard page
             } else {
                 return redirect()->intended(route('maps.index')); // evolution: update to home page
             }

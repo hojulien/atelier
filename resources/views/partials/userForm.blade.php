@@ -32,20 +32,20 @@
 
         <div class="input-container flex stretch g-10">
             <label class="button p-10 bold flex flex-f-center input-media" for="avatar">avatar (max 500x500)</label>
-            @if(isset($user) && $user->avatar)
             <div class="flex flex-col flex-f-center w-full max-w-600">
                 <input type="file" name="avatar">
-                <img class="round-10" src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="current avatar">
+                @if(isset($user) && $user->banner)
+                    <img class="round-10" src="{{ asset('storage/images/avatars/' . $user->avatar) }}" alt="current avatar">
+                @endif
             </div>
-            @endif
         </div>
 
         <div class="input-container flex stretch g-10">
             <label class="button p-10 bold flex flex-f-center input-media" for="banner">banner (min 1200x500)</label>
-            @if(isset($user) && $user->banner)
             <div class="flex flex-col flex-f-center w-full max-w-600">
                 <input type="file" name="banner">
-                <img class="round-10" src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="current banner">
+                @if(isset($user) && $user->banner)
+                    <img class="round-10" src="{{ asset('storage/images/banners/' . $user->banner) }}" alt="current banner">
+                @endif
             </div>    
-            @endif
         </div>

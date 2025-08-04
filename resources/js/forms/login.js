@@ -11,6 +11,7 @@ form.addEventListener("submit", (e) => {
     // upon error, sets isValid to false so the form cannot submit until the error is fixed
     if (document.getElementById("username").value.length == 0) {
         document.getElementById("error_username").textContent = "please enter an username."
+        document.getElementById("error_username").classList.remove("hidden");
         isValid = false;
     } else {
         resetText("error_username",isValid);
@@ -19,6 +20,7 @@ form.addEventListener("submit", (e) => {
     // PASSWORD
     if (document.getElementById("password").value.length == 0) {
         document.getElementById("error_password").textContent = "please enter a password."
+        document.getElementById("error_password").classList.remove("hidden");
         isValid = false;
     } else {
         resetText("error_password",isValid);

@@ -11,11 +11,11 @@
         @csrf
         <label class="max-w-600 p-10" for="username">username</label>
         <input type="text" name="username" id="username" placeholder="username" value="{{ old('username') }}">
-        <div class="error" id="error_username"></div>
+        <div class="error hidden" id="error_username"></div>
         
         <label class="max-w-600 p-10" for="password">password</label>
         <input type="password" name="password" id="password" placeholder="password">
-        <div class="error" id="error_password"></div>
+        <div class="error hidden" id="error_password"></div>
 
         <p> don't have an account?</p>
             <a href="{{ route('register') }}" class="no-link button w-full max-w-600 round-20 return p-10 bold flex flex-f-center g-5 ">

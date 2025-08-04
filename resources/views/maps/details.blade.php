@@ -132,23 +132,25 @@
     </div>
 
     <div class="details-data flex flex-f-center g-20">
-        <a id="edit" class="button round-20 p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('maps.edit', $map->id) }}">
-            <img class="iconLight icon-24" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
-            <img class="iconDark icon-24" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
-            edit map
-        </a>
-        <form class="button round-20 p-10 delete" action="{{ route('maps.delete', $map) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button 
-                onclick="return confirm('delete this map? it will also be removed from associated playlists!');" 
-                id="delete"
-                class="no-button bold flex flex-f-center g-5">
-                <img class="iconLight icon-24" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
-                <img class="iconDark icon-24" src="{{ asset('images/icons/delete_dark.svg') }}" alt="delete icon dark mode">
-                delete map
-            </button>
-        </form>
+        @if (Auth::check() && Auth::user()->type === 'admin')
+            <a id="edit" class="button round-20 p-10 no-link bold edit flex flex-f-center g-5" href="{{ route('maps.edit', $map->id) }}">
+                <img class="iconLight icon-24" src="{{ asset('images/icons/edit.svg') }}" alt="edit icon">
+                <img class="iconDark icon-24" src="{{ asset('images/icons/edit_dark.svg') }}" alt="edit icon dark mode">
+                edit map
+            </a>
+            <form class="button round-20 p-10 delete" action="{{ route('maps.delete', $map) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button 
+                    onclick="return confirm('delete this map? it will also be removed from associated playlists!');" 
+                    id="delete"
+                    class="no-button bold flex flex-f-center g-5">
+                    <img class="iconLight icon-24" src="{{ asset('images/icons/delete.svg') }}" alt="delete icon">
+                    <img class="iconDark icon-24" src="{{ asset('images/icons/delete_dark.svg') }}" alt="delete icon dark mode">
+                    delete map
+                </button>
+            </form>
+        @endif
         <a href="{{ route('maps.index') }}" class="no-link button round-20 return p-10 bold flex flex-f-center g-5">
             <img class="iconLight icon-24" src="{{ asset('images/icons/return.svg') }}" alt="return icon">
             <img class="iconDark icon-24" src="{{ asset('images/icons/return_dark.svg') }}" alt="return icon dark mode">
